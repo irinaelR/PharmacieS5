@@ -1,5 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/output.css">
+    <title>Document</title>
+</head>
 <body>
-<h2>Hello World!</h2>
+    <h1 class="text-red-600">Hello world!</h1>
 </body>
 </html>
