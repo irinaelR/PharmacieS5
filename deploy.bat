@@ -2,15 +2,15 @@
 setlocal enabledelayedexpansion
 
 :: Déclaration des variables
-set "work_dir=ABSOLUTE\PATH\TO\PROJECT"
+set "work_dir=C:\Users\Faniry\Documents\GitHub\PharmacieS5"
 set "temp=%work_dir%\temp"
 set "web=%work_dir%\src\main\webapp"
 set "web_xml=%web%\web.xml"
 set "lib=%work_dir%\lib"
-set "web_apps=ABSOLUTE\PATH\TO\TOMCAT"
+set "web_apps=C:\apache-tomcat-10.1.34\apache-tomcat-10.1.34\webapps"
 set "war_name=pharmacys5"
 set "src=%work_dir%\src\main\java\pharmacy"
-set "java_home=ABSOLUTE\PATH\TO\JAVA\bin\javac.exe"
+set "java_home=C:\Program Files\Java\jdk-21\bin\javac.exe"
 
 @REM echo ,,,,,,,,,,,,%work_dir%, %src%, %web_xml%??,,,,,,
 :: Effacer le dossier [temp]
