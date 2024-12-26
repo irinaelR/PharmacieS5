@@ -1,186 +1,184 @@
-
-
 -- med_category Table data
-INSERT INTO med_category (id, name) VALUES
-(1, 'Analgesics'), -- Pain relievers
-(2, 'Antibiotics'), -- Medications that fight bacterial infections
-(3, 'Antidepressants'), -- Medications for treating depression
-(4, 'Antifungals'), -- Medications that fight fungal infections
-(5, 'Antihistamines'), -- Medications used to treat allergies
-(6, 'Antihypertensives'), -- Medications used to lower blood pressure
-(7, 'Antivirals'), -- Medications that fight viral infections
-(8, 'Beta Blockers'), -- Medications used to treat high blood pressure, angina, etc.
-(9, 'Calcium Channel Blockers'), -- Medications used to treat high blood pressure, angina, etc.
-(10, 'Corticosteroids'), -- Anti-inflammatory and immunosuppressant medications
-(11, 'Diuretics'), -- Medications that increase urine output
-(12, 'NSAIDs (Nonsteroidal Anti-inflammatory Drugs)'), -- Pain relievers and anti-inflammatory drugs
-(13, 'Proton Pump Inhibitors (PPIs)'), -- Medications that reduce stomach acid production
-(14, 'Statins'), -- Medications used to lower cholesterol
-(15, 'Antidiabetics'), -- Medications used to treat diabetes
-(16, 'Antiplatelets'), -- Medications that prevent blood clotting
-(17, 'Hormone Replacement'), -- Medications used to replace hormones
-(18, 'Respiratory Medications'), -- Medications used to treat respiratory conditions
-(19, 'Anticonvulsants'), -- Medications used to treat seizures
-(20, 'Anti-Allergics'), -- Medications used to treat allergies
-(21, 'Antiemetics'), -- For nausea and vomiting
-(22, 'Laxatives'), -- For constipation
-(23, 'Antacids'), -- For heartburn and indigestion
-(24, 'Muscle Relaxants'), -- Medications used to relax muscles
-(25, 'Antipsychotics'), -- Medications used to treat psychotic disorders
-(26, 'Antianxiety Medications'), -- Medications used to treat anxiety
-(27, 'Immunosuppressants'), -- Medications that suppress the immune system
-(28, 'Anticoagulants'), -- Medications that prevent blood clotting (blood thinners)
-(29, 'Bronchodilators'), -- Medications that open up the airways in the lungs
-(30, 'Selective Serotonin Reuptake Inhibitors (SSRIs)'), -- Subcategory of Antidepressants
-(31, 'Benzodiazepines'), -- Subcategory of Antianxiety Medications
-(32, 'Loop Diuretics'), -- Subcategory of Diuretics
-(33, 'Thiazide Diuretics'), -- Subcategory of Diuretics
-(34, 'Biguanides'), -- Subcategory of Antidiabetics (Metformin's class)
-(35, 'Insulins'), -- Subcategory of Antidiabetics
-(36, 'Inhaled Corticosteroids'), -- Subcategory of Corticosteroids
-(37, 'Leukotriene Receptor Antagonists'), -- More specific for Montelukast
-(38, 'ACE Inhibitors'), -- Subcategory of Antihypertensives (Lisinopril's class)
-(39, 'Angiotensin II Receptor Blockers (ARBs)'), -- Subcategory of Antihypertensives (Losartan's class)
-(40, 'Beta-2 Agonists'); -- Subcategory of Bronchodilators (Salbutamol's class)
+INSERT INTO med_category (name) VALUES
+('Analgesics'), -- Pain relievers
+('Antibiotics'), -- Medications that fight bacterial infections
+('Antidepressants'), -- Medications for treating depression
+('Antifungals'), -- Medications that fight fungal infections
+('Antihistamines'), -- Medications used to treat allergies
+('Antihypertensives'), -- Medications used to lower blood pressure
+('Antivirals'), -- Medications that fight viral infections
+('Beta Blockers'), -- Medications used to treat high blood pressure, angina, etc.
+('Calcium Channel Blockers'), -- Medications used to treat high blood pressure, angina, etc.
+('Corticosteroids'), -- Anti-inflammatory and immunosuppressant medications
+('Diuretics'), -- Medications that increase urine output
+('NSAIDs (Nonsteroidal Anti-inflammatory Drugs)'), -- Pain relievers and anti-inflammatory drugs
+('Proton Pump Inhibitors (PPIs)'), -- Medications that reduce stomach acid production
+('Statins'), -- Medications used to lower cholesterol
+('Antidiabetics'), -- Medications used to treat diabetes
+('Antiplatelets'), -- Medications that prevent blood clotting
+('Hormone Replacement'), -- Medications used to replace hormones
+('Respiratory Medications'), -- Medications used to treat respiratory conditions
+('Anticonvulsants'), -- Medications used to treat seizures
+('Anti-Allergics'), -- Medications used to treat allergies
+('Antiemetics'), -- For nausea and vomiting
+('Laxatives'), -- For constipation
+('Antacids'), -- For heartburn and indigestion
+('Muscle Relaxants'), -- Medications used to relax muscles
+('Antipsychotics'), -- Medications used to treat psychotic disorders
+('Antianxiety Medications'), -- Medications used to treat anxiety
+('Immunosuppressants'), -- Medications that suppress the immune system
+('Anticoagulants'), -- Medications that prevent blood clotting (blood thinners)
+('Bronchodilators'), -- Medications that open up the airways in the lungs
+('Selective Serotonin Reuptake Inhibitors (SSRIs)'), -- Subcategory of Antidepressants
+('Benzodiazepines'), -- Subcategory of Antianxiety Medications
+('Loop Diuretics'), -- Subcategory of Diuretics
+('Thiazide Diuretics'), -- Subcategory of Diuretics
+('Biguanides'), -- Subcategory of Antidiabetics (Metformin's class)
+('Insulins'), -- Subcategory of Antidiabetics
+('Inhaled Corticosteroids'), -- Subcategory of Corticosteroids
+('Leukotriene Receptor Antagonists'), -- More specific for Montelukast
+('ACE Inhibitors'), -- Subcategory of Antihypertensives (Lisinopril's class)
+('Angiotensin II Receptor Blockers (ARBs)'), -- Subcategory of Antihypertensives (Losartan's class)
+('Beta-2 Agonists'); -- Subcategory of Bronchodilators (Salbutamol's class)
 
 -- tlab_types Table data
-INSERT INTO lab_types (id, name) VALUES
-(1, 'Pharmaceutical Company'),
-(2, 'Generic Drug Manufacturer'),
-(3, 'Biotechnology Company'),
-(4, 'Research Laboratory'),
-(5, 'Compounding Pharmacy');
+INSERT INTO lab_types (name) VALUES
+('Pharmaceutical Company'),
+('Generic Drug Manufacturer'),
+('Biotechnology Company'),
+('Research Laboratory'),
+('Compounding Pharmacy');
 
 -- laboratories Table data
-INSERT INTO laboratories (id, name, type_id) VALUES
-(1, 'Pfizer', 1), -- Pharmaceutical Company
-(2, 'Teva Pharmaceuticals', 2), -- Generic Drug Manufacturer
-(3, 'Novartis', 1), -- Pharmaceutical Company
-(4, 'Mylan', 2), -- Generic Drug Manufacturer (now Viatris)
-(5, 'Sanofi', 1), -- Pharmaceutical Company
-(6, 'AstraZeneca', 1), -- Pharmaceutical Company
-(7, 'Johnson & Johnson', 1), -- Pharmaceutical Company
-(8, 'Actavis', 2), -- Generic Drug Manufacturer (now part of Teva)
-(9, 'Sun Pharmaceutical', 2), -- Generic Drug Manufacturer
-(10, 'Roche', 3), -- Biotechnology Company
-(11, 'Hikma Pharmaceuticals', 2), -- Generic Drug Manufacturer
-(12, 'Bristol Myers Squibb', 1), -- Pharmaceutical Company
-(13, 'Abbott Laboratories', 1), -- Pharmaceutical Company
-(14, 'Cipla', 2), -- Generic Drug Manufacturer
-(15, 'Lupin Limited', 2), -- Generic Drug Manufacturer
-(16, 'Galenika', 1), -- Serbian company, presence in Africa
-(17, 'Aspen Pharmacare', 1), -- South African company, strong African presence
-(18, 'Adcock Ingram', 1), -- South African company
-(19, 'Strides Pharma Science', 2), -- Indian company, focus on emerging markets
-(20, 'Hetero Labs', 2), -- Indian company, major generic manufacturer
-(21, 'Emcure Pharmaceuticals', 2), -- Indian company
-(22, 'IPCA Laboratories', 2), -- Indian company
-(23, 'Unique Pharmaceutical Laboratories', 2), -- Indian company
-(24, 'Medreich Sterilab Limited', 2), -- Indian company
-(25, 'Laboratoires Biopharma Madagascar', 5); -- Local Madagascan lab (Compounding/Distribution)
+INSERT INTO laboratories (name, type_id) VALUES
+('Pfizer', 1), -- Pharmaceutical Company
+('Teva Pharmaceuticals', 2), -- Generic Drug Manufacturer
+('Novartis', 1), -- Pharmaceutical Company
+('Mylan', 2), -- Generic Drug Manufacturer (now Viatris)
+('Sanofi', 1), -- Pharmaceutical Company
+('AstraZeneca', 1), -- Pharmaceutical Company
+('Johnson & Johnson', 1), -- Pharmaceutical Company
+('Actavis', 2), -- Generic Drug Manufacturer (now part of Teva)
+('Sun Pharmaceutical', 2), -- Generic Drug Manufacturer
+('Roche', 3), -- Biotechnology Company
+('Hikma Pharmaceuticals', 2), -- Generic Drug Manufacturer
+('Bristol Myers Squibb', 1), -- Pharmaceutical Company
+('Abbott Laboratories', 1), -- Pharmaceutical Company
+('Cipla', 2), -- Generic Drug Manufacturer
+('Lupin Limited', 2), -- Generic Drug Manufacturer
+('Galenika', 1), -- Serbian company, presence in Africa
+('Aspen Pharmacare', 1), -- South African company, strong African presence
+('Adcock Ingram', 1), -- South African company
+('Strides Pharma Science', 2), -- Indian company, focus on emerging markets
+('Hetero Labs', 2), -- Indian company, major generic manufacturer
+('Emcure Pharmaceuticals', 2), -- Indian company
+('IPCA Laboratories', 2), -- Indian company
+('Unique Pharmaceutical Laboratories', 2), -- Indian company
+('Medreich Sterilab Limited', 2), -- Indian company
+('Laboratoires Biopharma Madagascar', 5); -- Local Madagascan lab (Compounding/Distribution)
 
 -- medicines Table data
-INSERT INTO medicines (id, name, needs_notice, category_id, lab_id) VALUES
-(1, 'Aspirin', false, 1, 19), -- Analgesic (Likely generic from India - Strides Pharma)
-(2, 'Ibuprofen', true, 12, 20), -- NSAID (Likely generic from India - Hetero Labs)
-(3, 'Paracetamol', false, 1, 21), -- Analgesic (Likely generic from India - Emcure)
-(4, 'Amoxicillin', false, 2, 22), -- Antibiotic (Likely generic from India - IPCA)
-(5, 'Ciprofloxacin', false, 2, 23), -- Antibiotic (Likely generic from India - Unique Pharma)
-(6, 'Doxycycline', false, 2, 24), -- Antibiotic (Likely generic from India - Medreich)
-(7, 'Azithromycin', true, 2, 19), -- Antibiotic (Likely generic from India - Strides Pharma)
-(8, 'Metformin', false, 15, 20), -- Antidiabetic (Likely generic from India - Hetero Labs)
-(9, 'Atorvastatin', true, 14, 17), -- Statin (Aspen Pharmacare - strong African presence)
-(10, 'Omeprazole', false, 13, 19), -- PPI (Likely generic from India - Strides Pharma)
-(11, 'Simvastatin', false, 14, 20), -- Statin (Likely generic from India - Hetero Labs)
-(12, 'Losartan', false, 6, 21), -- Antihypertensive (Likely generic from India - Emcure)
-(13, 'Hydrochlorothiazide', true, 11, 22), -- Diuretic (Likely generic from India - IPCA)
-(14, 'Amlodipine', false, 9, 23), -- Calcium Channel Blocker (Likely generic from India - Unique Pharma)
-(15, 'Gabapentin', true, 19, 24), -- Anticonvulsant (Likely generic from India - Medreich)
-(16, 'Lisinopril', true, 6, 19), -- Antihypertensive (Likely generic from India - Strides Pharma)
-(17, 'Levothyroxine', true, 17, 20), -- Hormone Replacement (Likely generic from India - Hetero Labs)
-(18, 'Montelukast', false, 18, 21), -- Respiratory Medication/Anti-Allergic (Likely generic from India - Emcure)
-(19, 'Clopidogrel', true, 16, 22), -- Antiplatelet (Likely generic from India - IPCA)
-(20, 'Metoprolol', true, 8, 23), -- Beta Blocker (Likely generic from India - Unique Pharma)
-(21, 'Ondansetron', true, 21, 24), -- Antiemetic (Likely generic from India - Medreich)
-(22, 'Loperamide', false, 22, 19), -- Anti-diarrheal, can be considered a type of laxative in reverse (Likely generic from India - Strides Pharma)
-(23, 'Ranitidine', false, 23, 20), -- Antacid (though less commonly used now due to safety concerns; could be replaced with Famotidine) (Likely generic from India - Hetero Labs)
-(24, 'Cyclobenzaprine', true, 24, 21), -- Muscle Relaxant (Likely generic from India - Emcure)
-(25, 'Quetiapine', true, 25, 22), -- Antipsychotic (Likely generic from India - IPCA)
-(26, 'Alprazolam', true, 26, 23), -- Antianxiety Medication (Likely generic from India - Unique Pharma)
-(27, 'Prednisone', true, 10, 24), -- Corticosteroid (Likely generic from India - Medreich)
-(28, 'Warfarin', true, 28, 19), -- Anticoagulant (Likely generic from India - Strides Pharma)
-(29, 'Salbutamol', true, 29, 17), -- Bronchodilator (Also known as Albuterol) (Aspen Pharmacare or generic from India)
-(30, 'Cetirizine', false, 5, 20), -- Antihistamine (Likely generic from India - Hetero Labs)
-(31, 'Furosemide', true, 11, 21), -- Diuretic (Likely generic from India - Emcure)
-(32, 'Insulin glargine', true, 15, 5), -- Antidiabetic (Sanofi)
-(33, 'Fluoxetine', true, 30, 22), -- Antidepressant (Likely generic from India - IPCA)
-(34, 'Ketoconazole', true, 4, 23), -- Antifungal (Likely generic from India - Unique Pharma)
-(35, 'Valacyclovir', true, 7, 24), -- Antiviral (Likely generic from India - Medreich)
-(36, 'Sertraline', true, 30, 19), -- SSRI Antidepressant (Likely generic from India - Strides Pharma)
-(37, 'Lorazepam', true, 31, 20), -- Benzodiazepine (Likely generic from India - Hetero Labs)
-(38, 'Bumetanide', true, 32, 21), -- Loop Diuretic (Likely generic from India - Emcure)
-(39, 'Chlorthalidone', true, 33, 22), -- Thiazide Diuretic (Likely generic from India - IPCA)
-(40, 'Glipizide', true, 15, 23), -- Antidiabetic (Sulfonylurea, another class) (Likely generic from India - Unique Pharma)
-(41, 'Insulin lispro', true, 35, 1), -- Rapid-acting Insulin (Pfizer)
-(42, 'Fluticasone', true, 36, 6), -- Inhaled Corticosteroid (AstraZeneca)
-(43, 'Zafirlukast', true, 37, 24), -- Leukotriene Receptor Antagonist (Likely generic from India - Medreich)
-(44, 'Enalapril', true, 38, 19), -- ACE Inhibitor (Likely generic from India - Strides Pharma)
-(45, 'Valsartan', true, 39, 20), -- ARB (Likely generic from India - Hetero Labs)
-(46, 'Formoterol', true, 40, 3), -- Long-acting Beta-2 Agonist (Novartis)
-(47, 'Amitriptyline', true, 3, 21), -- Tricyclic Antidepressant (older class, still used) (Likely generic from India - Emcure)
-(48, 'Nystatin', true, 4, 22), -- Antifungal (often topical) (Likely generic from India - IPCA)
-(49, 'Acyclovir', true, 7, 23), -- Antiviral (Likely generic from India - Unique Pharma)
-(50, 'Cetirizine', false, 5, 24); -- Antihistamine (Likely generic from India - Medreich)
+INSERT INTO medicines (name, needs_notice, category_id, lab_id) VALUES
+('Aspirin', false, 1, 19), -- Analgesic (Likely generic from India - Strides Pharma)
+('Ibuprofen', true, 12, 20), -- NSAID (Likely generic from India - Hetero Labs)
+('Paracetamol', false, 1, 21), -- Analgesic (Likely generic from India - Emcure)
+('Amoxicillin', false, 2, 22), -- Antibiotic (Likely generic from India - IPCA)
+('Ciprofloxacin', false, 2, 23), -- Antibiotic (Likely generic from India - Unique Pharma)
+('Doxycycline', false, 2, 24), -- Antibiotic (Likely generic from India - Medreich)
+('Azithromycin', true, 2, 19), -- Antibiotic (Likely generic from India - Strides Pharma)
+('Metformin', false, 15, 20), -- Antidiabetic (Likely generic from India - Hetero Labs)
+('Atorvastatin', true, 14, 17), -- Statin (Aspen Pharmacare - strong African presence)
+('Omeprazole', false, 13, 19), -- PPI (Likely generic from India - Strides Pharma)
+('Simvastatin', false, 14, 20), -- Statin (Likely generic from India - Hetero Labs)
+('Losartan', false, 6, 21), -- Antihypertensive (Likely generic from India - Emcure)
+('Hydrochlorothiazide', true, 11, 22), -- Diuretic (Likely generic from India - IPCA)
+('Amlodipine', false, 9, 23), -- Calcium Channel Blocker (Likely generic from India - Unique Pharma)
+('Gabapentin', true, 19, 24), -- Anticonvulsant (Likely generic from India - Medreich)
+('Lisinopril', true, 6, 19), -- Antihypertensive (Likely generic from India - Strides Pharma)
+('Levothyroxine', true, 17, 20), -- Hormone Replacement (Likely generic from India - Hetero Labs)
+('Montelukast', false, 18, 21), -- Respiratory Medication/Anti-Allergic (Likely generic from India - Emcure)
+('Clopidogrel', true, 16, 22), -- Antiplatelet (Likely generic from India - IPCA)
+('Metoprolol', true, 8, 23), -- Beta Blocker (Likely generic from India - Unique Pharma)
+('Ondansetron', true, 21, 24), -- Antiemetic (Likely generic from India - Medreich)
+('Loperamide', false, 22, 19), -- Anti-diarrheal, can be considered a type of laxative in reverse (Likely generic from India - Strides Pharma)
+('Ranitidine', false, 23, 20), -- Antacid (though less commonly used now due to safety concerns; could be replaced with Famotidine) (Likely generic from India - Hetero Labs)
+('Cyclobenzaprine', true, 24, 21), -- Muscle Relaxant (Likely generic from India - Emcure)
+('Quetiapine', true, 25, 22), -- Antipsychotic (Likely generic from India - IPCA)
+('Alprazolam', true, 26, 23), -- Antianxiety Medication (Likely generic from India - Unique Pharma)
+('Prednisone', true, 10, 24), -- Corticosteroid (Likely generic from India - Medreich)
+('Warfarin', true, 28, 19), -- Anticoagulant (Likely generic from India - Strides Pharma)
+('Salbutamol', true, 29, 17), -- Bronchodilator (Also known as Albuterol) (Aspen Pharmacare or generic from India)
+('Cetirizine', false, 5, 20), -- Antihistamine (Likely generic from India - Hetero Labs)
+('Furosemide', true, 11, 21), -- Diuretic (Likely generic from India - Emcure)
+('Insulin glargine', true, 15, 5), -- Antidiabetic (Sanofi)
+('Fluoxetine', true, 30, 22), -- Antidepressant (Likely generic from India - IPCA)
+('Ketoconazole', true, 4, 23), -- Antifungal (Likely generic from India - Unique Pharma)
+('Valacyclovir', true, 7, 24), -- Antiviral (Likely generic from India - Medreich)
+('Sertraline', true, 30, 19), -- SSRI Antidepressant (Likely generic from India - Strides Pharma)
+('Lorazepam', true, 31, 20), -- Benzodiazepine (Likely generic from India - Hetero Labs)
+('Bumetanide', true, 32, 21), -- Loop Diuretic (Likely generic from India - Emcure)
+('Chlorthalidone', true, 33, 22), -- Thiazide Diuretic (Likely generic from India - IPCA)
+('Glipizide', true, 15, 23), -- Antidiabetic (Sulfonylurea, another class) (Likely generic from India - Unique Pharma)
+('Insulin lispro', true, 35, 1), -- Rapid-acting Insulin (Pfizer)
+('Fluticasone', true, 36, 6), -- Inhaled Corticosteroid (AstraZeneca)
+('Zafirlukast', true, 37, 24), -- Leukotriene Receptor Antagonist (Likely generic from India - Medreich)
+('Enalapril', true, 38, 19), -- ACE Inhibitor (Likely generic from India - Strides Pharma)
+('Valsartan', true, 39, 20), -- ARB (Likely generic from India - Hetero Labs)
+('Formoterol', true, 40, 3), -- Long-acting Beta-2 Agonist (Novartis)
+('Amitriptyline', true, 3, 21), -- Tricyclic Antidepressant (older class, still used) (Likely generic from India - Emcure)
+('Nystatin', true, 4, 22), -- Antifungal (often topical) (Likely generic from India - IPCA)
+('Acyclovir', true, 7, 23), -- Antiviral (Likely generic from India - Unique Pharma)
+('Cetirizine', false, 5, 24); -- Antihistamine (Likely generic from India - Medreich)
 
 -- measuring_nuits Table data
-INSERT INTO measuring_units (id, name) VALUES
-(1, 'mg'),   -- Milligram
-(2, 'g'),    -- Gram
-(3, 'mcg'),  -- Microgram
-(4, 'mL'),   -- Milliliter
-(5, 'L'),    -- Liter
-(6, 'IU'),   -- International Unit
-(7, '%'),    -- Percentage (e.g., concentration)
-(8, 'U'),    -- Unit (e.g., insulin units)
-(9, 'mmol'), -- Millimole
-(10, 'mEq'), -- Milliequivalent
-(11, 'drop'), -- Drop (singular)
-(12, 'puf'),  -- Puff (shortened)
-(13, 'cap'),  -- Capsule (shortened)
-(14, 'tab'),  -- Tablet (shortened)
-(15, 'sup'),  -- Suppository (shortened)
-(16, 'vial'); -- Vial
+INSERT INTO measuring_units (name) VALUES
+('mg'),   -- Milligram
+('g'),    -- Gram
+('mcg'),  -- Microgram
+('mL'),   -- Milliliter
+('L'),    -- Liter
+('IU'),   -- International Unit
+('%'),    -- Percentage (e.g., concentration)
+('U'),    -- Unit (e.g., insulin units)
+('mmol'), -- Millimole
+('mEq'), -- Milliequivalent
+('drop'), -- Drop (singular)
+('puf'),  -- Puff (shortened)
+('cap'),  -- Capsule (shortened)
+('tab'),  -- Tablet (shortened)
+('sup'),  -- Suppository (shortened)
+('vial'); -- Vial
 
 -- med_form Table data
-INSERT INTO med_form (id, name) VALUES
-(1, 'Tablet'),
-(2, 'Capsule'),
-(3, 'Syrup'),
-(4, 'Suspension'),
-(5, 'Solution'),
-(6, 'Injection'),
-(7, 'Cream'),
-(8, 'Ointment'),
-(9, 'Lotion'),
-(10, 'Gel'),
-(11, 'Suppository'),
-(12, 'Pessary'), -- Vaginal suppository
-(13, 'Inhaler'),
-(14, 'Nebulizer Solution'),
-(15, 'Eye Drops'),
-(16, 'Ear Drops'),
-(17, 'Nasal Spray'),
-(18, 'Transdermal Patch'),
-(19, 'Powder for Reconstitution'),
-(20, 'Elixir'),
-(21, 'Emulsion'),
-(22, 'Aerosol'),
-(23, 'Paste'),
-(24, 'Mouthwash'),
-(25, 'Gargle'),
-(26, 'Enema'),
-(27, 'Implant'),
-(28, 'Lozenge/Troche');
+INSERT INTO med_form (name) VALUES
+('Tablet'),
+('Capsule'),
+('Syrup'),
+('Suspension'),
+('Solution'),
+('Injection'),
+('Cream'),
+('Ointment'),
+('Lotion'),
+('Gel'),
+('Suppository'),
+('Pessary'), -- Vaginal suppository
+('Inhaler'),
+('Nebulizer Solution'),
+('Eye Drops'),
+('Ear Drops'),
+('Nasal Spray'),
+('Transdermal Patch'),
+('Powder for Reconstitution'),
+('Elixir'),
+('Emulsion'),
+('Aerosol'),
+('Paste'),
+('Mouthwash'),
+('Gargle'),
+('Enema'),
+('Implant'),
+('Lozenge/Troche');
 
 -- medicines_formats Table data
 INSERT INTO medicines_formats (med_id, form_id) VALUES
@@ -343,31 +341,31 @@ INSERT INTO medicines_dosages (med_format_id, price, dose, unit_id) VALUES
 (77, 2.50, 5, 4);   -- Cetirizine - Syrup
 
 -- medical_constraints Table data
-INSERT INTO medical_constraints (id, name) VALUES
-(1, 'Pregnancy'),
-(2, 'Breastfeeding'),
-(3, 'Liver Disease'),
-(4, 'Kidney Disease'),
-(5, 'Asthma'),
-(6, 'Peptic Ulcer'),
-(7, 'Heart Failure'),
-(8, 'High Blood Pressure (Uncontrolled)'),
-(9, 'Diabetes'),
-(10, 'Allergy to Aspirin'),
-(11, 'Allergy to Ibuprofen'),
-(12, 'Allergy to Penicillin (Amoxicillin)'),
-(13, 'Allergy to Fluoroquinolones (Ciprofloxacin)'),
-(14, 'Allergy to Tetracyclines (Doxycycline)'),
-(15, 'Allergy to Macrolides (Azithromycin)'),
-(16, 'Active Bleeding'),
-(17, 'Blood Clotting Disorders'),
-(18, 'G6PD Deficiency'),
-(19, 'Epilepsy'),
-(20, 'Severe Renal Impairment'),
-(21, 'Severe Hepatic Impairment'),
-(22, 'Hypersensitivity to the specific medication'),
-(23, 'Children under 12 years old'),
-(24, 'Elderly patients (use with caution)');
+INSERT INTO medical_constraints (name) VALUES
+('Pregnancy'),
+('Breastfeeding'),
+('Liver Disease'),
+('Kidney Disease'),
+('Asthma'),
+('Peptic Ulcer'),
+('Heart Failure'),
+('High Blood Pressure (Uncontrolled)'),
+('Diabetes'),
+('Allergy to Aspirin'),
+('Allergy to Ibuprofen'),
+('Allergy to Penicillin (Amoxicillin)'),
+('Allergy to Fluoroquinolones (Ciprofloxacin)'),
+('Allergy to Tetracyclines (Doxycycline)'),
+('Allergy to Macrolides (Azithromycin)'),
+('Active Bleeding'),
+('Blood Clotting Disorders'),
+('G6PD Deficiency'),
+('Epilepsy'),
+('Severe Renal Impairment'),
+('Severe Hepatic Impairment'),
+('Hypersensitivity to the specific medication'),
+('Children under 12 years old'),
+('Elderly patients (use with caution)');
 
 -- medicines_restrictions Table data
 INSERT INTO medicines_restrictions (med_id, constraint_id) VALUES
@@ -506,29 +504,29 @@ INSERT INTO medicines_restrictions (med_id, constraint_id) VALUES
 (50, 22); -- Hypersensitivity to Cetirizine
 
 -- illnesses Table Data
-INSERT INTO illnesses (id, name) VALUES
-(1, 'Headache'),
-(2, 'Fever'),
-(3, 'Bacterial Infection'),
-(4, 'Fungal Infection'),
-(5, 'High Blood Pressure (Hypertension)'),
-(6, 'High Cholesterol'),
-(7, 'Heartburn/Acid Reflux'),
-(8, 'Seizures/Epilepsy'),
-(9, 'Hypothyroidism'),
-(10, 'Asthma'),
-(11, 'Allergies (general)'),
-(12, 'Pain (general)'),
-(13, 'Nausea and Vomiting'),
-(14, 'Diarrhea'),
-(15, 'Muscle Spasms'),
-(16, 'Psychosis'),
-(17, 'Anxiety'),
-(18, 'Inflammation'),
-(19, 'Blood Clots'),
-(20, 'Diabetes Type 2'),
-(21, 'Herpes Infections'),
-(22, 'Depression');
+INSERT INTO illnesses (name) VALUES
+('Headache'),
+('Fever'),
+('Bacterial Infection'),
+('Fungal Infection'),
+('High Blood Pressure (Hypertension)'),
+('High Cholesterol'),
+('Heartburn/Acid Reflux'),
+('Seizures/Epilepsy'),
+('Hypothyroidism'),
+('Asthma'),
+('Allergies (general)'),
+('Pain (general)'),
+('Nausea and Vomiting'),
+('Diarrhea'),
+('Muscle Spasms'),
+('Psychosis'),
+('Anxiety'),
+('Inflammation'),
+('Blood Clots'),
+('Diabetes Type 2'),
+('Herpes Infections'),
+('Depression');
 
 -- illness_treatments Table data
 INSERT INTO illness_treatments (illness_id, med_id, efficiency) VALUES
