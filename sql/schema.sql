@@ -1,8 +1,10 @@
-\ c postgres DROP DATABASE IF EXISTS pharmacy_s5;
+\c postgres 
+
+DROP DATABASE IF EXISTS pharmacy_s5;
 
 CREATE DATABASE pharmacy_s5;
 
-\ c pharmacy_s5;
+\c pharmacy_s5;
 
 -- e.g. homeopathy, cosmetology, ...
 CREATE TABLE lab_types (
