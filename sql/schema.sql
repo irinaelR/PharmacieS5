@@ -88,6 +88,8 @@ CREATE TABLE medicines_dosages (
 CREATE TABLE illnesses (
     id SERIAL,
     name VARCHAR(255) NOT NULL,
+    descri VARCHAR(255),
+    is_chronic BOOLEAN NOT NULL DEFAULT false,
     PRIMARY KEY(id)
 );
 
