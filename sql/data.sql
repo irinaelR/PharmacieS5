@@ -607,3 +607,4 @@ INSERT INTO illness_treatments (illness_id, med_id, efficiency) VALUES
 (22, 36, 9), -- Sertraline (for treatment of depression)
 (22, 47, 8); -- Amitriptyline (for treatment of depression)
 
+
