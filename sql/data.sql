@@ -262,83 +262,83 @@ INSERT INTO medicines_formats (med_id, form_id) VALUES
 
 -- medicines_dosages Table data
 INSERT INTO medicines_dosages (med_format_id, price, dose, unit_id) VALUES
-(1, 0.50, 500, 1),   -- Aspirin - Tablet
-(2, 8.00, 100, 1),   -- Aspirin - Inhaler
-(3, 1.00, 200, 1),   -- Ibuprofen - Tablet
-(4, 1.50, 400, 1),   -- Ibuprofen - Capsule
-(5, 4.00, 100, 4),   -- Ibuprofen - Suspension
-(6, 0.30, 500, 1),   -- Paracetamol - Tablet
-(7, 2.50, 120, 4),   -- Paracetamol - Syrup
-(8, 1.00, 250, 1),   -- Paracetamol - Suppository
-(9, 3.00, 500, 1),   -- Amoxicillin - Capsule
-(10, 5.00, 250, 4),  -- Amoxicillin - Suspension
-(11, 5.00, 500, 1),  -- Ciprofloxacin - Tablet
-(12, 10.00, 200, 4), -- Ciprofloxacin - Solution
-(13, 4.00, 100, 1),  -- Doxycycline - Capsule
-(14, 4.50, 100, 1),  -- Doxycycline - Tablet
-(15, 6.00, 250, 1),  -- Azithromycin - Tablet
-(16, 8.00, 200, 4),  -- Azithromycin - Suspension
-(17, 1.50, 500, 1),  -- Metformin - Tablet
-(18, 8.00, 10, 1),   -- Atorvastatin - Tablet
-(19, 4.00, 20, 1),   -- Omeprazole - Capsule
-(20, 5.00, 40, 1),   -- Omeprazole - Tablet
-(21, 6.00, 20, 1),   -- Simvastatin - Tablet
-(22, 3.00, 50, 1),   -- Losartan - Tablet
-(23, 2.00, 25, 1),   -- Hydrochlorothiazide - Tablet
-(24, 4.00, 5, 1),    -- Amlodipine - Tablet
-(25, 5.00, 300, 1),  -- Gabapentin - Capsule
-(26, 6.00, 100, 1),  -- Gabapentin - Tablet
-(27, 3.00, 10, 1),   -- Lisinopril - Tablet
-(28, 8.00, 100, 3),  -- Levothyroxine - Tablet
-(29, 9.00, 10, 1),   -- Montelukast - Tablet
-(30, 9.50, 5, 1),   -- Montelukast - Chewable
-(31, 7.00, 75, 1),   -- Clopidogrel - Tablet
-(32, 4.00, 50, 1),   -- Metoprolol - Tablet
-(33, 12.00, 5, 4),  -- Metoprolol - Injection
-(34, 8.00, 4, 4),   -- Ondansetron - Injection
-(35, 6.00, 8, 1),   -- Ondansetron - Tablet
-(36, 1.50, 2, 1),   -- Loperamide - Capsule
-(37, 1.00, 2, 1),   -- Loperamide - Tablet
-(38, 3.00, 150, 1),  -- Ranitidine - Tablet
-(39, 2.50, 75, 4),  -- Ranitidine - Syrup
-(40, 5.00, 10, 1),   -- Cyclobenzaprine - Tablet
-(41, 7.00, 25, 1),   -- Quetiapine - Tablet
-(42, 4.00, 0.5, 1),   -- Alprazolam - Tablet
-(43, 6.00, 5, 1),    -- Prednisone - Tablet
-(44, 9.00, 5, 1),    -- Warfarin - Tablet
-(45, 12.00, 100, 3), -- Salbutamol - Inhaler
-(46, 15.00, 5, 4),  -- Salbutamol - Nebulizer
-(47, 3.00, 10, 1),   -- Cetirizine - Tablet
-(48, 2.50, 5, 4),   -- Cetirizine - Syrup
-(49, 5.00, 40, 1),   -- Furosemide - Tablet
-(50, 8.00, 10, 4),   -- Furosemide - Injection
-(51, 20.00, 100, 8), -- Insulin glargine - Injection
-(52, 4.00, 20, 1),   -- Fluoxetine - Tablet
-(53, 3.50, 20, 4),   -- Fluoxetine - Syrup
-(54, 8.00, 20, 7),   -- Ketoconazole - Cream
-(55, 10.00, 200, 1), -- Ketoconazole - Tablet
-(56, 12.00, 500, 1), -- Valacyclovir - Tablet
-(57, 5.00, 50, 1),   -- Sertraline - Tablet
-(58, 3.00, 1, 1),    -- Lorazepam - Tablet
-(59, 15.00, 4, 4),  -- Lorazepam - Injection
-(60, 4.00, 1, 1),    -- Bumetanide - Tablet
-(61, 10.00, 0.5, 4), -- Bumetanide - Injection
-(62, 2.00, 25, 1),   -- Chlorthalidone - Tablet
-(63, 3.00, 5, 1),    -- Glipizide - Tablet
-(64, 18.00, 100, 8), -- Insulin lispro - Injection
-(65, 15.00, 50, 3), -- Fluticasone - Inhaler
-(66, 12.00, 50, 4), -- Fluticasone - Nasal Spray
-(67, 10.00, 10, 1),  -- Zafirlukast - Tablet
-(68, 2.00, 10, 1),   -- Enalapril - Tablet
-(69, 4.00, 80, 1),   -- Valsartan - Tablet
-(70, 18.00, 12, 3), -- Formoterol - Inhaler
-(71, 3.00, 25, 1),   -- Amitriptyline - Tablet
-(72, 6.00, 100000, 6),-- Nystatin - Cream
-(73, 5.00, 100000, 4),-- Nystatin - Suspension
-(74, 8.00, 200, 1),   -- Acyclovir - Tablet
-(75, 7.00, 5, 7),   -- Acyclovir - Cream
-(76, 3.00, 10, 1),   -- Cetirizine - Tablet
-(77, 2.50, 5, 4);   -- Cetirizine - Syrup
+(1, 2250, 500, 1),   -- Aspirin - Tablet
+(2, 36000, 100, 1),  -- Aspirin - Inhaler
+(3, 4500, 200, 1),   -- Ibuprofen - Tablet
+(4, 6750, 400, 1),   -- Ibuprofen - Capsule
+(5, 18000, 100, 4),  -- Ibuprofen - Suspension
+(6, 1350, 500, 1),   -- Paracetamol - Tablet
+(7, 11250, 120, 4),  -- Paracetamol - Syrup
+(8, 4500, 250, 1),   -- Paracetamol - Suppository
+(9, 13500, 500, 1),  -- Amoxicillin - Capsule
+(10, 22500, 250, 4), -- Amoxicillin - Suspension
+(11, 22500, 500, 1), -- Ciprofloxacin - Tablet
+(12, 45000, 200, 4), -- Ciprofloxacin - Solution
+(13, 18000, 100, 1), -- Doxycycline - Capsule
+(14, 20250, 100, 1), -- Doxycycline - Tablet
+(15, 27000, 250, 1), -- Azithromycin - Tablet
+(16, 36000, 200, 4), -- Azithromycin - Suspension
+(17, 6750, 500, 1),  -- Metformin - Tablet
+(18, 36000, 10, 1),  -- Atorvastatin - Tablet
+(19, 18000, 20, 1),  -- Omeprazole - Capsule
+(20, 22500, 40, 1),  -- Omeprazole - Tablet
+(21, 27000, 20, 1),  -- Simvastatin - Tablet
+(22, 13500, 50, 1),  -- Losartan - Tablet
+(23, 9000, 25, 1),   -- Hydrochlorothiazide - Tablet
+(24, 18000, 5, 1),   -- Amlodipine - Tablet
+(25, 22500, 300, 1), -- Gabapentin - Capsule
+(26, 27000, 100, 1), -- Gabapentin - Tablet
+(27, 13500, 10, 1),  -- Lisinopril - Tablet
+(28, 36000, 100, 3), -- Levothyroxine - Tablet
+(29, 40500, 10, 1),  -- Montelukast - Tablet
+(30, 42750, 5, 1),   -- Montelukast - Chewable
+(31, 31500, 75, 1),  -- Clopidogrel - Tablet
+(32, 18000, 50, 1),  -- Metoprolol - Tablet
+(33, 54000, 5, 4),   -- Metoprolol - Injection
+(34, 36000, 4, 4),   -- Ondansetron - Injection
+(35, 27000, 8, 1),   -- Ondansetron - Tablet
+(36, 6750, 2, 1),    -- Loperamide - Capsule
+(37, 4500, 2, 1),    -- Loperamide - Tablet
+(38, 13500, 150, 1), -- Ranitidine - Tablet
+(39, 11250, 75, 4),  -- Ranitidine - Syrup
+(40, 22500, 10, 1),  -- Cyclobenzaprine - Tablet
+(41, 31500, 25, 1),  -- Quetiapine - Tablet
+(42, 18000, 0.5, 1), -- Alprazolam - Tablet
+(43, 27000, 5, 1),   -- Prednisone - Tablet
+(44, 40500, 5, 1),   -- Warfarin - Tablet
+(45, 54000, 100, 3), -- Salbutamol - Inhaler
+(46, 67500, 5, 4),   -- Salbutamol - Nebulizer
+(47, 13500, 10, 1),  -- Cetirizine - Tablet
+(48, 11250, 5, 4),   -- Cetirizine - Syrup
+(49, 22500, 40, 1),  -- Furosemide - Tablet
+(50, 36000, 10, 4),  -- Furosemide - Injection
+(51, 90000, 100, 8), -- Insulin glargine - Injection
+(52, 18000, 20, 1),  -- Fluoxetine - Tablet
+(53, 15750, 20, 4),  -- Fluoxetine - Syrup
+(54, 36000, 20, 7),  -- Ketoconazole - Cream
+(55, 45000, 200, 1), -- Ketoconazole - Tablet
+(56, 54000, 500, 1), -- Valacyclovir - Tablet
+(57, 22500, 50, 1),  -- Sertraline - Tablet
+(58, 13500, 1, 1),   -- Lorazepam - Tablet
+(59, 67500, 4, 4),   -- Lorazepam - Injection
+(60, 18000, 1, 1),   -- Bumetanide - Tablet
+(61, 45000, 0.5, 4), -- Bumetanide - Injection
+(62, 9000, 25, 1),   -- Chlorthalidone - Tablet
+(63, 13500, 5, 1),   -- Glipizide - Tablet
+(64, 81000, 100, 8), -- Insulin lispro - Injection
+(65, 67500, 50, 3),  -- Fluticasone - Inhaler
+(66, 54000, 50, 4),  -- Fluticasone - Nasal Spray
+(67, 45000, 10, 1),  -- Zafirlukast - Tablet
+(68, 9000, 10, 1),   -- Enalapril - Tablet
+(69, 18000, 80, 1),  -- Valsartan - Tablet
+(70, 81000, 12, 3),  -- Formoterol - Inhaler
+(71, 13500, 25, 1),  -- Amitriptyline - Tablet
+(72, 27000, 100000, 6), -- Nystatin - Cream
+(73, 22500, 100000, 4), -- Nystatin - Suspension
+(74, 36000, 200, 1), -- Acyclovir - Tablet
+(75, 31500, 5, 7),   -- Acyclovir - Cream
+(76, 13500, 10, 1),  -- Cetirizine - Tablet
+(77, 11250, 5, 4);   -- Cetirizine - Syrup
 
 -- medical_constraints Table data
 INSERT INTO medical_constraints (name) VALUES
@@ -504,29 +504,29 @@ INSERT INTO medicines_restrictions (med_id, constraint_id) VALUES
 (50, 22); -- Hypersensitivity to Cetirizine
 
 -- illnesses Table Data
-INSERT INTO illnesses (name) VALUES
-('Headache'),
-('Fever'),
-('Bacterial Infection'),
-('Fungal Infection'),
-('High Blood Pressure (Hypertension)'),
-('High Cholesterol'),
-('Heartburn/Acid Reflux'),
-('Seizures/Epilepsy'),
-('Hypothyroidism'),
-('Asthma'),
-('Allergies (general)'),
-('Pain (general)'),
-('Nausea and Vomiting'),
-('Diarrhea'),
-('Muscle Spasms'),
-('Psychosis'),
-('Anxiety'),
-('Inflammation'),
-('Blood Clots'),
-('Diabetes Type 2'),
-('Herpes Infections'),
-('Depression');
+INSERT INTO illnesses (name, descri, is_chronic) VALUES
+('Headache', 'Pain in the head, ranging from mild to severe.', FALSE),
+('Fever', 'An abnormally high body temperature, often a symptom of infection.', FALSE),
+('Bacterial Infection', 'Infection caused by bacteria, treated with antibiotics.', FALSE), -- Often treated, but some can become chronic
+('Fungal Infection', 'Infection caused by fungi, treated with antifungals.', FALSE), -- Some can be chronic
+('High Blood Pressure (Hypertension)', 'A condition in which the force of the blood against the artery walls is too high.', TRUE),
+('High Cholesterol', 'A condition in which there is too much cholesterol in the blood.', TRUE),
+('Heartburn/Acid Reflux', 'A burning sensation in the chest caused by stomach acid flowing back up into the esophagus.', FALSE), -- Can become chronic (GERD)
+('Seizures/Epilepsy', 'A neurological disorder characterized by recurrent seizures.', TRUE),
+('Hypothyroidism', 'A condition in which the thyroid gland doesn''t produce enough thyroid hormone.', TRUE),
+('Asthma', 'A chronic respiratory disease that causes inflammation and narrowing of the airways.', TRUE),
+('Allergies (general)', 'An immune system reaction to a foreign substance (allergen).', FALSE), -- Can be seasonal or persistent
+('Pain (general)', 'Physical discomfort caused by injury or illness.', FALSE), -- Can be acute or chronic
+('Nausea and Vomiting', 'Feeling sick to the stomach and/or throwing up.', FALSE),
+('Diarrhea', 'Frequent watery bowel movements.', FALSE),
+('Muscle Spasms', 'Involuntary muscle contractions.', FALSE), -- Can be acute or related to chronic conditions
+('Psychosis', 'A mental state characterized by a loss of contact with reality.', TRUE), -- Often associated with chronic mental illnesses
+('Anxiety', 'A feeling of worry, nervousness, or unease, typically about an event or something with an uncertain outcome.', FALSE), -- Can be acute or chronic (anxiety disorders)
+('Inflammation', 'A localized physical condition in which part of the body becomes reddened, swollen, hot, and often painful, especially as a reaction to injury or infection.', FALSE), -- Can be acute or chronic
+('Blood Clots', 'A thickened mass of coagulated blood.', FALSE), -- Can be acute or a symptom of a chronic condition
+('Diabetes Type 2', 'A metabolic disorder characterized by high blood sugar due to insulin resistance.', TRUE),
+('Herpes Infections', 'Infections caused by herpes viruses, such as cold sores, genital herpes, and shingles.', TRUE), -- The virus remains in the body
+('Depression', 'A mood disorder that causes a persistent feeling of sadness and loss of interest.', TRUE); -- Can be chronic or recurring
 
 -- illness_treatments Table data
 INSERT INTO illness_treatments (illness_id, med_id, efficiency) VALUES
