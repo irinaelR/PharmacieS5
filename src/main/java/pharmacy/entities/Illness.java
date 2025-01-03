@@ -59,7 +59,12 @@ public class Illness {
         return isChronic;
     }
 
-    public void setChronic(boolean isChronic) {
+    public void setIsChronic(boolean isChronic) {
         this.isChronic = isChronic;
+    }
+
+    @Override
+    public String toString() {
+        return "Illness [id=" + id + ", name=" + name + ", descri=" + descri + ", isChronic=" + isChronic + "]";
     }
 }
