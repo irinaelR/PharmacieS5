@@ -38,4 +38,9 @@ public class MedCategory {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "MedCategory [id=" + id + ", name=" + name + "]";
+    }
 }

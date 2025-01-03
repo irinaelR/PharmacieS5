@@ -9,11 +9,11 @@ public class PharmacyMain {
     public static void main(String[] args) {
 
         try {
-            IllnessService illnessService = new IllnessService();
-            List<Illness> illnesses = illnessService.getAll(0, 5);
-            
-            for(Illness i : illnesses) {
-                System.out.println(i.toString());
+            MedicineService medicineService = new MedicineService();
+            List<Medicine> meds = medicineService.getAll(0, 10);
+
+            for (Medicine medicine : meds) {
+                System.out.println(medicine.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
