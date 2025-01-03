@@ -38,4 +38,9 @@ public class LabType {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "LabType [id=" + id + ", name=" + name + "]";
+    }
 }

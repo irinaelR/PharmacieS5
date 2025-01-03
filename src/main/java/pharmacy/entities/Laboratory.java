@@ -76,4 +76,9 @@ public class Laboratory {
     public void setLabType(LabType labType) {
         this.labType = labType;
     }
+
+    @Override
+    public String toString() {
+        return "Laboratory [getId()=" + getId() + ", getName()=" + getName() + ", getLabType()=" + getLabType() + "]";
+    }
 }
