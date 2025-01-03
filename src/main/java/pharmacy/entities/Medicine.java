@@ -1,5 +1,6 @@
 package pharmacy.entities;
 
+import custom.orm.db.QueryManager;
 import custom.orm.db.utils.annotations.*;
 
 @Entity(tableName = "medicines")
@@ -71,8 +72,17 @@ public class Medicine {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(int categoryId) throws Exception {
         this.categoryId = categoryId;
+
+        QueryManager qm = new QueryManager();
+        Object categObj = qm.findById(null, new MedCategory(categoryId, ""));
+
+        if (categObj != null) {
+            this.setCategory((MedCategory) categObj);
+        } else {
+            this.setCategory(null);
+        }
     }
 
     public MedCategory getCategory() {
@@ -87,8 +97,17 @@ public class Medicine {
         return labId;
     }
 
-    public void setLabId(int labId) {
+    public void setLabId(int labId) throws Exception {
         this.labId = labId;
+
+        QueryManager qm = new QueryManager();
+        Object labObj = qm.findById(null, new Laboratory(labId));
+
+        if (labObj != null) {
+            this.setLaboratory((Laboratory) labObj);
+        } else {
+            this.setLaboratory(null);
+        }
     }
 
     public Laboratory getLaboratory() {
