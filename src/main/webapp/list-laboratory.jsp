@@ -7,57 +7,47 @@
     <link rel="stylesheet" href="assets/css/output.css">
     <title>Document</title>
 </head>
-<body class="bg-gray-100 ml-20 mr-20">
+<body class="ml-20 mr-20" style="background-color: #e0ecec;">
     <div id="overlay" style="position: fixed;top: 0;left: 0;width: 100vw;background-color: black;height: 100vh;z-index: 100;opacity: 0;display: none;"></div>
-    <aside class="fixed top-0 left-0 h-screen w-64">
+    <aside class="fixed top-0 left-0 h-screen w-64" style="background-color: #f1f7f7;;">
         <div class="flex items-center" style="padding-top: 30px;padding-left: 30px;">
-            <img src="assets/img/pillule.png" alt="" class="h-12 w-auto mr-4">
             <h1 class="text-2xl font-bold text-gray-700">
-                Pharmacy
+                <i class="fas fa-mortar-pestle mr-3"></i>Pharmacy
             </h1>
         </div>
         <nav class="flex flex-col p-8">
-            <div class="p-2 text-xs text-gray-500 bg-white rounded-md shadow-lg">PAGES</div>
+            <div class="p-3 text-xs text-gray-200 bg-gray-900 rounded-2xl mb-4"><i class="fas fa-bars mr-2"></i>PAGES</div>
             <div class="relative">
-                <button class="dropdown-button flex items-center w-full p-3 rounded-md">
-                    Illnesses
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-auto" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
+                <button class="hover:bg-white hover:text-gray-900 dropdown-button flex items-center w-full p-2 rounded-t-xl font-semibold text-gray-500">
+                   <i class="fas fa-disease mr-2"></i> Illnesses
                 </button>
-                <div class="dropdown absolute hidden w-full bg-gray-100 rounded-md shadow-lg z-10">
-                    <a href="list-illness.jsp" class="block p-3 hover:bg-white">Illnesses list</a>
-                    <a href="new-illness.jsp" class="block p-3 hover:bg-white">Insert illness</a>
+                <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
+                    <a href="list-illness.jsp" class="block p-3 hover:bg-gray-300">Illnesses list</a>
+                    <a href="new-illness.jsp" class="block p-3 hover:bg-gray-300">Insert illness</a>
                 </div>
             </div>            
             <div class="relative">
-                <button class="dropdown-button flex items-center w-full p-3 rounded-md">
-                    Medicines
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-auto" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
+                <button class="hover:bg-white hover:text-gray-900 dropdown-button flex items-center w-full p-2 rounded-t-xl font-semibold text-gray-500">
+                    <i class="fas fa-medkit mr-2"></i>Medicines
                 </button>
-                <div class="dropdown absolute hidden w-full bg-gray-100 rounded-md shadow-lg z-10">
-                    <a href="list-medicine.jsp" class="block p-3 hover:bg-white">Medicines list</a>
-                    <a href="new-medicine.jsp" class="block p-3 hover:bg-white">Insert medicine</a>
+                <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
+                    <a href="list-medicine.jsp" class="block p-3 hover:bg-gray-300">Medicines list</a>
+                    <a href="new-medicine.jsp" class="block p-3 hover:bg-gray-300">Insert medicine</a>
                 </div>
             </div>   
             <div class="relative">
-                <button class="dropdown-button flex items-center w-full p-3 rounded-md">
-                    Laboratory
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-auto" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
+                <button class="hover:bg-white hover:text-gray-900 dropdown-button flex items-center w-full p-2 rounded-t-xl font-semibold text-gray-500">
+                    <i class="fas fa-microscope mr-2"></i>Laboratory
                 </button>
-                <div class="dropdown absolute hidden w-full bg-gray-100 rounded-md shadow-lg z-10">
-                    <a href="list-laboratory.jsp" class="block p-3 hover:bg-white">Laboratory list</a>
-                    <a href="new-laboratory.jsp" class="block p-3 hover:bg-white">Insert laboratory</a>
+                <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
+                    <a href="list-laboratory.jsp" class="block p-3 hover:bg-gray-300">Laboratory list</a>
+                    <a href="new-laboratory.jsp" class="block p-3 hover:bg-gray-300">Insert laboratory</a>
                 </div>
             </div>          
         </nav>
 
     </aside>
-<main class="ml-64 p-8 relative">
+<main class="ml-64 relative">
     <div class="container mx-auto">
         <div class="flex justify-between m-5">
             <h2 class="text-2xl font-bold mb-6">Laboratories</h2>
@@ -81,30 +71,34 @@
                         <td class="py-2 px-4">Biochemistry Lab</td>
                         <td class="py-2 px-4">Performs tests on blood, urine, and other bodily fluids.</td>
                         <td class="py-2 px-4 flex space-x-2">
-                            <button onclick="event.stopPropagation(); window.location.href='#';" class="bg-blue-500 hover:bg-blue-700 w-full mt-2 text-white font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
-                            <button onclick="event.stopPropagation(); window.location.href='update-laboratory.jsp';" class="bg-green-500 hover:bg-green-700 w-full mt-2 text-white font-bold py-1.5 px-4 rounded-lg" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
+                            <div class="flex justify-between">
+                                <button onclick="event.stopPropagation(); window.location.href='#';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
+                                <button onclick="event.stopPropagation(); window.location.href='update-laboratory.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
+                            </div>
                         </td>
                     </tr>
-                    <tr class="border-b border-gray-200 bg-gray-100">
+                    <tr class="border-b border-gray-20">
                         <td class="py-2 px-4">Hematology Lab</td>
                         <td class="py-2 px-4">Analyzes blood components, including red and white blood cells.</td>
                         <td class="py-2 px-4 flex space-x-2">
-                            <button onclick="event.stopPropagation(); window.location.href='#';" class="bg-blue-500 hover:bg-blue-700 w-full mt-2 text-white font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
-                            <button onclick="event.stopPropagation(); window.location.href='update-laboratory.jsp';" class="bg-green-500 hover:bg-green-700 w-full mt-2 text-white font-bold py-1.5 px-4 rounded-lg" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
+                            <div class="flex justify-between">
+                                <button onclick="event.stopPropagation(); window.location.href='#';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
+                                <button onclick="event.stopPropagation(); window.location.href='update-laboratory.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
+                            </div>
                         </td>
                     </tr>
                     <tr class="border-b border-gray-200">
                         <td class="py-2 px-4">Microbiology Lab</td>
                         <td class="py-2 px-4">Identifies and studies microorganisms, such as bacteria and viruses.</td>
                         <td class="py-2 px-4 flex space-x-2">
-                            <button onclick="event.stopPropagation(); window.location.href='#';" class="bg-blue-500 hover:bg-blue-700 w-full mt-2 text-white font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
-                            <button onclick="event.stopPropagation(); window.location.href='update-laboratory.jsp';" class="bg-green-500 hover:bg-green-700 w-full mt-2 text-white font-bold py-1.5 px-4 rounded-lg" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
+                            <div class="flex justify-between">
+                                <button onclick="event.stopPropagation(); window.location.href='#';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
+                                <button onclick="event.stopPropagation(); window.location.href='update-laboratory.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            
-            
         </div>
     </div>
     
@@ -129,49 +123,6 @@
         </div>
     </form>
 </div>
-
-<script>
-    const dropdownButtons = document.querySelectorAll('.dropdown-button');
-    dropdownButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            const dropdown = button.nextElementSibling;
-            dropdown.classList.toggle('hidden');
-            event.stopPropagation(); 
-        });
-    });
-
-    document.addEventListener('click', (event) => {
-        dropdownButtons.forEach(button => {
-            const dropdown = button.nextElementSibling;
-            if (!dropdown.classList.contains('hidden')) { 
-                if (!button.contains(event.target) && !dropdown.contains(event.target)) {
-                    dropdown.classList.add('hidden');
-                }
-            }
-        });
-    });
-    const filterButton = document.getElementById('filterButton');
-    const filterSidebar = document.getElementById('filterSidebar');
-    const overlay = document.getElementById('overlay');
-
-    filterSidebar.style.transition = 'transform 0.3s ease-in-out';
-    overlay.style.transition = 'opacity 0.3s ease-in-out';
-
-    filterButton.addEventListener('click', () => {
-        overlay.style.display = 'block';
-        setTimeout(() => {
-            overlay.style.opacity = '0.5'; 
-        }, 10); 
-        filterSidebar.style.transform = 'translateX(0)'; 
-    });
-
-    overlay.addEventListener('click', () => {
-        overlay.style.opacity = '0'; 
-        setTimeout(() => {
-            overlay.style.display = 'none'; 
-        }, 300); 
-        filterSidebar.style.transform = 'translateX(100%)'; 
-    });
-</script>
+<script src="assets/script/script.js"></script>
 </body>
 </html>
