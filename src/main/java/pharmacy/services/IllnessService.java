@@ -40,19 +40,19 @@ public class IllnessService extends Service {
         }
     }
 
-    public List<Illness> getAll() throws Exception {
+    public List<Illness> getAll(String[] conditions, Object[] values, String[] afterWhere) throws Exception {
         List<Illness> results = new ArrayList<>();
 
-        List<Object> objList = this.getQueryManager().find(null, Illness.class, null, null, null);
+        List<Object> objList = this.getQueryManager().find(null, Illness.class,  conditions, values, afterWhere);
         populateList(results, objList);
 
         return results;
     }
 
-    public List<Illness> getAll(int start, int nb) throws Exception {
+    public List<Illness> getAll(String[] conditions, Object[] values, String[] afterWhere, int start, int nb) throws Exception {
         List<Illness> results = new ArrayList<>();
 
-        List<Object> objList = this.getQueryManager().find(null, Illness.class, null, null, null, start, nb);
+        List<Object> objList = this.getQueryManager().find(null, Illness.class,  conditions, values, afterWhere, start, nb);
         populateList(results, objList);
 
         return results;

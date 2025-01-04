@@ -40,19 +40,19 @@ public class LaboratoryService extends Service {
         }
     }
 
-    public List<Laboratory> getAll() throws Exception {
+    public List<Laboratory> getAll(String[] conditions, Object[] values, String[] afterWhere) throws Exception {
         List<Laboratory> results = new ArrayList<>();
 
-        List<Object> objectList = this.getQueryManager().find(null, Laboratory.class, null, null, null);
+        List<Object> objectList = this.getQueryManager().find(null, Laboratory.class, conditions, values, afterWhere);
         populateList(results, objectList);
 
         return results;
     }
 
-    public List<Laboratory> getAll(int start, int nb) throws Exception {
+    public List<Laboratory> getAll(String[] conditions, Object[] values, String[] afterWhere, int start, int nb) throws Exception {
         List<Laboratory> results = new ArrayList<>();
 
-        List<Object> objectList = this.getQueryManager().find(null, Laboratory.class, null, null, null, start, nb);
+        List<Object> objectList = this.getQueryManager().find(null, Laboratory.class, conditions, values, afterWhere, start, nb);
         populateList(results, objectList);
         
         return results;
@@ -70,4 +70,6 @@ public class LaboratoryService extends Service {
 
         return lab;
     }
+
+    
 }
