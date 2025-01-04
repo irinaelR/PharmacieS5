@@ -53,7 +53,7 @@
                         </td>
                         <td class="py-2 px-4">
                             <div class="flex justify-between">
-                                <button onclick="event.stopPropagation(); window.location.href='#';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
+                                <button onclick="event.stopPropagation(); window.location.href='illnesses?illnessId=<%= illness.getId() %>&action=del';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
                                 <button onclick="event.stopPropagation(); window.location.href='update-illness.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
                             </div>
                         </td>
@@ -105,20 +105,20 @@
                 <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
 
-            <div class="mb-4">
+            <%-- <div class="mb-4">
                 <label for="medicine" class="block text-gray-700 font-bold mb-2">Medicine :</label>
                 <select id="medicine" name="medicine" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 <option value="-1">None</option>
-                <%-- <%
+                <%
                 
                 List<Medicine> medicines = (List<Medicine>) request.getAttribute("medicines");
                 for(Medicine m : medicines) {
                 %>
                     <option value="<%= m.getId() %>"><%= m.getName() %></option>
 
-                <% } %> --%>
+                <% } %>
                 </select>
-            </div>
+            </div> --%>
 
             <div class="mb-4">
                 <label for="isChronic" class="block text-gray-700 font-bold mb-2">Is chronic :</label>

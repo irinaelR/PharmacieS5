@@ -21,7 +21,7 @@ CREATE TABLE laboratories (
     type_id INT,
     PRIMARY KEY(id),
     UNIQUE(name),
-    FOREIGN KEY(type_id) REFERENCES lab_types(id)
+    FOREIGN KEY(type_id) REFERENCES lab_types(id) ON DELETE CASCADE
 );
 
 -- e.g. 'mg', 'cl', ...
@@ -56,8 +56,8 @@ CREATE TABLE medicines (
     category_id INT,
     lab_id INT,
     PRIMARY KEY(id),
-    FOREIGN KEY(category_id) REFERENCES med_category(id),
-    FOREIGN KEY(lab_id) REFERENCES laboratories(id)
+    FOREIGN KEY(category_id) REFERENCES med_category(id) ON DELETE CASCADE,
+    FOREIGN KEY(lab_id) REFERENCES laboratories(id) ON DELETE CASCADE
 );
 
 -- ManyToMany relation table between medicines and med_form
@@ -67,8 +67,8 @@ CREATE TABLE medicines_formats (
     med_id INT,
     form_id INT,
     PRIMARY KEY(id),
-    FOREIGN KEY(med_id) REFERENCES medicines(id),
-    FOREIGN KEY(form_id) REFERENCES med_form(id)
+    FOREIGN KEY(med_id) REFERENCES medicines(id) ON DELETE CASCADE,
+    FOREIGN KEY(form_id) REFERENCES med_form(id) ON DELETE CASCADE
 );
 
 -- the same medicines_format can come in different dosages and cost a different price
@@ -80,8 +80,8 @@ CREATE TABLE medicines_dosages (
     dose DOUBLE PRECISION NOT NULL CHECK (dose > 0),
     unit_id INT,
     PRIMARY KEY(id),
-    FOREIGN KEY(med_format_id) REFERENCES medicines_formats(id),
-    FOREIGN KEY(unit_id) REFERENCES measuring_units(id)
+    FOREIGN KEY(med_format_id) REFERENCES medicines_formats(id) ON DELETE CASCADE,
+    FOREIGN KEY(unit_id) REFERENCES measuring_units(id) ON DELETE CASCADE
 );
 
 -- e.g. headache, stomachache, ...
@@ -101,8 +101,8 @@ CREATE TABLE illness_treatments (
     med_id INT,
     efficiency INT NOT NULL DEFAULT 1,
     PRIMARY KEY(id),
-    FOREIGN KEY(med_id) REFERENCES medicines(id),
-    FOREIGN KEY(illness_id) REFERENCES illnesses(id)
+    FOREIGN KEY(med_id) REFERENCES medicines(id) ON DELETE CASCADE,
+    FOREIGN KEY(illness_id) REFERENCES illnesses(id) ON DELETE CASCADE
 );
 
 -- Table to store conditions that might make someone unable to take a certain medicine
@@ -119,6 +119,6 @@ CREATE TABLE medicines_restrictions (
     med_id INT,
     constraint_id INT,
     PRIMARY KEY(id),
-    FOREIGN KEY(med_id) REFERENCES medicines(id),
-    FOREIGN KEY(constraint_id) REFERENCES medical_constraints(id)
+    FOREIGN KEY(med_id) REFERENCES medicines(id) ON DELETE CASCADE,
+    FOREIGN KEY(constraint_id) REFERENCES medical_constraints(id) ON DELETE CASCADE
 );

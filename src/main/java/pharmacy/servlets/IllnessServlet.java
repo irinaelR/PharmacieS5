@@ -11,30 +11,48 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import pharmacy.entities.Illness;
 import pharmacy.services.IllnessService;
+import pharmacy.services.MedicineService;
 
 @WebServlet("/illnesses")
 public class IllnessServlet extends HttpServlet {
 
     private IllnessService illnessService;
+    private MedicineService medicineService;
     private int resultsNb;
-
-    private void sendToView(List<Illness> illnesses, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("illnesses", illnesses);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("list-illness.jsp");
-        dispatcher.forward(req, resp);
-    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // int startIndex = 0;
-        // String startIndexStr = req.getParameter("start");
-        // if (startIndexStr != null) {
-        //     startIndex = Integer.valueOf(startIndexStr);
-        // }
+
+        String name = req.getParameter("name");
+        int medId = -1;
+        String isChronic = req.getParameter("isChronic");
+        Boolean isChronicBool = null;
+        if (isChronic != null) {
+            isChronicBool = true;
+        }
+
+        String[] conditions = illnessService.filterConditions(name, medId, isChronicBool);
+        Object[] values = illnessService.filterValues(name, medId, isChronicBool);
 
         try {
-            List<Illness> illnesses = illnessService.getAll(null, null, null);
-            sendToView(illnesses, req, resp);
+
+            String illId = req.getParameter("illnessId");
+            String action = req.getParameter("action");
+            if (illId != null && action != null && action.equalsIgnoreCase("del")) {
+                int id = Integer.valueOf(illId);
+                Illness i = illnessService.findById(id);
+                boolean wasDeleted = illnessService.delete(i);
+                req.setAttribute("deleteSuccess", wasDeleted);
+            }
+
+            List<Illness> illnesses = illnessService.getAll(conditions, values, null);
+            req.setAttribute("illnesses", illnesses);
+
+            // List<MedicineSimple> medsList = medicineService.getAllSimple();
+            // req.setAttribute("medicines", medsList);
+
+            RequestDispatcher dispatcher = req.getRequestDispatcher("list-illness.jsp");
+            dispatcher.forward(req, resp);
         } catch (Exception e) {
             throw new ServletException(e);
         }
@@ -45,11 +63,12 @@ public class IllnessServlet extends HttpServlet {
         super.init();
         try {
             this.illnessService = new IllnessService();
+            this.medicineService = new MedicineService();
             this.resultsNb = Integer.valueOf(this.getServletContext().getInitParameter("resultsNb"));
 
         } catch (Exception e) {
             throw new ServletException(e);
         }
     }
-    
+
 }

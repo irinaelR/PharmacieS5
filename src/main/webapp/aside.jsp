@@ -11,7 +11,7 @@
                    <i class="fas fa-disease mr-2"></i> Illnesses
                 </button>
                 <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
-                    <a href="list-illness.jsp" class="block p-3 hover:bg-gray-300">Illnesses list</a>
+                    <a href="illnesses" class="block p-3 hover:bg-gray-300">Illnesses list</a>
                     <a href="new-illness.jsp" class="block p-3 hover:bg-gray-300">Insert illness</a>
                 </div>
             </div>            

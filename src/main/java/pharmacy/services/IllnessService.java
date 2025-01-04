@@ -76,7 +76,7 @@ public class IllnessService extends Service {
         List<String> conditions = new ArrayList<>();
 
         if(name != null && !name.isBlank()) {
-            conditions.add("name LIKE ?");
+            conditions.add("name ILIKE ?");
         }
         if (medId != -1) {
             conditions.add("id IN (SELECT illness_id FROM illness_treatments WHERE med_id = ?)");
