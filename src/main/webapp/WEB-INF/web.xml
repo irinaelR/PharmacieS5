@@ -4,4 +4,8 @@
 
 <web-app>
   <display-name>Simple pharmacy management app</display-name>
+  <context-param>
+    <param-name>resultsNb</param-name>
+    <param-value>2</param-value>
+  </context-param>
 </web-app>

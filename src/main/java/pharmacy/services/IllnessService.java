@@ -71,4 +71,36 @@ public class IllnessService extends Service {
 
         return i;
     }
+
+    public String[] filterConditions(String name, int medId, Boolean isChronic) {
+        List<String> conditions = new ArrayList<>();
+
+        if(name != null && !name.isBlank()) {
+            conditions.add("name LIKE ?");
+        }
+        if (medId != -1) {
+            conditions.add("id IN (SELECT illness_id FROM illness_treatments WHERE med_id = ?)");
+        }
+        if (isChronic != null) {
+            conditions.add("is_chronic = ?");
+        }
+
+        return conditions.toArray(new String[conditions.size()]);
+    }
+
+    public Object[] filterValues(String name, int medId, Boolean isChronic) {
+        List<Object> values = new ArrayList<>();
+
+        if(name != null && !name.isBlank()) {
+            values.add("%" + name + "%");
+        }
+        if (medId != -1) {
+            values.add(medId);
+        }
+        if (isChronic != null) {
+            values.add(isChronic.booleanValue());
+        }
+
+        return values.toArray();
+    }
 }
