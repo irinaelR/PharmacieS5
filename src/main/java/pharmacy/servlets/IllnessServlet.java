@@ -5,7 +5,7 @@ import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
+// import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,7 +13,7 @@ import pharmacy.entities.Illness;
 import pharmacy.services.IllnessService;
 import pharmacy.services.MedicineService;
 
-@WebServlet("/illnesses")
+// @WebServlet("/illnesses")
 public class IllnessServlet extends HttpServlet {
 
     private IllnessService illnessService;

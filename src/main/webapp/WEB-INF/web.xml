@@ -8,4 +8,23 @@
     <param-name>resultsNb</param-name>
     <param-value>2</param-value>
   </context-param>
+
+  <servlet>
+    <servlet-name>IllnessServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.IllnessServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IllnessServlet</servlet-name>
+    <url-pattern>/illnesses</url-pattern>
+  </servlet-mapping>
+
+<servlet>
+    <servlet-name>LaboratoryServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.LaboratoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LaboratoryServlet</servlet-name>
+    <url-pattern>/laboratories</url-pattern>
+  </servlet-mapping>
+
 </web-app>

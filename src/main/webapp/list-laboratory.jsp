@@ -1,3 +1,5 @@
+<%@ page import="java.util.List, pharmacy.entities.*" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,36 +33,26 @@
                     </tr>
                 </thead>
                 <tbody>
+                <%
+                
+                List<Laboratory> labs = (List<Laboratory>) request.getAttribute("labs");
+                for(Laboratory lab : labs) {
+
+                
+                %>
                     <tr class="border-b border-gray-200">
-                        <td class="py-2 px-4">Biochemistry Lab</td>
-                        <td class="py-2 px-4">Performs tests on blood, urine, and other bodily fluids.</td>
+                        <td class="py-2 px-4"><%= lab.getName() %></td>
+                        <td class="py-2 px-4"><%= lab.getLabType().getName() %></td>
                         <td class="py-2 px-4 flex space-x-2">
                             <div class="flex justify-between">
-                                <button onclick="event.stopPropagation(); window.location.href='#';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
+                                <button onclick="event.stopPropagation(); window.location.href='laboratories?labId=<%= lab.getId() %>&action=del';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
                                 <button onclick="event.stopPropagation(); window.location.href='update-laboratory.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
                             </div>
                         </td>
                     </tr>
-                    <tr class="border-b border-gray-20">
-                        <td class="py-2 px-4">Hematology Lab</td>
-                        <td class="py-2 px-4">Analyzes blood components, including red and white blood cells.</td>
-                        <td class="py-2 px-4 flex space-x-2">
-                            <div class="flex justify-between">
-                                <button onclick="event.stopPropagation(); window.location.href='#';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
-                                <button onclick="event.stopPropagation(); window.location.href='update-laboratory.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="border-b border-gray-200">
-                        <td class="py-2 px-4">Microbiology Lab</td>
-                        <td class="py-2 px-4">Identifies and studies microorganisms, such as bacteria and viruses.</td>
-                        <td class="py-2 px-4 flex space-x-2">
-                            <div class="flex justify-between">
-                                <button onclick="event.stopPropagation(); window.location.href='#';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
-                                <button onclick="event.stopPropagation(); window.location.href='update-laboratory.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
-                            </div>
-                        </td>
-                    </tr>
+                <%
+                    }
+                %>
                 </tbody>
             </table>
         </div>
@@ -70,14 +62,27 @@
 <div id="filterSidebar" class="w-80 h-screen bg-white shadow-lg z-100 p-6" style="position: fixed; top: 0; right: 0; transform: translateX(100%); z-index: 200; display: flex; flex-direction: column; justify-content: space-between;">
     <h3 class="text-lg font-bold mb-4">Filters</h3>
     <hr>
-    <form action="#" method="post" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+    <form action="laboratories" method="get" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
         <div>
             <div class="mb-4">
                 <label for="category" class="block text-gray-700 font-bold mb-2">Category :</label>
                 <select id="category" name="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="lab_type_id">Lab_type_name</option>
-                    <option value="lab_type_id">Lab_type_name</option>
-                    <option value="lab_type_id">Lab_type_name</option>
+                    <option value="-1">None</option>
+
+                <%
+                
+                List<LabType> labTypes = (List<LabType>) request.getAttribute("labTypes");
+                for(LabType lt : labTypes) {
+                
+                %>
+                    <option value="<%= lt.getId() %>"><%= lt.getName() %></option>
+
+                <%
+                    
+                }
+                    
+                %>
+
                 </select>
             </div>
         </div>
