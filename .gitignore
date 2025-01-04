@@ -26,3 +26,5 @@ replay_pid*
 node_modules/
 lib/
 temp/
+
+deploy.bat
