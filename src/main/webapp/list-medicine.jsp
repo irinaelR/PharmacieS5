@@ -1,3 +1,5 @@
+<%@ page import="java.util.List, pharmacy.entities.*" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,48 +35,33 @@
                     </tr>
                 </thead>
                 <tbody>
+                <%
+                
+                List<Medicine> medicines = (List<Medicine>) request.getAttribute("medicines");
+                for(Medicine m : medicines) {
+                    String checked = "";
+                    if(m.getNeedsNotice()) {
+                        checked = "checked";
+                    }
+                
+                %>
                     <tr class="border-b border-gray-200 cursor-pointer" onclick="window.location.href='medicine-details.jsp'">
-                        <td class="py-2 px-4">Aspirin</td>
-                        <td class="py-2 px-4">Bayer</td>
-                        <td class="py-2 px-4">Analgesic</td>
+                        <td class="py-2 px-4"><%= m.getName() %></td>
+                        <td class="py-2 px-4"><%= m.getLaboratory().getName() %></td>
+                        <td class="py-2 px-4"><%= m.getCategory().getName() %></td>
                         <td class="py-2 px-4">
-                            <input type="checkbox" disabled>
+                            <input type="checkbox" disabled <%= checked %>>
                         </td>
                         <td class="py-2 px-4 flex space-x-2">
                             <div class="flex justify-between">
-                                <button onclick="event.stopPropagation(); window.location.href='#';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
+                                <button onclick="event.stopPropagation(); window.location.href='medicines?action=del&medicineId=<%= m.getId() %>';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
                                 <button onclick="event.stopPropagation(); window.location.href='update-medicine.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
                             </div>
                         </td>
                     </tr>
-                    <tr class="border-b border-gray-200 cursor-pointer" onclick="window.location.href='medicine-details.jsp'">
-                        <td class="py-2 px-4">Ibuprofen</td>
-                        <td class="py-2 px-4">Advil</td>
-                        <td class="py-2 px-4">NSAID</td>
-                        <td class="py-2 px-4">
-                            <input type="checkbox" checked disabled>
-                        </td>
-                        <td class="py-2 px-4 flex space-x-2">
-                            <div class="flex justify-between">
-                                <button onclick="event.stopPropagation(); window.location.href='#';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
-                                <button onclick="event.stopPropagation(); window.location.href='update-medicine.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="border-b border-gray-200 cursor-pointer">
-                        <td class="py-2 px-4">Paracetamol</td>
-                        <td class="py-2 px-4">Generic</td>
-                        <td class="py-2 px-4">Analgesic/Antipyretic</td>
-                        <td class="py-2 px-4">
-                            <input type="checkbox" disabled>
-                        </td>
-                        <td class="py-2 px-4 flex space-x-2">
-                            <div class="flex justify-between">
-                                <button onclick="event.stopPropagation(); window.location.href='#';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
-                                <button onclick="event.stopPropagation(); window.location.href='update-medicine.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
-                            </div>
-                        </td>
-                    </tr>
+                <%
+                }
+                %>
                 </tbody>
             </table>
             
@@ -85,34 +72,65 @@
 <div id="filterSidebar" class="w-80 h-screen bg-white shadow-lg z-100 p-6" style="position: fixed; top: 0; right: 0; transform: translateX(100%); z-index: 200; display: flex; flex-direction: column; justify-content: space-between;">
     <h3 class="text-lg font-bold mb-4">Filters</h3>
     <hr>
-    <form action="#" method="post" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+    <form action="medicines" method="get" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
         <div>
             <div class="mb-4">
                 <label for="laboratory" class="block text-gray-700 font-bold mb-2">Lab :</label>
                 <select id="laboratory" name="laboratory" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="lab_type_id">Lab_type_name</option>
-                    <option value="lab_type_id">Lab_type_name</option>
-                    <option value="lab_type_id">Lab_type_name</option>
+                    <option value="-1">None</option>
+                    <%
+                    
+                    List<Laboratory> laboratories = (List<Laboratory>) request.getAttribute("labs");
+                    for(Laboratory l : laboratories) {
+                                            
+                    %>
+                        <option value="<%= l.getId() %>"><%= l.getName() %></option>
+                    <%
+                    
+                    }
+                    
+                    %>
                 </select>
             </div>
             <div class="mb-4">
                 <label for="category" class="block text-gray-700 font-bold mb-2">Category :</label>
                 <select id="category" name="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="med_category_id">med_category_name</option>
-                    <option value="med_category_id">med_category_name</option>
-                    <option value="med_category_id">med_category_name</option>
+                    <option value="-1">None</option>
+                    <%
+                    
+                    List<MedCategory> categories = (List<MedCategory>) request.getAttribute("medCategories");
+                    for(MedCategory mc : categories) {
+                                            
+                    %>
+                        <option value="<%= mc.getId() %>"><%= mc.getName() %></option>
+                    <%
+                    
+                    }
+                    
+                    %>
                 </select>
             </div>
             <div class="mb-4">
                 <label for="needsNotice" class="block text-gray-700 font-bold mb-2">Needs Notice :</label>
-                <input id="needsNotice" type="checkbox">
+                <input id="needsNotice" name="needsNotice" type="radio" value="true"> Yes
+                <input id="needsNotice" name="needsNotice" type="radio" value="false"> No
             </div>
             <div class="mb-4">
-                <label for="category" class="block text-gray-700 font-bold mb-2">Constraints :</label>
-                <select id="category" name="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="medical_constraints_id">medical_constraints_name</option>
-                    <option value="medical_constraints_id">medical_constraints_name</option>
-                    <option value="medical_constraints_id">medical_constraints_name</option>
+                <label for="constraint" class="block text-gray-700 font-bold mb-2">Constraints :</label>
+                <select id="constraint" name="constraint" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="-1">None</option>
+                    <%
+                    
+                    List<MedicalConstraint> constraints = (List<MedicalConstraint>) request.getAttribute("constraints");
+                    for(MedicalConstraint mc : constraints) {
+                                            
+                    %>
+                        <option value="<%= mc.getId() %>"><%= mc.getName() %></option>
+                    <%
+                    
+                    }
+                    
+                    %>
                 </select>
             </div>
             <div class="mb-4">

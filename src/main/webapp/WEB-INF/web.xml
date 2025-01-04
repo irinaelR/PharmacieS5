@@ -27,4 +27,13 @@
     <url-pattern>/laboratories</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>MedicineServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.MedicinesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MedicineServlet</servlet-name>
+    <url-pattern>/medicines</url-pattern>
+  </servlet-mapping>
+
 </web-app>

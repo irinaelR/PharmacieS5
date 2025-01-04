@@ -98,4 +98,52 @@ public class MedicineService extends Service {
 
         return results;
     }
+
+    public String[] filterConditions(String laboratory, String categ, String needsNotice, String constraint, String minPriceStr, String maxPriceStr) {
+        List<String> conditionsList = new ArrayList<>();
+        if (laboratory != null && !laboratory.isBlank() && !laboratory.equals("-1")) {
+            conditionsList.add("lab_id = ?");
+        }
+        if (categ != null && !categ.isBlank() && !categ.equals("-1")) {
+            conditionsList.add("category_id = ?");
+        }
+        if (needsNotice != null && !needsNotice.isBlank()) {
+            conditionsList.add("needs_notice = ?");
+        }
+        if (constraint != null && !constraint.isBlank() && !constraint.equals("-1")) {
+            conditionsList.add("id IN (SELECT med_id FROM medicines_restrictions WHERE constraint_id = ?)");
+        }
+        if (minPriceStr != null && !minPriceStr.isBlank()) {
+            conditionsList.add("id IN (SELECT id FROM v_all_prices WHERE price > ?)");
+        }
+        if (maxPriceStr != null && !maxPriceStr.isBlank()) {
+            conditionsList.add("id IN (SELECT id FROM v_all_prices WHERE price < ?)");
+        }
+
+        return conditionsList.toArray(new String[conditionsList.size()]);
+    }
+
+    public Object[] filterValues(String laboratory, String categ, String needsNotice, String constraint, String minPriceStr, String maxPriceStr) {
+        List<Object> valuesList = new ArrayList<>();
+        if (laboratory != null && !laboratory.isBlank() && !laboratory.equals("-1")) {
+            valuesList.add(Integer.valueOf(laboratory));
+        }
+        if (categ != null && !categ.isBlank() && !categ.equals("-1")) {
+            valuesList.add(Integer.valueOf(categ));
+        }
+        if (needsNotice != null && !needsNotice.isBlank()) {
+            valuesList.add(Boolean.valueOf(needsNotice));
+        }
+        if (constraint != null && !constraint.isBlank() && !constraint.equals("-1")) {
+            valuesList.add(Integer.valueOf(constraint));
+        }
+        if (minPriceStr != null && !minPriceStr.isBlank()) {
+            valuesList.add(Double.valueOf(minPriceStr));
+        }
+        if (maxPriceStr != null && !maxPriceStr.isBlank()) {
+            valuesList.add(Double.valueOf(maxPriceStr));
+        }
+
+        return valuesList.toArray();
+    }
 }

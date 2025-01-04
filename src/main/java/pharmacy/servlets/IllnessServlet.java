@@ -24,11 +24,13 @@ public class IllnessServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String name = req.getParameter("name");
+
         int medId = -1;
+
         String isChronic = req.getParameter("isChronic");
         Boolean isChronicBool = null;
         if (isChronic != null) {
-            isChronicBool = true;
+            isChronicBool = Boolean.valueOf(isChronic);
         }
 
         String[] conditions = illnessService.filterConditions(name, medId, isChronicBool);

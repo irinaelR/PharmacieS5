@@ -122,7 +122,8 @@
 
             <div class="mb-4">
                 <label for="isChronic" class="block text-gray-700 font-bold mb-2">Is chronic :</label>
-                <input type="checkbox" id="isChronic" name="isChronic" class="w-50">
+                <input type="radio" id="isChronic" name="isChronic" value="true" class="w-50"> Yes
+                <input type="radio" id="isChronic" name="isChronic" value="false" class="w-50"> No
             </div>
         </div>
         <div>
