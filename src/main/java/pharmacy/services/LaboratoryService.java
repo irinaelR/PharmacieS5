@@ -57,4 +57,17 @@ public class LaboratoryService extends Service {
         
         return results;
     }
+
+    public Laboratory findById(int id) throws Exception {
+        Laboratory lab = new Laboratory(id);
+
+        Object result = this.getQueryManager().findById(null, lab);
+        if (result != null) {
+            lab = (Laboratory) result;
+        } else {
+            lab = null;
+        }
+
+        return lab;
+    }
 }

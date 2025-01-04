@@ -52,4 +52,18 @@ public class MedicineService extends Service {
 
         return results;
     }
+
+    public Medicine findById(int id) throws Exception {
+        Medicine m = new Medicine();
+        m.setId(id);
+
+        Object result = this.getQueryManager().findById(null, m);
+        if (result != null) {
+            m = (Medicine) result;
+        } else {
+            m = null;
+        }
+
+        return m;
+    }
 }

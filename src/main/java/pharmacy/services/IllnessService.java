@@ -57,4 +57,18 @@ public class IllnessService extends Service {
 
         return results;
     }
+
+    public Illness findById(int id) throws Exception {
+        Illness i = new Illness();
+        i.setId(id);
+
+        Object result = this.getQueryManager().findById(null, i);
+        if (result != null) {
+            i = (Illness) result;
+        } else {
+            i = null;
+        }
+
+        return i;
+    }
 }
