@@ -37,6 +37,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>LaboratoryFormServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.LaboratoryFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LaboratoryFormServlet</servlet-name>
+    <url-pattern>/new-laboratory</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>MedicineServlet</servlet-name>
     <servlet-class>pharmacy.servlets.MedicinesServlet</servlet-class>
   </servlet>
