@@ -18,6 +18,15 @@
     <url-pattern>/illnesses</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>IllnessFormServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.IllnessFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IllnessFormServlet</servlet-name>
+    <url-pattern>/new-illness</url-pattern>
+  </servlet-mapping>
+
 <servlet>
     <servlet-name>LaboratoryServlet</servlet-name>
     <servlet-class>pharmacy.servlets.LaboratoryServlet</servlet-class>

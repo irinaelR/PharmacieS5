@@ -17,3 +17,29 @@ CREATE OR REPLACE VIEW v_all_prices AS (
 );
 
 SELECT * FROM medicines WHERE id IN (SELECT id FROM v_all_prices WHERE price < 5000);
+
+SELECT DISTINCT sq.med_id FROM (
+    SELECT t2.med_id, t2.efficiency
+    FROM illness_treatments t1
+    JOIN illness_treatments t2
+    ON t1.illness_id = t2.illness_id
+    WHERE t1.med_id = 3
+    AND t2.med_id != 3
+    ORDER BY t2.efficiency DESC
+) sq;
+
+SELECT DISTINCT ON (t2.med_id) t2.med_id
+FROM illness_treatments t1
+JOIN illness_treatments t2
+  ON t1.illness_id = t2.illness_id
+WHERE t1.med_id = 3
+  AND t2.med_id != 3
+ORDER BY t2.efficiency, t2.med_id DESC;
+
+SELECT DISTINCT ON (t2.med_id) t2.med_id, t2.efficiency
+FROM illness_treatments t1
+JOIN illness_treatments t2
+  ON t1.illness_id = t2.illness_id
+WHERE t1.med_id = 3
+  AND t2.med_id != 3
+ORDER BY t2.efficiency DESC, t2.med_id;
