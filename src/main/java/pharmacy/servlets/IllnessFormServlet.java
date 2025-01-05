@@ -32,7 +32,33 @@ public class IllnessFormServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String name = req.getParameter("name");
+
+        String descri = req.getParameter("descri");
+
+        String isChronic = req.getParameter("isChronic");
+        boolean isChronicBool = Boolean.valueOf(isChronic);
+
+        Illness i = new Illness(name, descri, isChronicBool);
+
+        try {
+            String action = req.getParameter("action");
+            if (action != null && action.equalsIgnoreCase("update")) {
+                String idStr = req.getParameter("id");
+                int id = Integer.valueOf(idStr);
+                i.setId(id);
+    
+                illnessService.update(i);
+            } else {
+                i = illnessService.insert(i);
+            }
+            
+            resp.sendRedirect("illnesses");
+
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
+
     }
 
     @Override
