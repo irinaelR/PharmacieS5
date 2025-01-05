@@ -21,7 +21,7 @@
                 </button>
                 <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
                     <a href="medicines" class="block p-3 hover:bg-gray-300">Medicines list</a>
-                    <a href="new-medicine.jsp" class="block p-3 hover:bg-gray-300">Insert medicine</a>
+                    <a href="new-medicine" class="block p-3 hover:bg-gray-300">Insert medicine</a>
                 </div>
             </div>   
             <div class="relative">

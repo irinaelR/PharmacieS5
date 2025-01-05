@@ -55,7 +55,7 @@
                         <td class="py-2 px-4 flex space-x-2">
                             <div class="flex justify-between">
                                 <button onclick="event.stopPropagation(); window.location.href='medicines?action=del&medicineId=<%= m.getId() %>';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
-                                <button onclick="event.stopPropagation(); window.location.href='update-medicine.jsp';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
+                                <button onclick="event.stopPropagation(); window.location.href='new-medicine?action=update&id=<%= m.getId() %>';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
                             </div>
                         </td>
                     </tr>

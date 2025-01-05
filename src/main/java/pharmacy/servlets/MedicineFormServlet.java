@@ -8,67 +8,51 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import pharmacy.entities.LabType;
 import pharmacy.entities.Laboratory;
-import pharmacy.services.LabTypeService;
+import pharmacy.entities.MedCategory;
+import pharmacy.entities.Medicine;
 import pharmacy.services.LaboratoryService;
+import pharmacy.services.MedCategoryService;
+import pharmacy.services.MedicineService;
 
-public class LaboratoryFormServlet extends HttpServlet {
+public class MedicineFormServlet extends HttpServlet {
+    private MedicineService medicineService;
+    private MedCategoryService medCategoryService;
     private LaboratoryService laboratoryService;
-    private LabTypeService labTypeService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            List<LabType> categories = labTypeService.getAll();
+            List<Laboratory> labs = laboratoryService.getAll(null, null, null);
+            req.setAttribute("laboratories", labs);
+
+            List<MedCategory> categories = medCategoryService.getAll();
             req.setAttribute("categories", categories);
 
             String idStr = req.getParameter("id");
             if (idStr != null && !idStr.isBlank()) {
                 int id = Integer.valueOf(idStr);
-                Laboratory l = laboratoryService.findById(id);
-                req.setAttribute("laboratory", l);
+                Medicine m = medicineService.findById(id);
+                req.setAttribute("medicine", m);
             }
         } catch (Exception e) {
             throw new ServletException(e);
         }
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("new-laboratory.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("new-medicine.jsp");
         dispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
-
-        String categStr = req.getParameter("category");
-        int categId = Integer.valueOf(categStr);
-
-        try {
-            Laboratory lab = new Laboratory(name, categId);
-
-            String action = req.getParameter("action");
-            if (action != null && action.equalsIgnoreCase("update")) {
-                String idStr = req.getParameter("id");
-                int id = Integer.valueOf(idStr);
-                lab.setId(id);
-
-                laboratoryService.update(lab);
-            } else {
-                laboratoryService.insert(lab);
-            }
-        } catch (Exception e) {
-            throw new ServletException(e);
-        }
-
-        resp.sendRedirect("laboratories");
+        
     }
 
     @Override
     public void init() throws ServletException {
-        super.init();
         try {
-            this.labTypeService = new LabTypeService();
+            this.medicineService = new MedicineService();
+            this.medCategoryService = new MedCategoryService();
             this.laboratoryService = new LaboratoryService();
         } catch (Exception e) {
             throw new ServletException(e);
