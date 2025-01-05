@@ -40,7 +40,29 @@ public class LaboratoryFormServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String name = req.getParameter("name");
+
+        String categStr = req.getParameter("category");
+        int categId = Integer.valueOf(categStr);
+
+        try {
+            Laboratory lab = new Laboratory(name, categId);
+
+            String action = req.getParameter("action");
+            if (action != null && action.equalsIgnoreCase("update")) {
+                String idStr = req.getParameter("id");
+                int id = Integer.valueOf(idStr);
+                lab.setId(id);
+
+                laboratoryService.update(lab);
+            } else {
+                laboratoryService.insert(lab);
+            }
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
+
+        resp.sendRedirect("laboratories");
     }
 
     @Override

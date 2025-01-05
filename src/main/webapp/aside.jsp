@@ -30,7 +30,7 @@
                 </button>
                 <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
                     <a href="laboratories" class="block p-3 hover:bg-gray-300">Laboratory list</a>
-                    <a href="new-laboratory.jsp" class="block p-3 hover:bg-gray-300">Insert laboratory</a>
+                    <a href="new-laboratory" class="block p-3 hover:bg-gray-300">Insert laboratory</a>
                 </div>
             </div>          
         </nav>
