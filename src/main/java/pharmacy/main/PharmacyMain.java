@@ -12,25 +12,12 @@ public class PharmacyMain {
 
         try {
             MedicineService ms = new MedicineService();
-            
             Medicine m = ms.findById(1);
 
-            List<MedicinesFormat> medFormat = ms.getAllFormats(m);
-
-            Map<MedicinesFormat,List<MedicinesDosage>> medDosage = ms.getAllFormatsDosages(m);
-
-            for(MedicinesFormat medForm:medFormat) 
-            {
-                List<MedicinesDosage> medDos = (List<MedicinesDosage>) medDosage.get(medFormat);
-                if(medDos == null) {
-                    System.out.println("null");
-                } else {
-                    System.out.println("not null");
-                }
-
+            Map<MedicinesFormat, List<MedicinesDosage>> formatsDosages = ms.getAllFormatsDosages(m);
+            for(Map.Entry<MedicinesFormat, List<MedicinesDosage>> entry : formatsDosages.entrySet()) {
+                System.out.println(entry.getKey() + " => " + entry.getValue().size());
             }
-
-            
         } catch (Exception e) {
             e.printStackTrace();
         }

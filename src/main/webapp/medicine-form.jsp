@@ -24,7 +24,7 @@
         
             <div class="bg-white rounded-lg shadow-md p-6">
                 <form action="new-form" method="post">
-                    <input type="hidden" name="medId" value="<%= m.getId() %>" />
+                    <input type="hidden" name="medicineId" value="<%= m.getId() %>" />
                     <div class="mb-4">
                         <label for="form" class="block text-gray-700 font-bold mb-2">Form :</label>
                         <select id="form" name="form" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">

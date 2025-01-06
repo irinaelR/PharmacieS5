@@ -47,7 +47,7 @@ public class MedFormServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String medIdStr = req.getParameter("medId");
+        String medIdStr = req.getParameter("medicineId");
         int medId = Integer.valueOf(medIdStr);
 
         String formStr = req.getParameter("form");
@@ -77,7 +77,7 @@ public class MedFormServlet extends HttpServlet {
             MedicinesDosage md = new MedicinesDosage(mf.getId(), price, dose, unitId);
             medicineDosageService.insert(md);
 
-            resp.sendRedirect("new-form");
+            resp.sendRedirect("new-form?medicineId=" + medId);
         } catch (Exception e) {
             throw new ServletException(e);
         }

@@ -26,15 +26,15 @@ public class MedicineTransactionService extends Service {
         return (MedicineTransaction) o;
     }
 
-    public void buy(int medDosageId, int quantite) throws Exception {
+    public void buy(int medDosageId, int quantite, LocalDateTime daty) throws Exception {
         MedicinesDosage md = mds.findById(medDosageId);
-        MedicineTransaction mt = new MedicineTransaction(-1, LocalDateTime.now(), quantite, 0, md.getPrice());
+        MedicineTransaction mt = new MedicineTransaction(-1, daty, quantite, 0, md.getPrice());
         insert(mt);
     }
 
-    public void sell(int medDosageId, int quantite) throws Exception {
+    public void sell(int medDosageId, int quantite, LocalDateTime daty) throws Exception {
         MedicinesDosage md = mds.findById(medDosageId);
-        MedicineTransaction mt = new MedicineTransaction(-1, LocalDateTime.now(), 0, quantite, md.getPrice());
+        MedicineTransaction mt = new MedicineTransaction(-1, daty, 0, quantite, md.getPrice());
         insert(mt);
     }
 
