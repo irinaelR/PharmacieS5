@@ -32,7 +32,17 @@
                     <a href="laboratories" class="block p-3 hover:bg-gray-300">Laboratory list</a>
                     <a href="new-laboratory" class="block p-3 hover:bg-gray-300">Insert laboratory</a>
                 </div>
-            </div>          
+            </div>
+
+            <div class="relative">
+                <button class="hover:bg-white hover:text-gray-900 dropdown-button flex items-center w-full p-2 rounded-t-xl font-semibold text-gray-500">
+                    <i class="fas fa-credit-card mr-2"></i>Transactions
+                </button>
+                <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
+                    <a href="sell" class="block p-3 hover:bg-gray-300">Sell medicine</a>
+                    <a href="buy" class="block p-3 hover:bg-gray-300">Restock medicine</a>
+                </div>
+            </div>             
         </nav>
 
     </aside>

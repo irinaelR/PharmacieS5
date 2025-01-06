@@ -117,4 +117,13 @@
     <url-pattern>/new-transaction</url-pattern>
   </servlet-mapping>
 
+    <servlet>
+    <servlet-name>StockServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.StockServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StockServlet</servlet-name>
+    <url-pattern>/stocks</url-pattern>
+  </servlet-mapping>
+
 </web-app>

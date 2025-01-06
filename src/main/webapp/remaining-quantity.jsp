@@ -1,3 +1,5 @@
+<%@ page import="java.util.List, pharmacy.dto.StockDosageDTO" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
     <jsp:include page="aside.jsp" />
 <main class="ml-64 pt-5 relative">
     <div class="container mx-auto">
-    <h2 class="text-2xl font-bold mb-6">Header</h2>
+    <h2 class="text-2xl font-bold mb-6">Stocks</h2>
         <div class="container mx-auto bg-white p-10 rounded-lg shadow-lg">
             <table class="table-auto w-full">
                 <thead>
@@ -23,10 +25,23 @@
                     </tr>
                 </thead>
                 <tbody>
+                <%
+                
+                List<StockDosageDTO> stocks = (List<StockDosageDTO>) request.getAttribute("stocks");
+                for(StockDosageDTO s : stocks) {
+
+                
+                %>
                     <tr class="border-b border-gray-200 cursor-pointer">
-                        <td class="py-2 px-4">Aspirin</td>
-                        <td class="py-2 px-4">200</td>
+                        <td class="py-2 px-4"><%= s.getDisplayName() %></td>
+                        <td class="py-2 px-4"><%= s.getQuantity() %></td>
                     </tr>
+
+                <%
+                
+                }
+                
+                %>
                 </tbody>
             </table>
         </div>
