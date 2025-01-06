@@ -137,3 +137,11 @@ CREATE TABLE medicines_transactions (
 CREATE VIEW v_stocks_dosages AS (
     SELECT med_dosage_id, SUM(in_value) - SUM(out_value) AS quantity FROM medicines_transactions GROUP BY med_dosage_id
 );
+
+SELECT m.name AS medicine, mfrm.name AS format, md.dose, mu.name AS unit
+ FROM medicines AS m
+ JOIN medicines_formats AS mf ON m.id = mf.med_id
+ JOIN med_form AS mfrm ON mf.form_id = mfrm.id
+ JOIN medicines_dosages AS md ON mf.id = md.med_format_id
+ JOIN measuring_units AS mu ON md.unit_id = mu.id
+ ORDER BY m.name; 

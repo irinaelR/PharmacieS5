@@ -28,3 +28,7 @@ lib/
 temp/
 
 deploy.bat
+
+start_psql.bat
+
+todo.txt
