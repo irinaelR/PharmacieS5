@@ -1,3 +1,3 @@
 <%
-   // response.sendRedirect("list-medicine.jsp");
+   response.sendRedirect("medicines");
 %>

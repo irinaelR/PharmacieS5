@@ -81,5 +81,22 @@
     <url-pattern>/new-constraints</url-pattern>
   </servlet-mapping>
 
+      <servlet>
+    <servlet-name>SaleServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.SaleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SaleServlet</servlet-name>
+    <url-pattern>/sell</url-pattern>
+  </servlet-mapping>
+
+      <servlet>
+    <servlet-name>BuyServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.BuyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuyServlet</servlet-name>
+    <url-pattern>/buy</url-pattern>
+  </servlet-mapping>
 
 </web-app>

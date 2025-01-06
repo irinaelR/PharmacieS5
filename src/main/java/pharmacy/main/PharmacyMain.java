@@ -2,6 +2,7 @@ package pharmacy.main;
 
 
 import java.util.List;
+import java.util.Map;
 
 import pharmacy.entities.*;
 import pharmacy.services.*;
@@ -10,10 +11,13 @@ public class PharmacyMain {
     public static void main(String[] args) {
 
         try {
-            MedicinesFormatService mfs = new MedicinesFormatService();
+            MedicineService ms = new MedicineService();
+            Medicine m = ms.findById(1);
 
-            MedicinesFormat mf = mfs.findById(1);
-            List<MedicinesDosage> mdList = mfs.getAllDosages(mf);
+            Map<MedicinesFormat, List<MedicinesDosage>> formatsDosages = ms.getAllFormatsDosages(m);
+            for(Map.Entry<MedicinesFormat, List<MedicinesDosage>> entry : formatsDosages.entrySet()) {
+                System.out.println(entry.getKey() + " => " + entry.getValue().size());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
