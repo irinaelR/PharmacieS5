@@ -76,7 +76,7 @@ CREATE TABLE medicines_formats (
 CREATE TABLE medicines_dosages (
     id SERIAL,
     med_format_id INT,
-    price DECIMAL(15, 2) NOT NULL CHECK (price > 0),
+    price DOUBLE PRECISION NOT NULL CHECK (price > 0),
     dose DOUBLE PRECISION NOT NULL CHECK (dose > 0),
     unit_id INT,
     PRIMARY KEY(id),
@@ -129,7 +129,7 @@ CREATE TABLE medicines_transactions (
     transaction_date TIMESTAMP NOT NULL,
     in_value INT NOT NULL CHECK (in_value > 0),
     out_value INT NOT NULL CHECK (out_value > 0),
-    price DECIMAL(15,2) NOT NULL CHECK (price > 0),
+    price DOUBLE PRECISION NOT NULL CHECK (price > 0),
     PRIMARY KEY(id),
     FOREIGN KEY(med_dosage_id) REFERENCES medicines_dosages(id)
 );

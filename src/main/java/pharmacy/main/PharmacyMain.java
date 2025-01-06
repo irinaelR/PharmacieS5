@@ -10,12 +10,10 @@ public class PharmacyMain {
     public static void main(String[] args) {
 
         try {
-            MedicineService ms = new MedicineService();
-            Medicine m1 = ms.findById(1);
-            List<MedicinesFormat> formats = ms.getAllFormats(m1);
-            for (MedicinesFormat medicinesFormat : formats) {
-                System.out.println(medicinesFormat);
-            }
+            MedicinesFormatService mfs = new MedicinesFormatService();
+
+            MedicinesFormat mf = mfs.findById(1);
+            List<MedicinesDosage> mdList = mfs.getAllDosages(mf);
         } catch (Exception e) {
             e.printStackTrace();
         }
