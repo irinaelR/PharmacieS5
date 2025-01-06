@@ -24,4 +24,12 @@ public class MeasuringUnitService extends Service {
 
         return results;
     }
+
+    public MeasuringUnit findById(int id) throws Exception {
+        Object obj = this.getQueryManager().findById(null, new MeasuringUnit(id, null));
+        if (obj != null) {
+            return (MeasuringUnit) obj;
+        }
+        return null;
+    }
 }

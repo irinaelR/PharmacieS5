@@ -24,4 +24,16 @@ public class MedicalConstraintService extends Service {
 
         return results;
     }
+
+    public List<MedicalConstraint> getAll(int medId) throws Exception {
+        String[] conditions = new String[] { "med_id = ?" };
+        Object[] values = new Object[] { medId };
+
+        List<MedicalConstraint> results = new ArrayList<>();
+
+        List<Object> objectList = this.getQueryManager().find(null, MedicalConstraint.class, conditions, values, null);
+        populateList(results, objectList);
+
+        return results;
+    }
 }

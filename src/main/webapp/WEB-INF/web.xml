@@ -63,4 +63,13 @@
     <url-pattern>/new-medicine</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>MedFormServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.MedFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MedFormServlet</servlet-name>
+    <url-pattern>/new-form</url-pattern>
+  </servlet-mapping>
+
 </web-app>

@@ -13,6 +13,10 @@ public class MedicineService extends Service {
 
     MedicinesFormatService medicinesFormatService;
 
+    public MedicinesFormatService getMedicinesFormatService() {
+        return medicinesFormatService;
+    }
+
     public MedicineService() throws Exception {
         super();
         this.medicinesFormatService = new MedicinesFormatService();

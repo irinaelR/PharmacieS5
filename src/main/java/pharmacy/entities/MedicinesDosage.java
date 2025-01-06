@@ -1,6 +1,7 @@
 package pharmacy.entities;
 
 import custom.orm.db.utils.annotations.*;
+import pharmacy.services.MeasuringUnitService;
 
 @Entity(tableName = "medicines_dosages")
 public class MedicinesDosage {
@@ -18,14 +19,25 @@ public class MedicinesDosage {
     @Column(name = "unit_id")
     int unitId;
 
-    public MedicinesDosage(int medFormatId, double price, double dose, int unitId) {
+    @NotMapped
+    MeasuringUnit unit;
+
+    public MedicinesDosage(int medFormatId, double price, double dose, int unitId) throws Exception {
         this.medFormatId = medFormatId;
         this.price = price;
         this.dose = dose;
-        this.unitId = unitId;
+        this.setUnitId(unitId);
     }
 
     public MedicinesDosage() {
+    }
+
+    public MeasuringUnit getUnit() {
+        return unit;
+    }
+
+    public void setUnit(MeasuringUnit unit) {
+        this.unit = unit;
     }
 
     public int getId() {
@@ -64,7 +76,10 @@ public class MedicinesDosage {
         return unitId;
     }
 
-    public void setUnitId(int unitId) {
+    public void setUnitId(int unitId) throws Exception {
         this.unitId = unitId;
+
+        MeasuringUnitService mus = new MeasuringUnitService();
+        this.setUnit(mus.findById(unitId));
     }
 }

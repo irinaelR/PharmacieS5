@@ -45,7 +45,35 @@ public class MedicineFormServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
         
+        String labStr = req.getParameter("laboratory");
+        int labId = Integer.valueOf(labStr);
+
+        String categoryStr = req.getParameter("category");
+        int categId = Integer.valueOf(categoryStr);
+
+        String needsNoticeStr = req.getParameter("needsNotice");
+        boolean needsNotice = Boolean.valueOf(needsNoticeStr);
+
+        try {
+            Medicine m = new Medicine(name, needsNotice, categId, labId);
+
+            String action = req.getParameter("action");
+            if (action != null && action.equalsIgnoreCase("update")) {
+                String idStr = req.getParameter("id");
+                int id = Integer.valueOf(idStr);
+                m.setId(id);
+
+                medicineService.update(m);
+                resp.sendRedirect("medicines");
+            } else {
+                m = medicineService.insert(m);
+                resp.sendRedirect("new-form?medicineId=" + m.getId());
+            }
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
     }
 
     @Override
