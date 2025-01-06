@@ -88,8 +88,8 @@
                                     List<MedicinesDosage> medDosage = (List<MedicinesDosage>) entry.getValue();
                             %>
 
-                            <tr class="border-b border-gray-200" rowspan=<%= medDosage.size() %>>
-                                <td class="py-2 px-4 border border-gray-200"><%= medFormat.getMedForm().getName() %></td>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 px-4 border border-gray-200" rowspan=<%= medDosage.size() %>><%= medFormat.getMedForm().getName() %></td>
                                 <td class="py-2 px-4 border border-gray-200"><%= medDosage.get(0).getDose() %> <%= medDosage.get(0).getUnit().getName() %></td>
                                 <td class="py-2 px-4 border border-gray-200"><%= medDosage.get(0).getPrice() %> MGA</td>
                             </tr>
@@ -102,8 +102,8 @@
                             %>
                             
                             <tr class="border-b border-gray-200">
-                                <td class="py-2 px-4 border border-gray-200"><%= medDosage.get(i).getDose() %></td>
-                                <td class="py-2 px-4 border border-gray-200"><%= medDosage.get(i).getPrice() %></td>
+                                <td class="py-2 px-4 border border-gray-200"><%= medDosage.get(i).getDose() %> <%= medDosage.get(i).getUnit().getName() %></td>
+                                <td class="py-2 px-4 border border-gray-200"><%= medDosage.get(i).getPrice() %> MGA</td>
                             </tr>
                             
                             <%
@@ -155,7 +155,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-3xl p-6 mb-8">
+            <%-- <div class="bg-white rounded-3xl p-6 mb-8">
                 <h3 class="text-lg font-semibold text-gray-700 mb-4"><i class="fas fa-exchange-alt mr-2"></i> Substitutes</h3>
                 <div class="flex flex-wrap justify-start gap-6">
                     <div class="bg-white rounded-3xl p-6 border border-gray-200 mb-5 flex flex-col justify-between" style="height: 100%">
@@ -191,7 +191,7 @@
                         <button class="text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-medium text-sm mt-auto">See More</button>
                     </div>
                 </div>
-            </div>
+            </div> --%>
             
 
         </div>

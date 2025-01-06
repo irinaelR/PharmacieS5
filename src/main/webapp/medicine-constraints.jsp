@@ -76,7 +76,7 @@
                                 Add
                             </button>
                             <button class="mr-2 bg-transparent text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                                <a href="#" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+                                <a href="medicines" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
                                     Finish
                                 </a>
                             </button>

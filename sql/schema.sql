@@ -127,8 +127,8 @@ CREATE TABLE medicines_transactions (
     id SERIAL,
     med_dosage_id INT,
     transaction_date TIMESTAMP NOT NULL,
-    in_value INT NOT NULL CHECK (in_value > 0),
-    out_value INT NOT NULL CHECK (out_value > 0),
+    in_value INT NOT NULL CHECK (in_value >= 0),
+    out_value INT NOT NULL CHECK (out_value >= 0),
     price DOUBLE PRECISION NOT NULL CHECK (price > 0),
     PRIMARY KEY(id),
     FOREIGN KEY(med_dosage_id) REFERENCES medicines_dosages(id)

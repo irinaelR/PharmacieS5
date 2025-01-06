@@ -50,7 +50,7 @@ public class MedicineConstraintServlet extends HttpServlet {
             MedicinesRestriction mr = new MedicinesRestriction(Integer.valueOf(medId), Integer.valueOf(constraintId));
             mr = medicinesRestrictionService.insert(mr);
 
-            resp.sendRedirect("medicines");
+            resp.sendRedirect("new-constraints?medId=" + medId);
         } catch (Exception e) {
             throw new ServletException(e);
         }

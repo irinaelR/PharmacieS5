@@ -108,4 +108,13 @@
     <url-pattern>/medicine-details</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>TransactionServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.TransactionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TransactionServlet</servlet-name>
+    <url-pattern>/new-transaction</url-pattern>
+  </servlet-mapping>
+
 </web-app>

@@ -19,8 +19,8 @@
         <h2 class="text-2xl font-bold mb-6">Medicine restock</h2>
 
         <div class="bg-white rounded-lg shadow-md p-6">
-            <form action="" method="post">
-
+            <form action="new-transaction" method="post">
+                <input type="hidden" name="transactionType" value="buy">
                 <div class="mb-4">
                     <label for="medDosageId" class="block text-gray-700 font-bold mb-2">Medicine :</label>
                     <select id="medDosageId" name="medDosageId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="quantity" class="block text-gray-700 font-bold mb-2">Quantity :</label>
-                    <input type="text" id="quantity" name="quantity" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="number" id="quantity" name="quantity" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
 
                 <div class="mb-4">
