@@ -81,5 +81,13 @@
     <url-pattern>/new-constraints</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>MedicineDetailsServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.MedicineDetailsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MedicineDetailsServlet</servlet-name>
+    <url-pattern>/medicine-details</url-pattern>
+  </servlet-mapping>
 
 </web-app>

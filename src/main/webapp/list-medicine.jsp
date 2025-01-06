@@ -45,7 +45,7 @@
                     }
                 
                 %>
-                    <tr class="border-b border-gray-200 cursor-pointer" onclick="window.location.href='medicine-details.jsp'">
+                    <tr class="border-b border-gray-200 cursor-pointer" onclick="window.location.href='medicine-details?medId=<%= m.getId() %>'">
                         <td class="py-2 px-4"><%= m.getName() %></td>
                         <td class="py-2 px-4"><%= m.getLaboratory().getName() %></td>
                         <td class="py-2 px-4"><%= m.getCategory().getName() %></td>
