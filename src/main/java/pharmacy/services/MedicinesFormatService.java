@@ -68,5 +68,17 @@ public class MedicinesFormatService extends Service {
 
         return medicineDosageService.getAll(conditions, values, null);
     }
+
+    public MedicinesFormat findById(int id) throws Exception {
+        MedicinesFormat mf = new MedicinesFormat();
+        mf.setId(id);
+
+        Object obj = this.getQueryManager().findById(null, mf);
+        if (obj != null) {
+            return (MedicinesFormat) obj;
+        } else {
+            return null;
+        }
+    }
      
 }

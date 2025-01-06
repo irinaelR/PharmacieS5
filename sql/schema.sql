@@ -122,3 +122,18 @@ CREATE TABLE medicines_restrictions (
     FOREIGN KEY(med_id) REFERENCES medicines(id) ON DELETE CASCADE,
     FOREIGN KEY(constraint_id) REFERENCES medical_constraints(id) ON DELETE CASCADE
 );
+
+CREATE TABLE medicines_transactions (
+    id SERIAL,
+    med_dosage_id INT,
+    transaction_date TIMESTAMP NOT NULL,
+    in_value INT NOT NULL CHECK (in_value > 0),
+    out_value INT NOT NULL CHECK (out_value > 0),
+    price DECIMAL(15,2) NOT NULL CHECK (price > 0),
+    PRIMARY KEY(id),
+    FOREIGN KEY(med_dosage_id) REFERENCES medicines_dosages(id)
+);
+
+CREATE VIEW v_stocks_dosages AS (
+    SELECT med_dosage_id, SUM(in_value) - SUM(out_value) AS quantity FROM medicines_transactions GROUP BY med_dosage_id
+);

@@ -3,7 +3,9 @@ package pharmacy.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import pharmacy.entities.Medicine;
 import pharmacy.entities.MedicinesDosage;
+import pharmacy.entities.MedicinesFormat;
 
 public class MedicineDosageService extends Service {
 
@@ -34,4 +36,33 @@ public class MedicineDosageService extends Service {
         return mdList;
     }
     
+    public MedicinesDosage findById(int id) throws Exception {
+        MedicinesDosage md = new MedicinesDosage();
+        md.setId(id);
+
+        Object obj = this.getQueryManager().findById(null, md);
+        if (obj != null) {
+            return (MedicinesDosage) obj;
+        } else {
+            return null;
+        }
+    }
+
+    public String getDisplayName(MedicinesDosage md) throws Exception {
+        int medFormatId = md.getMedFormatId();
+
+        MedicinesFormatService mfs = new MedicinesFormatService();
+        MedicinesFormat mf = mfs.findById(medFormatId);
+
+        MedicineService ms = new MedicineService();
+        Medicine m = ms.findById(mf.getMedId());
+
+        String[] words = new String[] {
+            m.getName(),
+            String.valueOf(md.getDose()),
+            md.getUnit().getName()
+        };
+
+        return String.join(" ", words);
+    }
 }
