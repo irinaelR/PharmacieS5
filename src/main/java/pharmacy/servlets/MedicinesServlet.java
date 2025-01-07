@@ -8,10 +8,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import pharmacy.entities.Illness;
 import pharmacy.entities.Laboratory;
 import pharmacy.entities.MedCategory;
 import pharmacy.entities.MedicalConstraint;
 import pharmacy.entities.Medicine;
+import pharmacy.services.IllnessService;
 import pharmacy.services.LaboratoryService;
 import pharmacy.services.MedCategoryService;
 import pharmacy.services.MedicalConstraintService;
@@ -22,6 +24,7 @@ public class MedicinesServlet extends HttpServlet {
     private MedCategoryService medCategoryService;
     private MedicalConstraintService medicalConstraintService;
     private LaboratoryService laboratoryService;
+    private IllnessService illnessService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,6 +38,9 @@ public class MedicinesServlet extends HttpServlet {
             List<Laboratory> labs = laboratoryService.getAll(null, null, null);
             req.setAttribute("labs", labs);
 
+            List<Illness> illnesses = illnessService.getAll(null, null, null);
+            req.setAttribute("illnesses", illnesses);
+
             String medicineIdStr = req.getParameter("medicineId");
             String action = req.getParameter("action");
             if (medicineIdStr != null && action != null && action.equalsIgnoreCase("del")) {
@@ -44,14 +50,16 @@ public class MedicinesServlet extends HttpServlet {
             }
 
             String laboratory = req.getParameter("laboratory");
+            String illness = req.getParameter("illnesses");
             String categ = req.getParameter("category");
             String needsNotice = req.getParameter("needsNotice");
-            String constraint = req.getParameter("constraint");
+            String constraintInclusion = req.getParameter("constraintInclusion");
+            String constraintExclusion = req.getParameter("constraintExclusion");
             String minPriceStr = req.getParameter("minPrice");
             String maxPriceStr = req.getParameter("maxPrice");
 
-            String[] conditions = medicineService.filterConditions(laboratory, categ, needsNotice, constraint, minPriceStr, maxPriceStr);
-            Object[] values = medicineService.filterValues(laboratory, categ, needsNotice, constraint, minPriceStr, maxPriceStr);
+            String[] conditions = medicineService.filterConditions(laboratory, categ,illness, needsNotice, constraintInclusion,constraintExclusion, minPriceStr, maxPriceStr);
+            Object[] values = medicineService.filterValues(laboratory, categ,illness, needsNotice, constraintInclusion,constraintExclusion, minPriceStr, maxPriceStr);
 
             List<Medicine> medicines = medicineService.getAll(conditions, values, null);
             req.setAttribute("medicines", medicines);
@@ -71,6 +79,7 @@ public class MedicinesServlet extends HttpServlet {
             this.medCategoryService = new MedCategoryService();
             this.medicalConstraintService = new MedicalConstraintService();
             this.laboratoryService = new LaboratoryService();
+            this.illnessService = new IllnessService();
         } catch (Exception e) {
             throw new ServletException(e);
         }

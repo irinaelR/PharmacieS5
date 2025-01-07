@@ -103,7 +103,7 @@ public class MedicineService extends Service {
         return results;
     }
 
-    public String[] filterConditions(String laboratory, String categ, String needsNotice, String constraint, String minPriceStr, String maxPriceStr) {
+    public String[] filterConditions(String laboratory, String categ,String illness, String needsNotice, String constraintInclusion,String constraintExclusion, String minPriceStr, String maxPriceStr) {
         List<String> conditionsList = new ArrayList<>();
         if (laboratory != null && !laboratory.isBlank() && !laboratory.equals("-1")) {
             conditionsList.add("lab_id = ?");
@@ -114,8 +114,15 @@ public class MedicineService extends Service {
         if (needsNotice != null && !needsNotice.isBlank()) {
             conditionsList.add("needs_notice = ?");
         }
-        if (constraint != null && !constraint.isBlank() && !constraint.equals("-1")) {
+        if (constraintInclusion != null && !constraintInclusion.isBlank() && !constraintInclusion.equals("-1")) {
             conditionsList.add("id IN (SELECT med_id FROM medicines_restrictions WHERE constraint_id = ?)");
+        }
+        if (constraintExclusion != null && !constraintExclusion.isBlank() && !constraintExclusion.equals("-1")) {
+            conditionsList.add("id NOT IN (SELECT med_id FROM medicines_restrictions WHERE constraint_id = ?)");
+        }
+        // select med_id from illness_treatments where illness_id = ?
+        if (illness != null && !illness.isBlank() && !illness.equals("-1")) {
+            conditionsList.add("id IN (SELECT MED_ID FROM ILLNESS_TREATMENTS WHERE ILLNESS_ID = ?)");
         }
         if (minPriceStr != null && !minPriceStr.isBlank()) {
             conditionsList.add("id IN (SELECT id FROM v_all_prices WHERE price > ?)");
@@ -127,7 +134,7 @@ public class MedicineService extends Service {
         return conditionsList.toArray(new String[conditionsList.size()]);
     }
 
-    public Object[] filterValues(String laboratory, String categ, String needsNotice, String constraint, String minPriceStr, String maxPriceStr) {
+    public Object[] filterValues(String laboratory, String categ,String illness, String needsNotice, String constraintInclusion,String constraintExclusion, String minPriceStr, String maxPriceStr) {
         List<Object> valuesList = new ArrayList<>();
         if (laboratory != null && !laboratory.isBlank() && !laboratory.equals("-1")) {
             valuesList.add(Integer.valueOf(laboratory));
@@ -138,8 +145,14 @@ public class MedicineService extends Service {
         if (needsNotice != null && !needsNotice.isBlank()) {
             valuesList.add(Boolean.valueOf(needsNotice));
         }
-        if (constraint != null && !constraint.isBlank() && !constraint.equals("-1")) {
-            valuesList.add(Integer.valueOf(constraint));
+        if (constraintInclusion != null && !constraintInclusion.isBlank() && !constraintInclusion.equals("-1")) {
+            valuesList.add(Integer.valueOf(constraintInclusion));
+        }
+        if (constraintExclusion != null && !constraintExclusion.isBlank() && !constraintExclusion.equals("-1")) {
+            valuesList.add(Integer.valueOf(constraintExclusion));
+        }
+        if(illness != null && !illness.isBlank() && !illness.equals("-1")) {
+            valuesList.add(Integer.valueOf(illness));
         }
         if (minPriceStr != null && !minPriceStr.isBlank()) {
             valuesList.add(Double.valueOf(minPriceStr));

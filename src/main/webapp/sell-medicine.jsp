@@ -67,7 +67,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 </main>
 <script src="assets/script/script.js"></script>

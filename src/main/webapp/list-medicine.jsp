@@ -70,8 +70,8 @@
     
 </main>
 <div id="filterSidebar" class="w-80 h-screen bg-white shadow-lg z-100 p-6" style="position: fixed; top: 0; right: 0; transform: translateX(100%); z-index: 200; display: flex; flex-direction: column; justify-content: space-between;">
-    <h3 class="text-lg font-bold mb-4">Filters</h3>
-    <hr>
+    <!-- <h3 class="text-lg font-bold mb-4">Filters</h3> -->
+    <!-- <hr> -->
     <form action="medicines" method="get" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
         <div>
             <div class="mb-4">
@@ -85,6 +85,23 @@
                                             
                     %>
                         <option value="<%= l.getId() %>"><%= l.getName() %></option>
+                    <%
+                    
+                    }
+                    
+                    %>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="illnesses" class="block text-gray-700 font-bold mb-2">Illnesses :</label>
+                <select id="illnesses" name="illnesses" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="-1">None</option>
+                    <%
+                    List<Illness> illnesses = (List<Illness>) request.getAttribute("illnesses");
+                    for(Illness illness : illnesses) {
+                                            
+                    %>
+                        <option value="<%= illness.getId() %>"><%= illness.getName() %></option>
                     <%
                     
                     }
@@ -115,9 +132,10 @@
                 <input id="needsNotice" name="needsNotice" type="radio" value="true"> Yes
                 <input id="needsNotice" name="needsNotice" type="radio" value="false"> No
             </div>
+            <h4 class="block text-gray-700 font-bold mb-2">Constraints :</h4>
             <div class="mb-4">
-                <label for="constraint" class="block text-gray-700 font-bold mb-2">Constraints :</label>
-                <select id="constraint" name="constraint" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <label for="constraintInclusion" class="block text-gray-700 font-bold mb-2">Cannot be taken by :</label>
+                <select id="constraintInclusion" name="constraintInclusion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="-1">None</option>
                     <%
                     
@@ -134,13 +152,30 @@
                 </select>
             </div>
             <div class="mb-4">
+                <label for="constraintExclusion" class="block text-gray-700 font-bold mb-2">Can be taken by :</label>
+                <select id="constraintExclusion" name="constraintExclusion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="-1">None</option>
+                    <%
+                    
+                    for(MedicalConstraint mc : constraints) {
+                                            
+                    %>
+                        <option value="<%= mc.getId() %>"><%= mc.getName() %></option>
+                    <%
+                    
+                    }
+                    
+                    %>
+                </select>
+            </div>
+            <!-- <div class="mb-4">
                 <label for="minPrice" class="block text-gray-700 font-bold mb-2">Min Price :</label>
                 <input type="number" id="minPrice" name="minPrice" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
             <div class="mb-4">
                 <label for="maxPrice" class="block text-gray-700 font-bold mb-2">Max Price :</label>
                 <input type="number" id="maxPrice" name="maxPrice" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            </div>
+            </div> -->
         </div>
         <div>
             <hr>
