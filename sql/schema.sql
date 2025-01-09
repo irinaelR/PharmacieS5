@@ -138,6 +138,46 @@ CREATE VIEW v_stocks_dosages AS (
     SELECT med_dosage_id, SUM(in_value) - SUM(out_value) AS quantity FROM medicines_transactions GROUP BY med_dosage_id
 );
 
+-- Création de la table pharmacy_client
+CREATE TABLE pharmacy_client (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL
+);
+
+-- Création de la table age_group
+CREATE TABLE age_group (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL
+);
+
+-- Création de la table med_age_group (liaison entre médicament et groupe d'âge)
+CREATE TABLE med_age_group (
+    id_med_dosage INT,
+    id_age_group INT,
+    PRIMARY KEY (id_med_dosage, id_age_group), -- Clé primaire composite
+    FOREIGN KEY (id_med_dosage) REFERENCES medicines_dosages (id), -- Supposant l'existence d'une table med_dosage
+    FOREIGN KEY (id_age_group) REFERENCES age_group (id)
+);
+
+-- Création de la table sales
+CREATE TABLE sales (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    date DATE NOT NULL,
+    id_client INT,
+    FOREIGN KEY (id_client) REFERENCES pharmacy_client (id)
+);
+
+-- Création de la table sales_details
+CREATE TABLE sales_details (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_sales INT,
+    id_med_dosage INT,
+    quantity INT,
+    unit_price DECIMAL(10, 2), 
+    FOREIGN KEY (id_sales) REFERENCES sales (id),
+    FOREIGN KEY (id_med_dosage) REFERENCES med_dosage (id_med_dosage) -- Supposant l'existence d'une table med_dosage
+);
+
 SELECT m.name AS medicine, mfrm.name AS format, md.dose, mu.name AS unit
  FROM medicines AS m
  JOIN medicines_formats AS mf ON m.id = mf.med_id
