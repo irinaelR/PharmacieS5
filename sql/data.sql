@@ -607,3 +607,23 @@ INSERT INTO illness_treatments (illness_id, med_id, efficiency) VALUES
 (22, 36, 9), -- Sertraline (for treatment of depression)
 (22, 47, 8); -- Amitriptyline (for treatment of depression)
 
+
+INSERT INTO age_group (name)
+VALUES
+    ('Children (0-12 years)'),
+    ('Adolescents (13-19 years)'),
+    ('Adults (20-59 years)'),
+    ('Seniors (60+ years)');
+
+
+INSERT INTO pharmacy_client (name) VALUES
+('Dupont, Jean'),
+('Martin, Marie'),
+('Leroy, Pierre'),
+('Durand, Sophie'),
+('Petit, François'),
+('Martin, Julie'),
+('Bernard, Thomas'),
+('Moreau, Alice'),
+('Dumont, David'),
+('Richard, Céline');

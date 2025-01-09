@@ -140,13 +140,13 @@ CREATE VIEW v_stocks_dosages AS (
 
 -- Création de la table pharmacy_client
 CREATE TABLE pharmacy_client (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL
 );
 
 -- Création de la table age_group
 CREATE TABLE age_group (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL
 );
 
@@ -154,28 +154,28 @@ CREATE TABLE age_group (
 CREATE TABLE med_age_group (
     id_med_dosage INT,
     id_age_group INT,
-    PRIMARY KEY (id_med_dosage, id_age_group), -- Clé primaire composite
-    FOREIGN KEY (id_med_dosage) REFERENCES medicines_dosages (id), -- Supposant l'existence d'une table med_dosage
+    PRIMARY KEY (id_med_dosage, id_age_group), 
+    FOREIGN KEY (id_med_dosage) REFERENCES medicines_dosages (id),
     FOREIGN KEY (id_age_group) REFERENCES age_group (id)
 );
 
 -- Création de la table sales
 CREATE TABLE sales (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    date DATE NOT NULL,
+    id SERIAL PRIMARY KEY,
+    date_sales DATE NOT NULL,
     id_client INT,
     FOREIGN KEY (id_client) REFERENCES pharmacy_client (id)
 );
 
 -- Création de la table sales_details
 CREATE TABLE sales_details (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     id_sales INT,
     id_med_dosage INT,
     quantity INT,
     unit_price DECIMAL(10, 2), 
     FOREIGN KEY (id_sales) REFERENCES sales (id),
-    FOREIGN KEY (id_med_dosage) REFERENCES med_dosage (id_med_dosage) -- Supposant l'existence d'une table med_dosage
+    FOREIGN KEY (id_med_dosage) REFERENCES medicines_dosages (id) 
 );
 
 SELECT m.name AS medicine, mfrm.name AS format, md.dose, mu.name AS unit

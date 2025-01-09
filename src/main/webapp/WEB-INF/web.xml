@@ -82,12 +82,30 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>SaleServlet</servlet-name>
-    <servlet-class>pharmacy.servlets.SaleServlet</servlet-class>
+    <servlet-name>SalesServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.SalesServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SaleServlet</servlet-name>
-    <url-pattern>/sell</url-pattern>
+    <servlet-name>SalesServlet</servlet-name>
+    <url-pattern>/sales</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SalesListServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.SalesListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SalesListServlet</servlet-name>
+    <url-pattern>/sales-list</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SalesDetailsServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.SalesDetailsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SalesDetailsServlet</servlet-name>
+    <url-pattern>/sales-details</url-pattern>
   </servlet-mapping>
 
   <servlet>
