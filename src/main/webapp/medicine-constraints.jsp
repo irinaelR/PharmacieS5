@@ -75,7 +75,7 @@
                             <button type="submit" class="mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 Add
                             </button>
-                            <button class="mr-2 bg-transparent text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            <button class="mr-2 bg-transparent text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 <a href="medicines" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
                                     Finish
                                 </a>

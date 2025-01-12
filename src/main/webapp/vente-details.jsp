@@ -18,13 +18,13 @@
         <h2 class="text-2xl font-bold mb-6">Vente</h2>
 
         <div class="bg-white rounded-lg shadow-md p-6">
-            <form action="new-vente" method="post">
+            <form action="sales-details" method="post">
 
                 <div class="mb-4">
                     <%
                         Sales sales = (Sales) request.getAttribute("sales");
                     %>
-                    <input type="hidden" name="id_sales" values="<%= sales.getId() %>">
+                    <input type="hidden" name="id_sales" value="<%= sales.getId() %>">
                     <label for="id_med_dosage" class="block text-gray-700 font-bold mb-2">Medicine dosage :</label>
                     <select id="id_med_dosage" name="id_med_dosage" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
 
@@ -56,9 +56,15 @@
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <button id="ok_button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    <button id="ok_button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                         Ok
                     </button>
+
+                    <a href="sales-list">
+                        <button id="finish_button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Finish
+                        </button>
+                    </a>
                 </div>
             </form>
         </div>

@@ -1,6 +1,7 @@
 package pharmacy.entities;
 
 import custom.orm.db.utils.annotations.*;
+import pharmacy.services.MedicineDosageService;
 
 @Entity(tableName = "sales_details")
 public class SalesDetails {
@@ -53,8 +54,12 @@ public class SalesDetails {
         return medDosageId;
     }
 
-    public void setMedDosageId(int medDosageId) {
+    public void setMedDosageId(int medDosageId) throws Exception {
         this.medDosageId = medDosageId;
+
+        MedicineDosageService mds = new MedicineDosageService();
+        MedicinesDosage medDosage = mds.findById(medDosageId);
+        this.setMedDosage(medDosage);
     }
 
     public int getQuantity() {

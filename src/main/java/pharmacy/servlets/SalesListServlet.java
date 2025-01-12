@@ -8,21 +8,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import pharmacy.entities.AgeGroup;
-import pharmacy.entities.Illness;
-import pharmacy.entities.Laboratory;
-import pharmacy.entities.MedCategory;
-import pharmacy.entities.MedForm;
-import pharmacy.entities.MedicalConstraint;
-import pharmacy.entities.Medicine;
-import pharmacy.entities.Sales;
+import pharmacy.entities.*;
 import pharmacy.services.AgeGroupService;
-import pharmacy.services.IllnessService;
-import pharmacy.services.LaboratoryService;
-import pharmacy.services.MedCategoryService;
 import pharmacy.services.MedFormService;
-import pharmacy.services.MedicalConstraintService;
-import pharmacy.services.MedicineService;
 import pharmacy.services.SalesService;
 
 public class SalesListServlet extends HttpServlet {

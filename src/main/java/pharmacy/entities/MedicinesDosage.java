@@ -22,6 +22,9 @@ public class MedicinesDosage {
     @NotMapped
     MeasuringUnit unit;
 
+    @NotMapped
+    String displayName;
+
     public MedicinesDosage(int medFormatId, double price, double dose, int unitId) throws Exception {
         this.medFormatId = medFormatId;
         this.price = price;
@@ -30,6 +33,14 @@ public class MedicinesDosage {
     }
 
     public MedicinesDosage() {
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public MeasuringUnit getUnit() {

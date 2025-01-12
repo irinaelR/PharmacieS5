@@ -42,7 +42,9 @@ public class MedicineDosageService extends Service {
 
         Object obj = this.getQueryManager().findById(null, md);
         if (obj != null) {
-            return (MedicinesDosage) obj;
+            MedicinesDosage md2 = (MedicinesDosage) obj;
+            md2.setDisplayName(this.getDisplayName(md2));
+            return md2;
         } else {
             return null;
         }

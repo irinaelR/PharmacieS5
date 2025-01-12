@@ -27,11 +27,11 @@ public class Sales {
     private List<SalesDetails> details;
 
     public Sales() throws Exception {
-        this.setDetails(null);
+        // this.setDetails(null);
     }
 
     public Sales(Date date, int clientId) throws Exception {
-        this.setDetails(null);
+        // this.setDetails(null);
         this.date = date;
         this.setClientId(clientId);
     }

@@ -39,8 +39,9 @@
                     <i class="fas fa-credit-card mr-2"></i>Transactions
                 </button>
                 <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
-                    <a href="sell" class="block p-3 hover:bg-gray-300">Sell medicine</a>
-                    <a href="buy" class="block p-3 hover:bg-gray-300">Restock medicine</a>
+                    <a href="sales" class="block p-3 hover:bg-gray-300">Sell medicine</a>
+                    <a href="sales" class="block p-3 hover:bg-gray-300">List sales</a>
+                    <%-- <a href="buy" class="block p-3 hover:bg-gray-300">Restock medicine</a> --%>
                 </div>
             </div>             
         </nav>

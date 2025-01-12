@@ -627,3 +627,46 @@ INSERT INTO pharmacy_client (name) VALUES
 ('Moreau, Alice'),
 ('Dumont, David'),
 ('Richard, Céline');
+
+-- Insert data into med_age_group
+INSERT INTO med_age_group (id_med_dosage, id_age_group)
+VALUES
+    -- Children's medications
+    (2, 1),  -- Aspirin - Inhaler
+    (5, 1),  -- Ibuprofen - Suspension
+    (7, 1),  -- Paracetamol - Syrup
+    (8, 1),  -- Paracetamol - Suppository
+    (10, 1), -- Amoxicillin - Suspension
+    (39, 1), -- Ranitidine - Syrup
+    (46, 1), -- Salbutamol - Nebulizer
+    (48, 1), -- Cetirizine - Syrup
+    (73, 1), -- Nystatin - Suspension
+
+    -- Adolescent medications
+    (1, 2),  -- Aspirin - Tablet
+    (3, 2),  -- Ibuprofen - Tablet
+    (6, 2),  -- Paracetamol - Tablet
+    (9, 2),  -- Amoxicillin - Capsule
+    (15, 2), -- Azithromycin - Tablet
+    (25, 2), -- Gabapentin - Capsule
+    (31, 2), -- Clopidogrel - Tablet
+    (40, 2), -- Cyclobenzaprine - Tablet
+
+    -- Adult medications
+    (4, 3),  -- Ibuprofen - Capsule
+    (11, 3), -- Ciprofloxacin - Tablet
+    (17, 3), -- Metformin - Tablet
+    (19, 3), -- Omeprazole - Capsule
+    (24, 3), -- Amlodipine - Tablet
+    (38, 3), -- Ranitidine - Tablet
+    (43, 3), -- Prednisone - Tablet
+    (57, 3), -- Sertraline - Tablet
+
+    -- Senior medications
+    (22, 4), -- Losartan - Tablet
+    (27, 4), -- Lisinopril - Tablet
+    (32, 4), -- Metoprolol - Tablet
+    (49, 4), -- Furosemide - Tablet
+    (60, 4), -- Bumetanide - Tablet
+    (69, 4), -- Valsartan - Tablet
+    (71, 4); -- Amitriptyline - Tablet

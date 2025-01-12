@@ -10,9 +10,11 @@ public class SalesService extends Service {
         super();
     }
     
-    private void populateList(List<Sales> labList, List<Object> objList) {
+    private void populateList(List<Sales> labList, List<Object> objList) throws Exception {
         for (int i = 0; i < objList.size(); i++) {
-            labList.add((Sales) objList.get(i));
+            Sales s = (Sales) objList.get(i);
+            s.setDetails(null);
+            labList.add(s);
         }
     }
 
@@ -36,10 +38,10 @@ public class SalesService extends Service {
     public String[] filterConditions(String med_form_id,String age_group) {
         List<String> conditionsList = new ArrayList<>();
         if (med_form_id != null && !med_form_id.isBlank() && !med_form_id.equals("-1")) {
-            conditionsList.add(" AND id IN (SELECT id_sales FROM sales_details WHERE id_med_dosage IN (SELECT id from medicines_dosages where med_format_id IN (SELECT id FROM medicines_formats WHERE form_id = ?)))");
+            conditionsList.add("id IN (SELECT id_sales FROM sales_details WHERE id_med_dosage IN (SELECT id from medicines_dosages where med_format_id IN (SELECT id FROM medicines_formats WHERE form_id = ?)))");
         }
         if (age_group != null && !age_group.isBlank() && !age_group.equals("-1")) {
-            conditionsList.add(" AND id IN (SELECT id_sales FROM sales_details WHERE id_med_dosage IN (SELECT id_med_dosage from med_age_group where id_age_group = ?))");
+            conditionsList.add("id IN (SELECT id_sales FROM sales_details WHERE id_med_dosage IN (SELECT id_med_dosage from med_age_group where id_age_group = ?))");
         }
 
         return conditionsList.toArray(new String[conditionsList.size()]);

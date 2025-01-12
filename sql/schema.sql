@@ -178,6 +178,9 @@ CREATE TABLE sales_details (
     FOREIGN KEY (id_med_dosage) REFERENCES medicines_dosages (id) 
 );
 
+ALTER TABLE sales_details
+ALTER COLUMN unit_price SET DATA TYPE DOUBLE PRECISION;
+
 SELECT m.name AS medicine, mfrm.name AS format, md.dose, mu.name AS unit
  FROM medicines AS m
  JOIN medicines_formats AS mf ON m.id = mf.med_id

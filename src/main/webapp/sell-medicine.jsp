@@ -19,7 +19,7 @@
         <h2 class="text-2xl font-bold mb-6">Medicine sale</h2>
 
         <div class="bg-white rounded-lg shadow-md p-6">
-            <form action="new-transaction" method="post">
+            <form action="sales" method="post">
 
                 <input type="hidden" name="transactionType" value="buy">
 

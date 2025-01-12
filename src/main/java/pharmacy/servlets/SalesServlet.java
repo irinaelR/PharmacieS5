@@ -43,10 +43,11 @@ public class SalesServlet extends HttpServlet {
             int id_client = Integer.valueOf(req.getParameter("id_client"));
 
             Sales sales = new Sales(date_sales,id_client);
-            req.setAttribute("sales", sales);
-            this.salesService.insert(sales);
+            sales = this.salesService.insert(sales);
 
-            resp.sendRedirect("sales-details?sales_id ="+sales.getId());
+            req.setAttribute("sales", sales);
+
+            resp.sendRedirect("sales-details?sales_id="+sales.getId());
 
         } catch (Exception e) {
             throw new ServletException(e);

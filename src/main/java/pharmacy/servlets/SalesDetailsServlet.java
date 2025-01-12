@@ -29,12 +29,15 @@ public class SalesDetailsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+            int id = Integer.valueOf(req.getParameter("sales_id"));
+            System.out.println(id);
 
-            Sales sales = this.salesService.findById(Integer.valueOf(req.getParameter("sales_id")));
-            System.out.println(sales.getId());
+            Sales sales = this.salesService.findById(id);
             req.setAttribute("sales", sales);
+
             List<MedicinesDosage> med_dosages = this.mds.getAll(null,null,null);
             req.setAttribute("med_dosages", med_dosages);
+
             List<String> names = new ArrayList<>();
             for (MedicinesDosage md : med_dosages) {
                 names.add(mds.getDisplayName(md));
@@ -61,14 +64,12 @@ public class SalesDetailsServlet extends HttpServlet {
 
             this.sds.insert(sd);
 
-            resp.sendRedirect("sales-list");
+            resp.sendRedirect("sales-details?sales_id=" + id_sales);
 
         } catch (Exception e) {
             throw new ServletException(e);
         }
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("sell-medicine.jsp");
-        dispatcher.forward(req, resp);
     }
 
     @Override
