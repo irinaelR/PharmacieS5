@@ -16,7 +16,7 @@
 <main class="ml-64 relative">
     <div class="container mx-auto">
         <div class="flex justify-between m-5">
-            <h2 class="text-2xl font-bold mb-6">Medicines</h2>
+            <h2 class="text-2xl font-bold mb-6">List medicines month</h2>
 
             <button id="filterButton" class="bg-white text-gray-600 font-bold py-2 px-4 rounded-lg flex items-center">
                 <i class="fas fa-filter mr-2"></i> Filter

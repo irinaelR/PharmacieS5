@@ -15,7 +15,7 @@
 
 <main class="ml-64 pt-5 flex">
     <div class="container mx-auto">
-        <h2 class="text-2xl font-bold mb-6">Insert product</h2>
+        <h2 class="text-2xl font-bold mb-6">Insert product month</h2>
 
         <div class="bg-white rounded-lg shadow-md p-6">
             <form action="new-illness" method="post">
