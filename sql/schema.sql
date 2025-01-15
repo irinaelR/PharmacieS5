@@ -181,10 +181,9 @@ CREATE TABLE sales_details (
 ALTER TABLE sales_details
 ALTER COLUMN unit_price SET DATA TYPE DOUBLE PRECISION;
 
-SELECT m.name AS medicine, mfrm.name AS format, md.dose, mu.name AS unit
- FROM medicines AS m
- JOIN medicines_formats AS mf ON m.id = mf.med_id
- JOIN med_form AS mfrm ON mf.form_id = mfrm.id
- JOIN medicines_dosages AS md ON mf.id = md.med_format_id
- JOIN measuring_units AS mu ON md.unit_id = mu.id
- ORDER BY m.name; 
+CREATE TABLE products_of_the_month (
+    id SERIAL PRIMARY KEY,
+    id_medicine INT,
+    date_validity DATE NOT NULL,
+    FOREIGN KEY(id_medicine) REFERENCES medicines(id)
+);

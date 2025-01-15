@@ -1,5 +1,7 @@
 package pharmacy.services;
 
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +23,7 @@ public class MedicineService extends Service {
         super();
         this.medicinesFormatService = new MedicinesFormatService();
     }
-    
+
     public Medicine insert(Medicine m) throws Exception {
         Object o = this.getQueryManager().insert(m, null);
         Medicine result = new Medicine();
@@ -41,7 +43,7 @@ public class MedicineService extends Service {
     }
 
     private void populateList(List<Medicine> medsList, List<Object> objList) {
-        for(Object o : objList) {
+        for (Object o : objList) {
             medsList.add((Medicine) o);
         }
     }
@@ -55,7 +57,8 @@ public class MedicineService extends Service {
         return results;
     }
 
-    public List<Medicine> getAll(String[] conditions, Object[] values, String[] afterWhere, int start, int nb) throws Exception {
+    public List<Medicine> getAll(String[] conditions, Object[] values, String[] afterWhere, int start, int nb)
+            throws Exception {
         List<Medicine> results = new ArrayList<>();
 
         List<Object> obj = this.getQueryManager().find(null, Medicine.class, conditions, values, afterWhere, start, nb);
@@ -80,10 +83,10 @@ public class MedicineService extends Service {
 
     public List<MedicinesFormat> getAllFormats(Medicine m) throws Exception {
         String[] conditions = new String[] {
-            "med_id = ?"
+                "med_id = ?"
         };
         Object[] values = new Object[] {
-          m.getId()  
+                m.getId()
         };
 
         return this.medicinesFormatService.getAll(conditions, values, null);
@@ -103,7 +106,8 @@ public class MedicineService extends Service {
         return results;
     }
 
-    public String[] filterConditions(String laboratory, String categ,String illness, String needsNotice, String constraintInclusion,String constraintExclusion, String minPriceStr, String maxPriceStr) {
+    public String[] filterConditions(String laboratory, String categ, String illness, String needsNotice,
+            String constraintInclusion, String constraintExclusion, String minPriceStr, String maxPriceStr, String yearMonth) {
         List<String> conditionsList = new ArrayList<>();
         if (laboratory != null && !laboratory.isBlank() && !laboratory.equals("-1")) {
             conditionsList.add("lab_id = ?");
@@ -130,11 +134,15 @@ public class MedicineService extends Service {
         if (maxPriceStr != null && !maxPriceStr.isBlank()) {
             conditionsList.add("id IN (SELECT id FROM v_all_prices WHERE price < ?)");
         }
+        if (yearMonth != null && !yearMonth.isBlank()) {
+            conditionsList.add("id IN (SELECT id_medicine FROM products_of_the_month WHERE EXTRACT(YEAR FROM date_validity) = ? AND EXTRACT(MONTH FROM date_validity) = ?)");
+        }
 
         return conditionsList.toArray(new String[conditionsList.size()]);
     }
 
-    public Object[] filterValues(String laboratory, String categ,String illness, String needsNotice, String constraintInclusion,String constraintExclusion, String minPriceStr, String maxPriceStr) {
+    public Object[] filterValues(String laboratory, String categ, String illness, String needsNotice,
+            String constraintInclusion, String constraintExclusion, String minPriceStr, String maxPriceStr, String yearMonth) {
         List<Object> valuesList = new ArrayList<>();
         if (laboratory != null && !laboratory.isBlank() && !laboratory.equals("-1")) {
             valuesList.add(Integer.valueOf(laboratory));
@@ -151,7 +159,7 @@ public class MedicineService extends Service {
         if (constraintExclusion != null && !constraintExclusion.isBlank() && !constraintExclusion.equals("-1")) {
             valuesList.add(Integer.valueOf(constraintExclusion));
         }
-        if(illness != null && !illness.isBlank() && !illness.equals("-1")) {
+        if (illness != null && !illness.isBlank() && !illness.equals("-1")) {
             valuesList.add(Integer.valueOf(illness));
         }
         if (minPriceStr != null && !minPriceStr.isBlank()) {
@@ -159,6 +167,20 @@ public class MedicineService extends Service {
         }
         if (maxPriceStr != null && !maxPriceStr.isBlank()) {
             valuesList.add(Double.valueOf(maxPriceStr));
+        }
+        if (yearMonth != null && !yearMonth.isBlank()) {
+            // Define the date-time formatter for the YYYY-MM pattern
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM"); 
+
+            // Parse the string to create a YearMonth object
+            YearMonth ym = YearMonth.parse(yearMonth, formatter); 
+
+            // Access year and month from the YearMonth object
+            int year = ym.getYear(); 
+            int month = ym.getMonthValue();
+            
+            valuesList.add(year);
+            valuesList.add(month);
         }
 
         return valuesList.toArray();

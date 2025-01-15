@@ -144,4 +144,22 @@
     <url-pattern>/stocks</url-pattern>
   </servlet-mapping>
 
+      <servlet>
+    <servlet-name>MonthProductListServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.MonthProductListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MonthProductListServlet</servlet-name>
+    <url-pattern>/list-product-month</url-pattern>
+  </servlet-mapping>
+
+      <servlet>
+    <servlet-name>ProductMonthServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.ProductMonthServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductMonthServlet</servlet-name>
+    <url-pattern>/insert-product-month</url-pattern>
+  </servlet-mapping>
+
 </web-app>

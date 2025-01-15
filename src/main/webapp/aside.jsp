@@ -33,6 +33,15 @@
                     <a href="new-laboratory" class="block p-3 hover:bg-gray-300">Insert laboratory</a>
                 </div>
             </div>
+            <div class="relative">
+                <button class="hover:bg-white hover:text-gray-900 dropdown-button flex items-center w-full p-2 rounded-t-xl font-semibold text-gray-500">
+                    <i class="fas fa-star mr-2"></i>Best products
+                </button>
+                <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
+                    <a href="list-product-month" class="block p-3 hover:bg-gray-300">Product list</a>
+                    <a href="insert-product-month" class="block p-3 hover:bg-gray-300">Insert product</a>
+                </div>
+            </div>
 
             <div class="relative">
                 <button class="hover:bg-white hover:text-gray-900 dropdown-button flex items-center w-full p-2 rounded-t-xl font-semibold text-gray-500">
@@ -40,7 +49,7 @@
                 </button>
                 <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
                     <a href="sales" class="block p-3 hover:bg-gray-300">Sell medicine</a>
-                    <a href="sales" class="block p-3 hover:bg-gray-300">List sales</a>
+                    <a href="sales-list" class="block p-3 hover:bg-gray-300">List sales</a>
                     <%-- <a href="buy" class="block p-3 hover:bg-gray-300">Restock medicine</a> --%>
                 </div>
             </div>             

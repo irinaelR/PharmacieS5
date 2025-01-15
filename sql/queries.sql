@@ -43,3 +43,11 @@ JOIN illness_treatments t2
 WHERE t1.med_id = 3
   AND t2.med_id != 3
 ORDER BY t2.efficiency DESC, t2.med_id;
+
+SELECT m.name AS medicine, mfrm.name AS format, md.dose, mu.name AS unit
+ FROM medicines AS m
+ JOIN medicines_formats AS mf ON m.id = mf.med_id
+ JOIN med_form AS mfrm ON mf.form_id = mfrm.id
+ JOIN medicines_dosages AS md ON mf.id = md.med_format_id
+ JOIN measuring_units AS mu ON md.unit_id = mu.id
+ ORDER BY m.name; 
