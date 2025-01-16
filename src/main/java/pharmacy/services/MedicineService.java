@@ -107,7 +107,7 @@ public class MedicineService extends Service {
     }
 
     public String[] filterConditions(String laboratory, String categ, String illness, String needsNotice,
-            String constraintInclusion, String constraintExclusion, String minPriceStr, String maxPriceStr, String yearMonth) {
+            String constraintInclusion, String constraintExclusion, String minPriceStr, String maxPriceStr, String yearMonth, String year) {
         List<String> conditionsList = new ArrayList<>();
         if (laboratory != null && !laboratory.isBlank() && !laboratory.equals("-1")) {
             conditionsList.add("lab_id = ?");
@@ -137,12 +137,15 @@ public class MedicineService extends Service {
         if (yearMonth != null && !yearMonth.isBlank()) {
             conditionsList.add("id IN (SELECT id_medicine FROM products_of_the_month WHERE EXTRACT(YEAR FROM date_validity) = ? AND EXTRACT(MONTH FROM date_validity) = ?)");
         }
+        if (year != null && !year.isBlank()) {
+            conditionsList.add("id IN (SELECT id_medicine FROM products_of_the_month WHERE EXTRACT(YEAR FROM date_validity) = ?)");
+        }
 
         return conditionsList.toArray(new String[conditionsList.size()]);
     }
 
     public Object[] filterValues(String laboratory, String categ, String illness, String needsNotice,
-            String constraintInclusion, String constraintExclusion, String minPriceStr, String maxPriceStr, String yearMonth) {
+            String constraintInclusion, String constraintExclusion, String minPriceStr, String maxPriceStr, String yearMonth, String yearVal) {
         List<Object> valuesList = new ArrayList<>();
         if (laboratory != null && !laboratory.isBlank() && !laboratory.equals("-1")) {
             valuesList.add(Integer.valueOf(laboratory));
@@ -181,6 +184,9 @@ public class MedicineService extends Service {
             
             valuesList.add(year);
             valuesList.add(month);
+        }
+        if (yearVal != null && !yearVal.isBlank()) {
+            valuesList.add(Integer.valueOf(yearVal));
         }
 
         return valuesList.toArray();
