@@ -83,6 +83,11 @@
                 <label for="month" class="block text-gray-700 font-bold mb-2">Month :</label>
                 <input type="month" id="month" name="month" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="">
             </div>
+            <div class="mb-4">
+                <label for="year" class="block text-gray-700 font-bold mb-2">Year :</label>
+                <input type="number" id="year" name="year" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="">
+            </div>
+
         </div>
         <div>
             <hr>
