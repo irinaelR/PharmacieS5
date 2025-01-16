@@ -58,8 +58,8 @@ public class MedicinesServlet extends HttpServlet {
             String minPriceStr = req.getParameter("minPrice");
             String maxPriceStr = req.getParameter("maxPrice");
 
-            String[] conditions = medicineService.filterConditions(laboratory, categ,illness, needsNotice, constraintInclusion,constraintExclusion, minPriceStr, maxPriceStr, null);
-            Object[] values = medicineService.filterValues(laboratory, categ,illness, needsNotice, constraintInclusion,constraintExclusion, minPriceStr, maxPriceStr, null);
+            String[] conditions = medicineService.filterConditions(laboratory, categ,illness, needsNotice, constraintInclusion,constraintExclusion, minPriceStr, maxPriceStr, null, null);
+            Object[] values = medicineService.filterValues(laboratory, categ,illness, needsNotice, constraintInclusion,constraintExclusion, minPriceStr, maxPriceStr, null, null);
 
             List<Medicine> medicines = medicineService.getAll(conditions, values, null);
             req.setAttribute("medicines", medicines);

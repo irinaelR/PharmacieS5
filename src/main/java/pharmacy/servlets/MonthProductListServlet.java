@@ -18,14 +18,16 @@ public class MonthProductListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String yearParam = req.getParameter("year");
         String monthParam = req.getParameter("month");
-        if (monthParam == null || monthParam.isBlank()) {
+        if ((monthParam == null || monthParam.isBlank()) && yearParam == null) {
             YearMonth ym = YearMonth.now();
             monthParam = ym.toString();
         } 
 
-        String[] conditions = medicineService.filterConditions(null, null, null, null, null, null, null, null, monthParam);
-        Object[] values = medicineService.filterValues(null, null, null, null, null, null, null, null, monthParam);
+
+        String[] conditions = medicineService.filterConditions(null, null, null, null, null, null, null, null, monthParam, yearParam);
+        Object[] values = medicineService.filterValues(null, null, null, null, null, null, null, null, monthParam, yearParam);
 
         try {
             List<Medicine> medicines = medicineService.getAll(conditions, values, null);
