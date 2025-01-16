@@ -99,7 +99,7 @@ INSERT INTO medicines (name, needs_notice, category_id, lab_id) VALUES
 ('Montelukast', false, 18, 21), -- Respiratory Medication/Anti-Allergic (Likely generic from India - Emcure)
 ('Clopidogrel', true, 16, 22), -- Antiplatelet (Likely generic from India - IPCA)
 ('Metoprolol', true, 8, 23), -- Beta Blocker (Likely generic from India - Unique Pharma)
-('Ondansetron', true, 21, 24), -- Antiemetic (Likely generic from India - Medreich)
+('Ondansetron', true, 21, 24); -- Antiemetic (Likely generic from India - Medreich)
 -- ('Loperamide', false, 22, 19), -- Anti-diarrheal, can be considered a type of laxative in reverse (Likely generic from India - Strides Pharma)
 -- ('Ranitidine', false, 23, 20), -- Antacid (though less commonly used now due to safety concerns; could be replaced with Famotidine) (Likely generic from India - Hetero Labs)
 -- ('Cyclobenzaprine', true, 24, 21), -- Muscle Relaxant (Likely generic from India - Emcure)
@@ -216,7 +216,7 @@ INSERT INTO medicines_formats (med_id, form_id) VALUES
 (20, 1), -- Metoprolol - Tablet
 (20, 6), -- Metoprolol - Injection
 (21, 6), -- Ondansetron - Injection
-(21, 1), -- Ondansetron - Tablet
+(21, 1); -- Ondansetron - Tablet
 -- (22, 2), -- Loperamide - Capsule
 -- (22, 1), -- Loperamide - Tablet
 -- (23, 1), -- Ranitidine - Tablet
@@ -296,49 +296,49 @@ INSERT INTO medicines_dosages (med_format_id, price, dose, unit_id) VALUES
 (32, 18000, 50, 1),  -- Metoprolol - Tablet
 (33, 54000, 5, 4),   -- Metoprolol - Injection
 (34, 36000, 4, 4),   -- Ondansetron - Injection
-(35, 27000, 8, 1),   -- Ondansetron - Tablet
-(36, 6750, 2, 1),    -- Loperamide - Capsule
-(37, 4500, 2, 1),    -- Loperamide - Tablet
-(38, 13500, 150, 1), -- Ranitidine - Tablet
-(39, 11250, 75, 4),  -- Ranitidine - Syrup
-(40, 22500, 10, 1),  -- Cyclobenzaprine - Tablet
-(41, 31500, 25, 1),  -- Quetiapine - Tablet
-(42, 18000, 0.5, 1), -- Alprazolam - Tablet
-(43, 27000, 5, 1),   -- Prednisone - Tablet
-(44, 40500, 5, 1),   -- Warfarin - Tablet
-(45, 54000, 100, 3), -- Salbutamol - Inhaler
-(46, 67500, 5, 4),   -- Salbutamol - Nebulizer
-(47, 13500, 10, 1),  -- Cetirizine - Tablet
-(48, 11250, 5, 4),   -- Cetirizine - Syrup
-(49, 22500, 40, 1),  -- Furosemide - Tablet
-(50, 36000, 10, 4),  -- Furosemide - Injection
-(51, 90000, 100, 8), -- Insulin glargine - Injection
-(52, 18000, 20, 1),  -- Fluoxetine - Tablet
-(53, 15750, 20, 4),  -- Fluoxetine - Syrup
-(54, 36000, 20, 7),  -- Ketoconazole - Cream
-(55, 45000, 200, 1), -- Ketoconazole - Tablet
-(56, 54000, 500, 1), -- Valacyclovir - Tablet
-(57, 22500, 50, 1),  -- Sertraline - Tablet
-(58, 13500, 1, 1),   -- Lorazepam - Tablet
-(59, 67500, 4, 4),   -- Lorazepam - Injection
-(60, 18000, 1, 1),   -- Bumetanide - Tablet
-(61, 45000, 0.5, 4), -- Bumetanide - Injection
-(62, 9000, 25, 1),   -- Chlorthalidone - Tablet
-(63, 13500, 5, 1),   -- Glipizide - Tablet
-(64, 81000, 100, 8), -- Insulin lispro - Injection
-(65, 67500, 50, 3),  -- Fluticasone - Inhaler
-(66, 54000, 50, 4),  -- Fluticasone - Nasal Spray
-(67, 45000, 10, 1),  -- Zafirlukast - Tablet
-(68, 9000, 10, 1),   -- Enalapril - Tablet
-(69, 18000, 80, 1),  -- Valsartan - Tablet
-(70, 81000, 12, 3),  -- Formoterol - Inhaler
-(71, 13500, 25, 1),  -- Amitriptyline - Tablet
-(72, 27000, 100000, 6), -- Nystatin - Cream
-(73, 22500, 100000, 4), -- Nystatin - Suspension
-(74, 36000, 200, 1), -- Acyclovir - Tablet
-(75, 31500, 5, 7),   -- Acyclovir - Cream
-(76, 13500, 10, 1),  -- Cetirizine - Tablet
-(77, 11250, 5, 4);   -- Cetirizine - Syrup
+(35, 27000, 8, 1);   -- Ondansetron - Tablet
+-- (36, 6750, 2, 1),    -- Loperamide - Capsule
+-- (37, 4500, 2, 1),    -- Loperamide - Tablet
+-- (38, 13500, 150, 1), -- Ranitidine - Tablet
+-- (39, 11250, 75, 4),  -- Ranitidine - Syrup
+-- (40, 22500, 10, 1),  -- Cyclobenzaprine - Tablet
+-- (41, 31500, 25, 1),  -- Quetiapine - Tablet
+-- (42, 18000, 0.5, 1), -- Alprazolam - Tablet
+-- (43, 27000, 5, 1),   -- Prednisone - Tablet
+-- (44, 40500, 5, 1),   -- Warfarin - Tablet
+-- (45, 54000, 100, 3), -- Salbutamol - Inhaler
+-- (46, 67500, 5, 4),   -- Salbutamol - Nebulizer
+-- (47, 13500, 10, 1),  -- Cetirizine - Tablet
+-- (48, 11250, 5, 4),   -- Cetirizine - Syrup
+-- (49, 22500, 40, 1),  -- Furosemide - Tablet
+-- (50, 36000, 10, 4),  -- Furosemide - Injection
+-- (51, 90000, 100, 8), -- Insulin glargine - Injection
+-- (52, 18000, 20, 1),  -- Fluoxetine - Tablet
+-- (53, 15750, 20, 4),  -- Fluoxetine - Syrup
+-- (54, 36000, 20, 7),  -- Ketoconazole - Cream
+-- (55, 45000, 200, 1), -- Ketoconazole - Tablet
+-- (56, 54000, 500, 1), -- Valacyclovir - Tablet
+-- (57, 22500, 50, 1),  -- Sertraline - Tablet
+-- (58, 13500, 1, 1),   -- Lorazepam - Tablet
+-- (59, 67500, 4, 4),   -- Lorazepam - Injection
+-- (60, 18000, 1, 1),   -- Bumetanide - Tablet
+-- (61, 45000, 0.5, 4), -- Bumetanide - Injection
+-- (62, 9000, 25, 1),   -- Chlorthalidone - Tablet
+-- (63, 13500, 5, 1),   -- Glipizide - Tablet
+-- (64, 81000, 100, 8), -- Insulin lispro - Injection
+-- (65, 67500, 50, 3),  -- Fluticasone - Inhaler
+-- (66, 54000, 50, 4),  -- Fluticasone - Nasal Spray
+-- (67, 45000, 10, 1),  -- Zafirlukast - Tablet
+-- (68, 9000, 10, 1),   -- Enalapril - Tablet
+-- (69, 18000, 80, 1),  -- Valsartan - Tablet
+-- (70, 81000, 12, 3),  -- Formoterol - Inhaler
+-- (71, 13500, 25, 1),  -- Amitriptyline - Tablet
+-- (72, 27000, 100000, 6), -- Nystatin - Cream
+-- (73, 22500, 100000, 4), -- Nystatin - Suspension
+-- (74, 36000, 200, 1), -- Acyclovir - Tablet
+-- (75, 31500, 5, 7),   -- Acyclovir - Cream
+-- (76, 13500, 10, 1),  -- Cetirizine - Tablet
+-- (77, 11250, 5, 4);   -- Cetirizine - Syrup
 
 -- medical_constraints Table data
 INSERT INTO medical_constraints (name) VALUES
@@ -436,72 +436,72 @@ INSERT INTO medicines_restrictions (med_id, constraint_id) VALUES
 (20, 5),  -- Asthma
 (20, 7),  -- Heart Failure (certain types)
 -- Ondansetron
-(21, 22), -- Hypersensitivity to Ondansetron
--- Loperamide
-(22, 18), -- G6PD Deficiency
--- Ranitidine (less common now due to interactions)
-(23, 22), -- Hypersensitivity to Ranitidine
--- Cyclobenzaprine
-(24, 22), -- Hypersensitivity to Cyclobenzaprine
--- Quetiapine
-(25, 22), -- Hypersensitivity to Quetiapine
--- Alprazolam
-(26, 22), -- Hypersensitivity to Alprazolam
--- Prednisone
-(27, 9), -- Diabetes
-(27, 8), -- High Blood Pressure (Uncontrolled)
-(27, 6), -- Peptic Ulcer
--- Warfarin
-(28, 16), -- Active Bleeding
-(28, 17), -- Blood Clotting Disorders
--- Salbutamol
-(29, 7), -- Heart Conditions (use with caution)
--- Cetirizine
-(30, 22), -- Hypersensitivity to Cetirizine
--- Furosemide
-(31, 4), -- Kidney Disease
--- Insulin glargine/lispro
-(32, 9), -- Diabetes (Requires careful monitoring)
-(32, 22), -- Hypersensitivity to Insulin
-(33, 22), -- Hypersensitivity to Fluoxetine
--- Ketoconazole
-(34, 3), -- Liver disease
--- Valacyclovir
-(35, 4), -- Kidney disease (dosage adjustment may be needed)
--- Sertraline
-(36, 22), -- Hypersensitivity to Sertraline
--- Lorazepam
-(37, 22), -- Hypersensitivity to Lorazepam
--- Bumetanide
-(38, 4), -- Kidney disease
--- Chlorthalidone
-(39, 9), -- Diabetes
-(39, 4), -- Kidney Disease
--- Glipizide
-(40, 9), -- Diabetes (Requires careful monitoring)
--- Insulin lispro
-(41, 9), -- Diabetes (Requires careful monitoring)
-(41, 22), -- Hypersensitivity to Insulin
--- Fluticasone
-(42, 22), -- Hypersensitivity to Fluticasone
--- Zafirlukast
-(43, 22), -- Hypersensitivity to Zafirlukast
--- Enalapril
-(44, 1), -- Pregnancy (especially second and third trimesters)
-(44, 4), -- Kidney Disease
--- Valsartan
-(45, 1), -- Pregnancy (especially second and third trimesters)
-(45, 4), -- Kidney Disease
--- Formoterol
-(46, 7), -- Heart Conditions (use with caution)
--- Amitriptyline
-(47, 7), -- Heart conditions
--- Nystatin
-(48, 22), -- Hypersensitivity to Nystatin
--- Acyclovir
-(49, 4), -- Kidney disease (dosage adjustment may be needed)
--- Cetirizine
-(50, 22); -- Hypersensitivity to Cetirizine
+(21, 22); -- Hypersensitivity to Ondansetron
+-- -- Loperamide
+-- (22, 18), -- G6PD Deficiency
+-- -- Ranitidine (less common now due to interactions)
+-- (23, 22), -- Hypersensitivity to Ranitidine
+-- -- Cyclobenzaprine
+-- (24, 22), -- Hypersensitivity to Cyclobenzaprine
+-- -- Quetiapine
+-- (25, 22), -- Hypersensitivity to Quetiapine
+-- -- Alprazolam
+-- (26, 22), -- Hypersensitivity to Alprazolam
+-- -- Prednisone
+-- (27, 9), -- Diabetes
+-- (27, 8), -- High Blood Pressure (Uncontrolled)
+-- (27, 6), -- Peptic Ulcer
+-- -- Warfarin
+-- (28, 16), -- Active Bleeding
+-- (28, 17), -- Blood Clotting Disorders
+-- -- Salbutamol
+-- (29, 7), -- Heart Conditions (use with caution)
+-- -- Cetirizine
+-- (30, 22), -- Hypersensitivity to Cetirizine
+-- -- Furosemide
+-- (31, 4), -- Kidney Disease
+-- -- Insulin glargine/lispro
+-- (32, 9), -- Diabetes (Requires careful monitoring)
+-- (32, 22), -- Hypersensitivity to Insulin
+-- (33, 22), -- Hypersensitivity to Fluoxetine
+-- -- Ketoconazole
+-- (34, 3), -- Liver disease
+-- -- Valacyclovir
+-- (35, 4), -- Kidney disease (dosage adjustment may be needed)
+-- -- Sertraline
+-- (36, 22), -- Hypersensitivity to Sertraline
+-- -- Lorazepam
+-- (37, 22), -- Hypersensitivity to Lorazepam
+-- -- Bumetanide
+-- (38, 4), -- Kidney disease
+-- -- Chlorthalidone
+-- (39, 9), -- Diabetes
+-- (39, 4), -- Kidney Disease
+-- -- Glipizide
+-- (40, 9), -- Diabetes (Requires careful monitoring)
+-- -- Insulin lispro
+-- (41, 9), -- Diabetes (Requires careful monitoring)
+-- (41, 22), -- Hypersensitivity to Insulin
+-- -- Fluticasone
+-- (42, 22), -- Hypersensitivity to Fluticasone
+-- -- Zafirlukast
+-- (43, 22), -- Hypersensitivity to Zafirlukast
+-- -- Enalapril
+-- (44, 1), -- Pregnancy (especially second and third trimesters)
+-- (44, 4), -- Kidney Disease
+-- -- Valsartan
+-- (45, 1), -- Pregnancy (especially second and third trimesters)
+-- (45, 4), -- Kidney Disease
+-- -- Formoterol
+-- (46, 7), -- Heart Conditions (use with caution)
+-- -- Amitriptyline
+-- (47, 7), -- Heart conditions
+-- -- Nystatin
+-- (48, 22), -- Hypersensitivity to Nystatin
+-- -- Acyclovir
+-- (49, 4), -- Kidney disease (dosage adjustment may be needed)
+-- -- Cetirizine
+-- (50, 22); -- Hypersensitivity to Cetirizine
 
 -- illnesses Table Data
 INSERT INTO illnesses (name, descri, is_chronic) VALUES
@@ -544,16 +544,16 @@ INSERT INTO illness_treatments (illness_id, med_id, efficiency) VALUES
 (3, 6, 8),   -- Doxycycline
 (3, 7, 9),   -- Azithromycin
 -- Fungal Infection
-(4, 34, 8),  -- Ketoconazole
-(4, 48, 9),  -- Nystatin
+-- (4, 34, 8),  -- Ketoconazole
+-- (4, 48, 9),  -- Nystatin
 -- High Blood Pressure (Hypertension)
 (5, 12, 9),  -- Losartan
 (5, 13, 8),  -- Hydrochlorothiazide
 (5, 14, 9),  -- Amlodipine
 (5, 16, 9),  -- Lisinopril
 (5, 20, 8),  -- Metoprolol
-(5, 44, 9),  -- Enalapril
-(5, 45, 9),  -- Valsartan
+-- (5, 44, 9),  -- Enalapril
+-- (5, 45, 9),  -- Valsartan
 -- High Cholesterol
 (6, 9, 9),   -- Atorvastatin
 (6, 11, 9),  -- Simvastatin
@@ -566,9 +566,9 @@ INSERT INTO illness_treatments (illness_id, med_id, efficiency) VALUES
 (9, 17, 9),  -- Levothyroxine
 -- Asthma
 (10, 18, 8), -- Montelukast (for maintenance)
-(10, 29, 9), -- Salbutamol (for acute attacks)
-(10, 42, 9), -- Fluticasone (for maintenance)
-(10, 46, 9), -- Formoterol (for maintenance)
+-- (10, 29, 9), -- Salbutamol (for acute attacks)
+-- (10, 42, 9), -- Fluticasone (for maintenance)
+-- (10, 46, 9), -- Formoterol (for maintenance)
 -- Allergies (general)
 (11, 30, 8), -- Cetirizine
 -- Pain (general)
@@ -579,33 +579,33 @@ INSERT INTO illness_treatments (illness_id, med_id, efficiency) VALUES
 -- Nausea and Vomiting
 (13, 21, 9), -- Ondansetron
 -- Diarrhea
-(14, 22, 8), -- Loperamide
+-- (14, 22, 8), -- Loperamide
 -- Muscle Spasms
-(15, 24, 8), -- Cyclobenzaprine
+-- (15, 24, 8), -- Cyclobenzaprine
 -- Psychosis
-(16, 25, 9), -- Quetiapine
+-- (16, 25, 9), -- Quetiapine
 -- Anxiety
-(17, 26, 8), -- Alprazolam
-(17, 36, 8), -- Sertraline
-(17, 37, 8), -- Lorazepam
+-- (17, 26, 8), -- Alprazolam
+-- (17, 36, 8), -- Sertraline
+-- (17, 37, 8), -- Lorazepam
 -- Inflammation
-(18, 27, 9), -- Prednisone
+-- (18, 27, 9), -- Prednisone
 -- Blood Clots
-(19, 28, 9), -- Warfarin
+-- (19, 28, 9), -- Warfarin
 (19, 19, 9), -- Clopidogrel
 -- Diabetes Type 2
 (20, 8, 9),   -- Metformin
-(20, 32, 9), -- Insulin glargine
-(20, 40, 8), -- Glipizide
-(20, 41, 9), -- Insulin lispro
+-- (20, 32, 9), -- Insulin glargine
+-- (20, 40, 8), -- Glipizide
+-- (20, 41, 9); -- Insulin lispro
 -- Herpes Infections
-(21, 35, 9), -- Valacyclovir
-(21, 49, 9), -- Acyclovir
+-- (21, 35, 9), -- Valacyclovir
+-- (21, 49, 9), -- Acyclovir
 -- Depression
-(22, 3, 7), -- Paracetamol (used as a pain reliever that can be used for headache caused by depression)
-(22, 33, 9), -- Fluoxetine (for treatment of depression)
-(22, 36, 9), -- Sertraline (for treatment of depression)
-(22, 47, 8); -- Amitriptyline (for treatment of depression)
+(22, 3, 7); -- Paracetamol (used as a pain reliever that can be used for headache caused by depression)
+-- (22, 33, 9), -- Fluoxetine (for treatment of depression)
+-- (22, 36, 9), -- Sertraline (for treatment of depression)
+-- (22, 47, 8); -- Amitriptyline (for treatment of depression)
 
 
 INSERT INTO age_group (name)
@@ -637,10 +637,10 @@ VALUES
     (7, 1),  -- Paracetamol - Syrup
     (8, 1),  -- Paracetamol - Suppository
     (10, 1), -- Amoxicillin - Suspension
-    (39, 1), -- Ranitidine - Syrup
-    (46, 1), -- Salbutamol - Nebulizer
-    (48, 1), -- Cetirizine - Syrup
-    (73, 1), -- Nystatin - Suspension
+    -- (39, 1), -- Ranitidine - Syrup
+    -- (46, 1), -- Salbutamol - Nebulizer
+    -- (48, 1), -- Cetirizine - Syrup
+    -- (73, 1), -- Nystatin - Suspension
 
     -- Adolescent medications
     (1, 2),  -- Aspirin - Tablet
@@ -650,7 +650,7 @@ VALUES
     (15, 2), -- Azithromycin - Tablet
     (25, 2), -- Gabapentin - Capsule
     (31, 2), -- Clopidogrel - Tablet
-    (40, 2), -- Cyclobenzaprine - Tablet
+    -- (40, 2), -- Cyclobenzaprine - Tablet
 
     -- Adult medications
     (4, 3),  -- Ibuprofen - Capsule
@@ -658,15 +658,15 @@ VALUES
     (17, 3), -- Metformin - Tablet
     (19, 3), -- Omeprazole - Capsule
     (24, 3), -- Amlodipine - Tablet
-    (38, 3), -- Ranitidine - Tablet
-    (43, 3), -- Prednisone - Tablet
-    (57, 3), -- Sertraline - Tablet
+    -- (38, 3), -- Ranitidine - Tablet
+    -- (43, 3), -- Prednisone - Tablet
+    -- (57, 3), -- Sertraline - Tablet
 
     -- Senior medications
     (22, 4), -- Losartan - Tablet
     (27, 4), -- Lisinopril - Tablet
-    (32, 4), -- Metoprolol - Tablet
-    (49, 4), -- Furosemide - Tablet
-    (60, 4), -- Bumetanide - Tablet
-    (69, 4), -- Valsartan - Tablet
-    (71, 4); -- Amitriptyline - Tablet
+    (32, 4); -- Metoprolol - Tablet
+    -- (49, 4), -- Furosemide - Tablet
+    -- (60, 4), -- Bumetanide - Tablet
+    -- (69, 4), -- Valsartan - Tablet
+    -- (71, 4); -- Amitriptyline - Tablet
