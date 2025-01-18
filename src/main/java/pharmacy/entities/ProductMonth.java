@@ -1,6 +1,6 @@
 package pharmacy.entities;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 import custom.orm.db.utils.annotations.*;
 
@@ -14,9 +14,9 @@ public class ProductMonth {
     int idMedicine;
 
     @Column(name = "date_validity")
-    LocalDate dateValidity;
+    Date dateValidity;
 
-    public ProductMonth(int idMedicine, LocalDate dateValidity) {
+    public ProductMonth(int idMedicine, Date dateValidity) {
         this.idMedicine = idMedicine;
         this.dateValidity = dateValidity;
     }
@@ -40,11 +40,11 @@ public class ProductMonth {
         this.idMedicine = idMedicine;
     }
 
-    public LocalDate getDateValidity() {
+    public Date getDateValidity() {
         return dateValidity;
     }
 
-    public void setDateValidity(LocalDate dateValidity) {
+    public void setDateValidity(Date dateValidity) {
         this.dateValidity = dateValidity;
     }
 }

@@ -162,4 +162,13 @@
     <url-pattern>/insert-product-month</url-pattern>
   </servlet-mapping>
 
+        <servlet>
+    <servlet-name>ClientServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.ClientServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClientServlet</servlet-name>
+    <url-pattern>/list-clients</url-pattern>
+  </servlet-mapping>
+
 </web-app>

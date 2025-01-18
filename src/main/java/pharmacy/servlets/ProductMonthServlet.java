@@ -1,6 +1,7 @@
 package pharmacy.servlets;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
@@ -43,7 +44,7 @@ public class ProductMonthServlet extends HttpServlet {
         YearMonth ym = YearMonth.parse(yearMonth, formatter); 
         LocalDate date = ym.atDay(1);
         
-        ProductMonth pm = new ProductMonth(Integer.valueOf(prod), date);
+        ProductMonth pm = new ProductMonth(Integer.valueOf(prod), Date.valueOf(date));
         try {
             productMonthService.insert(pm);
             resp.sendRedirect("insert-product-month");

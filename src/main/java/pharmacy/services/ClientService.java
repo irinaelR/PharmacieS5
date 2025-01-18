@@ -1,5 +1,6 @@
 package pharmacy.services;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,15 @@ public class ClientService extends Service{
         return results;
     }
 
+    public List<Client> getAll(String[] conditions, Object[] values, String[] afterWhere) throws Exception {
+        List<Client> results = new ArrayList<>();
+
+        List<Object> objectList = this.getQueryManager().find(null, Client.class, conditions, values, afterWhere);
+        populateList(results, objectList);
+
+        return results;
+    }
+
     public Client findById(int id) throws Exception {
         Client m = new Client();
         m.setId(id);
@@ -39,6 +49,25 @@ public class ClientService extends Service{
         }
 
         return m;
+    }
+
+    public String[] filterConditions(String dateAchat) {
+        List<String> conditions = new ArrayList<>();
+        if (dateAchat != null && !dateAchat.isBlank()) {
+            conditions.add("id IN (SELECT id_client FROM sales WHERE date_sales = ?)");
+        }
+
+        return conditions.toArray(new String[conditions.size()]);
+    }
+
+    public Object[] filterValues(String dateAchat) {
+        List<Object> values = new ArrayList<>();
+
+        if(dateAchat != null && !dateAchat.isBlank()) {
+            values.add(Date.valueOf(dateAchat));
+        }
+
+        return values.toArray();
     }
 }
     

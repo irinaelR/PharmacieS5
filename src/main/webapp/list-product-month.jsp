@@ -19,9 +19,12 @@
         <%
         
         String ymString = (String) request.getAttribute("ymString");
+        if(ymString == null || ymString.isBlank()) {
+            ymString = (String) request.getAttribute("year");
+        }
         
         %>
-            <h2 class="text-2xl font-bold mb-6">List medicines for <%= ymString %></h2>
+            <h2 class="text-2xl font-bold mb-6">List recommended products for <%= ymString %></h2>
 
             <button id="filterButton" class="bg-white text-gray-600 font-bold py-2 px-4 rounded-lg flex items-center">
                 <i class="fas fa-filter mr-2"></i> Filter
@@ -36,14 +39,17 @@
                         <th class="py-2 px-4">Lab</th>
                         <th class="py-2 px-4">Category</th>
                         <th class="py-2 px-4">Needs Notice</th>
-                        <%-- <th class="py-2 px-4">Actions</th> --%>
+                        <th class="py-2 px-4">Date</th>
                     </tr>
                 </thead>
                 <tbody>
                 <%
                 
                 List<Medicine> medicines = (List<Medicine>) request.getAttribute("medicines");
-                for(Medicine m : medicines) {
+                List<ProductMonth> pm = (List<ProductMonth>) request.getAttribute("months");
+                for(int i = 0; i < medicines.size(); i++) {
+                    Medicine m = medicines.get(i);
+                    ProductMonth mo = pm.get(i);
                     String checked = "";
                     if(m.getNeedsNotice()) {
                         checked = "checked";
@@ -57,12 +63,9 @@
                         <td class="py-2 px-4">
                             <input type="checkbox" disabled <%= checked %>>
                         </td>
-                        <%-- <td class="py-2 px-4 flex space-x-2">
-                            <div class="flex justify-between">
-                                <button onclick="event.stopPropagation(); window.location.href='medicines?action=del&medicineId=<%= m.getId() %>';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button>
-                                <button onclick="event.stopPropagation(); window.location.href='new-medicine?action=update&id=<%= m.getId() %>';" class="border-2 border-gray-400 hover:border-gray-500 hover:text-gray-500 text-xs w-full mt-2 text-gray-400 font-bold py-1.5 px-4 rounded-lg mr-2" type="button"><i class="fa-solid fa-pen-to-square mr-2"></i>Update</button>
-                            </div>
-                        </td> --%>
+                        <td class="py-2 px-4 flex space-x-2">
+                            <%= mo.getDateValidity() %>
+                        </td>
                     </tr>
                 <%
                 }

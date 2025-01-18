@@ -26,6 +26,9 @@ public class SalesDetailsServlet extends HttpServlet {
     SalesDetailsService sds;
     MedicineDosageService mds;
 
+    List<MedicinesDosage> medDosages = new ArrayList<>();
+    List<String> dosagesNames = new ArrayList<>();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
@@ -35,14 +38,17 @@ public class SalesDetailsServlet extends HttpServlet {
             Sales sales = this.salesService.findById(id);
             req.setAttribute("sales", sales);
 
-            List<MedicinesDosage> med_dosages = this.mds.getAll(null,null,null);
-            req.setAttribute("med_dosages", med_dosages);
-
-            List<String> names = new ArrayList<>();
-            for (MedicinesDosage md : med_dosages) {
-                names.add(mds.getDisplayName(md));
+            // List<MedicinesDosage> med_dosages = this.mds.getAll(null,null,null);
+            if (this.dosagesNames == null || this.dosagesNames.size() == 0 || this.medDosages == null || this.medDosages.size() == 0) {
+                this.initLists();   
             }
-            req.setAttribute("medsNames", names);
+            req.setAttribute("med_dosages", this.medDosages);
+
+            // List<String> names = new ArrayList<>();
+            // for (MedicinesDosage md : med_dosages) {
+            //     names.add(mds.getDisplayName(md));
+            // }
+            req.setAttribute("medsNames", this.dosagesNames);
             RequestDispatcher dispatcher = req.getRequestDispatcher("vente-details.jsp");
             dispatcher.forward(req, resp);
 
@@ -72,6 +78,13 @@ public class SalesDetailsServlet extends HttpServlet {
 
     }
 
+    public void initLists() throws Exception {
+        this.medDosages = this.mds.getAll(null,null,null);
+        for (MedicinesDosage md : medDosages) {
+            dosagesNames.add(mds.getDisplayName(md));
+        }
+    }
+
     @Override
     public void init() throws ServletException {
         super.init();
@@ -80,6 +93,8 @@ public class SalesDetailsServlet extends HttpServlet {
             this.sds = new SalesDetailsService();
             this.salesService = new SalesService();
             this.clientService = new ClientService();
+
+            this.initLists();
         } catch (Exception e) {
             throw new ServletException(e);
         }

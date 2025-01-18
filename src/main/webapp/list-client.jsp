@@ -16,7 +16,7 @@
 <main class="ml-64 relative">
     <div class="container mx-auto">
         <div class="flex justify-between m-5">
-            <h2 class="text-2xl font-bold mb-6">CLients: </h2>
+            <h2 class="text-2xl font-bold mb-6">Clients: </h2>
 
             <button id="filterButton" class="bg-white text-gray-600 font-bold py-2 px-4 rounded-lg flex items-center">
                 <i class="fas fa-filter mr-2"></i> Filter
@@ -33,12 +33,16 @@
                 <tbody>
                 <%
                 
-     
+                List<Client> clients = (List<Client>) request.getAttribute("clients");
+                for(Client c : clients) {
+
                 
                 %>
                     <tr class="border-b border-gray-200 cursor-pointer">
+                        <td><%= c.getName() %></td>
                     </tr>
                 <%
+                }
                 %>
                 </tbody>
             </table>
@@ -50,11 +54,11 @@
 <div id="filterSidebar" class="w-80 h-screen bg-white shadow-lg z-100 p-6" style="position: fixed; top: 0; right: 0; transform: translateX(100%); z-index: 200; display: flex; flex-direction: column; justify-content: space-between;">
     <!-- <h3 class="text-lg font-bold mb-4">Filters</h3> -->
     <!-- <hr> -->
-    <form action="medicines" method="get" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+    <form action="list-clients" method="get" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
         <div>
             <div class="mb-4">
                 <label for="dateCLient" class="block text-gray-700 font-bold mb-2">Date :</label>
-                <input type="date" id="dateCLient" name="dateCLient" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="date" id="dateClient" name="dateClient" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
 
             <!-- <div class="mb-4">

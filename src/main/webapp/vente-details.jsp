@@ -60,13 +60,13 @@
                         Ok
                     </button>
 
-                    <a href="sales-list">
-                        <button id="finish_button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            Finish
-                        </button>
-                    </a>
                 </div>
             </form>
+            <a href="sales-list">
+                <button id="finish_button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Finish
+                </button>
+            </a>
         </div>
 
     </div>
