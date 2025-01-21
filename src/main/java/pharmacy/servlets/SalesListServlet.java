@@ -31,8 +31,8 @@ public class SalesListServlet extends HttpServlet {
             String form_med_id = req.getParameter("form_med_id");
             String age_categ_id = req.getParameter("age_categ_id");
 
-            String[] conditions = ss.filterConditions(form_med_id,age_categ_id);
-            Object[] values = ss.filterValues(form_med_id,age_categ_id);
+            String[] conditions = ss.filterConditions(form_med_id,age_categ_id, null, null, null);
+            Object[] values = ss.filterValues(form_med_id,age_categ_id, null, null, null);
 
             List<Sales> sales = ss.getAll(conditions, values, null);
             req.setAttribute("sales", sales);

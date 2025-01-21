@@ -671,7 +671,7 @@ VALUES
     (69, 4), -- Valsartan - Tablet
     (71, 4); -- Amitriptyline - Tablet
 
-INSERT INTO employee (emp_name) VALUES 
+INSERT INTO employees (emp_name) VALUES 
 ('John Doe'),
 ('Jane Doe'),
 ('Alice Smith'),

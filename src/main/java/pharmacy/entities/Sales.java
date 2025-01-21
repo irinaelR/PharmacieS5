@@ -20,6 +20,11 @@ public class Sales {
     @Column(name = "id_client")
     private int clientId;
 
+    private double commission = 5;
+
+    @Column(name = "employee_id")
+    private int empId;
+
     @NotMapped
     private Client client; // Client object not mapped to the database
 
@@ -56,6 +61,22 @@ public class Sales {
         return clientId;
     }
 
+    public double getCommission() {
+        return commission;
+    }
+
+    public void setCommission(double commission) {
+        this.commission = commission;
+    }
+
+    public int getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(int empId) {
+        this.empId = empId;
+    }
+
     public void setClientId(int clientId) throws Exception {
         this.clientId = clientId;
         ClientService cs = new ClientService();
@@ -75,7 +96,7 @@ public class Sales {
     }
 
     public void setDetails(List<SalesDetails> details) throws Exception {
-        if(details == null) {
+        if (details == null) {
             SalesDetailsService sts = new SalesDetailsService();
             details = sts.getAll(this);
         }

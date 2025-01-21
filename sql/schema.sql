@@ -180,6 +180,9 @@ ALTER TABLE sales
 ADD CONSTRAINT employee_id_fk
 FOREIGN KEY(employee_id) REFERENCES employees(id);
 
+ALTER TABLE sales
+ADD COLUMN commission DOUBLE PRECISION DEFAULT 5;
+
 -- Création de la table sales_details
 CREATE TABLE sales_details (
     id SERIAL PRIMARY KEY,

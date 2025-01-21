@@ -171,4 +171,13 @@
     <url-pattern>/list-clients</url-pattern>
   </servlet-mapping>
 
+          <servlet>
+    <servlet-name>CommissionsServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.CommissionsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommissionsServlet</servlet-name>
+    <url-pattern>/commission</url-pattern>
+  </servlet-mapping>
+
 </web-app>

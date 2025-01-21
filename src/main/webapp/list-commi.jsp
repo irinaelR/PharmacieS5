@@ -1,4 +1,4 @@
-<%@ page import="java.util.List, pharmacy.entities.*" %>
+<%@ page import="java.util.Map, java.util.Map.Entry, pharmacy.entities.*" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
 <main class="ml-64 relative">
     <div class="container mx-auto">
         <div class="flex justify-between m-5">
-            <h2 class="text-2xl font-bold mb-6">List of commission between ...</h2>
+            <h2 class="text-2xl font-bold mb-6">List of commissions</h2>
 
             <button id="filterButton" class="bg-white text-gray-600 font-bold py-2 px-4 rounded-lg flex items-center">
                 <i class="fas fa-filter mr-2"></i> Filter
@@ -34,13 +34,16 @@
                 <tbody>
                 <%
                 
+                Map<Employee, Double> commissions = (Map<Employee, Double>) request.getAttribute("commissions");
+                for(Map.Entry<Employee, Double> entry : commissions.entrySet()) {
                 
                 %>
                     <tr class="border-b border-gray-200 cursor-pointer">
-                        <td class="py-2 px-4"></td>
-                        <td class="py-2 px-4"></td>
+                        <td class="py-2 px-4"><%= entry.getKey().getName() %></td>
+                        <td class="py-2 px-4"><%= entry.getValue() %></td>
                     </tr>
                 <%
+                }
                 %>
                 </tbody>
             </table>

@@ -52,17 +52,25 @@
                     <select id="employee" name="employee" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         <%
 
+                        List<Employee> emps = (List<Employee>) request.getAttribute("employees");
+                        for(Employee emp : emps) {
+                            String selected = "";
     
                         %>
 
-                        <option value="" ></option>
+                        <option value="<%= emp.getId() %>" ><%= emp.getName() %></option>
 
                         <% 
                         
-                        
+                        }
                         
                         %>
                     </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="commission" class="block text-gray-700 font-bold mb-2">Commission :</label>
+                    <input type="number" id="commission" name="commission" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="">
                 </div>
 
                 <div class="flex items-center justify-between">
