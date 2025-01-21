@@ -159,6 +159,11 @@ CREATE TABLE med_age_group (
     FOREIGN KEY (id_age_group) REFERENCES age_group (id)
 );
 
+CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    emp_name VARCHAR(255) NOT NULL
+);
+
 -- Création de la table sales
 CREATE TABLE sales (
     id SERIAL PRIMARY KEY,
@@ -166,6 +171,13 @@ CREATE TABLE sales (
     id_client INT,
     FOREIGN KEY (id_client) REFERENCES pharmacy_client (id)
 );
+
+ALTER TABLE sales
+ADD COLUMN employee_id INT;
+
+ALTER TABLE sales
+ADD CONSTRAINT employee_id_fk
+FOREIGN KEY(employee_id) REFERENCES employees(id);
 
 -- Création de la table sales_details
 CREATE TABLE sales_details (
