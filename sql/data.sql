@@ -670,3 +670,10 @@ VALUES
     (60, 4), -- Bumetanide - Tablet
     (69, 4), -- Valsartan - Tablet
     (71, 4); -- Amitriptyline - Tablet
+
+INSERT INTO employee (emp_name) VALUES 
+('John Doe'),
+('Jane Doe'),
+('Alice Smith'),
+('Bob Smith'),
+('Charlie Brown');

@@ -164,6 +164,7 @@ CREATE TABLE employees (
     emp_name VARCHAR(255) NOT NULL
 );
 
+
 -- Création de la table sales
 CREATE TABLE sales (
     id SERIAL PRIMARY KEY,
