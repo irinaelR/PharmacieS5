@@ -39,3 +39,26 @@ overlay.addEventListener('click', () => {
     }, 300); 
     filterSidebar.style.transform = 'translateX(100%)'; 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const labels = document.querySelectorAll('label');
+
+    labels.forEach(label => {
+        label.addEventListener('click', (event) => {
+            const inputId = label.getAttribute('for');
+            const inputElement = document.getElementById(inputId);
+
+            if (inputElement) {
+                if (inputElement.style.display === 'none' || inputElement.style.display === '') {
+                    inputElement.style.display = 'block';
+                } else {
+                    inputElement.style.display = 'none';
+                }
+            }
+            event.stopPropagation(); 
+        });
+    });
+});
+
+
+

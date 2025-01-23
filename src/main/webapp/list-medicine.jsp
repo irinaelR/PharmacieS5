@@ -67,16 +67,18 @@
             
         </div>
     </div>
-    
+
 </main>
-<div id="filterSidebar" class="w-80 h-screen bg-white shadow-lg z-100 p-6" style="position: fixed; top: 0; right: 0; transform: translateX(100%); z-index: 200; display: flex; flex-direction: column; justify-content: space-between;">
-    <!-- <h3 class="text-lg font-bold mb-4">Filters</h3> -->
-    <!-- <hr> -->
-    <form action="medicines" method="get" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
+<div id="filterSidebar" class="w-80 h-screen bg-white overflow-y-scroll shadow-lg z-100 p-6" style="position: fixed; top: 0; right: 0; transform: translateX(100%); z-index: 200; display: flex; flex-direction: column; justify-content: space-between;">
+    <div style="position: fixed; top:10px; width: 100%; height: 50px" class="bg-white">
+        <h3 class="text-lg font-bold mb-4">Filters</h3>
+    </div>
+    <hr>
+    <form action="medicines" method="get" class="w-full" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="overflow-y: scroll; height: 500px; margin-top: 56px;">
             <div class="mb-4">
                 <label for="laboratory" class="block text-gray-700 font-bold mb-2">Lab :</label>
-                <select id="laboratory" name="laboratory" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <select id="laboratory" name="laboratory"  class="inputs shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="-1">None</option>
                     <%
                     
@@ -168,18 +170,17 @@
                     %>
                 </select>
             </div>
-            <!-- <div class="mb-4">
+            <div class="mb-4">
                 <label for="minPrice" class="block text-gray-700 font-bold mb-2">Min Price :</label>
                 <input type="number" id="minPrice" name="minPrice" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
             <div class="mb-4">
                 <label for="maxPrice" class="block text-gray-700 font-bold mb-2">Max Price :</label>
                 <input type="number" id="maxPrice" name="maxPrice" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            </div> -->
+            </div>
         </div>
-        <div>
-            <hr>
-            <button type="submit" class="bg-transparent hover:text-blue-950 text-blue-500 font-bold py-2 px-4">Done</button>
+        <div class="bg-white p-6" style="width: 100%;height: 100px;position: fixed; bottom:0; left:0">
+            <button type="submit" class=" text-white rounded-lg w-auto h-auto bg-blue-500 font-bold py-2 px-4">Done</button>
         </div>
     </form>
 </div>
