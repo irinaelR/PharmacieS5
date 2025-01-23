@@ -159,26 +159,27 @@ CREATE TABLE med_age_group (
     FOREIGN KEY (id_age_group) REFERENCES age_group (id)
 );
 
-CREATE TABLE employees (
+CREATE TABLE genders (
     id SERIAL PRIMARY KEY,
-    emp_name VARCHAR(255) NOT NULL
+    name VARCHAR(20)
 );
 
+CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    emp_name VARCHAR(255) NOT NULL,
+    gender_id INT,
+    FOREIGN KEY(gender_id) REFERENCES genders(id)
+);
 
 -- Création de la table sales
 CREATE TABLE sales (
     id SERIAL PRIMARY KEY,
     date_sales DATE NOT NULL,
     id_client INT,
+    employee_id INT,
+    FOREIGN KEY(employee_id) REFERENCES employees(id),
     FOREIGN KEY (id_client) REFERENCES pharmacy_client (id)
 );
-
-ALTER TABLE sales
-ADD COLUMN employee_id INT;
-
-ALTER TABLE sales
-ADD CONSTRAINT employee_id_fk
-FOREIGN KEY(employee_id) REFERENCES employees(id);
 
 ALTER TABLE sales
 ADD COLUMN commission DOUBLE PRECISION DEFAULT 5;
