@@ -671,9 +671,12 @@ VALUES
     (69, 4), -- Valsartan - Tablet
     (71, 4); -- Amitriptyline - Tablet
 
--- INSERT INTO employees (emp_name) VALUES 
--- ('John Doe'),
--- ('Jane Doe'),
--- ('Alice Smith'),
--- ('Bob Smith'),
--- ('Charlie Brown');
+INSERT INTO gender (name) values
+('Male'),
+('Female');
+
+INSERT INTO employees (emp_name, gender_id) values
+('John Doe', 1),
+('Jane Smith', 2),
+('Jack Carter', 1),
+('Jill Brown', 2);    

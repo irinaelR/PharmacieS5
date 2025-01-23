@@ -164,6 +164,7 @@ CREATE TABLE genders (
     name VARCHAR(20)
 );
 
+
 CREATE TABLE employees (
     id SERIAL PRIMARY KEY,
     emp_name VARCHAR(255) NOT NULL,
