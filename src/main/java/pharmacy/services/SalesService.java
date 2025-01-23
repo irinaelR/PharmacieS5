@@ -7,6 +7,8 @@ import pharmacy.entities.Sales;
 import pharmacy.entities.SalesDetails;
 
 public class SalesService extends Service {
+    
+    private static double MIN_SALE_FOR_COMM = 200000;
 
     public SalesService() throws Exception {
         super();
@@ -106,7 +108,7 @@ public class SalesService extends Service {
     public double getTotalCommission(Sales s) {
         List<SalesDetails> details = s.getDetails();
         double totalValue = getTotalSale(details);
-        return totalValue * s.getCommission() / 100;
+        return (totalValue >= MIN_SALE_FOR_COMM) ? totalValue * s.getCommission() / 100 : 0;
     }
 
 }

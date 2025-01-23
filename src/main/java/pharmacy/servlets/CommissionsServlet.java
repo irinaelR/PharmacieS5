@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import pharmacy.entities.Employee;
+import pharmacy.entities.Gender;
 import pharmacy.services.EmployeeService;
 
 public class CommissionsServlet extends HttpServlet {
@@ -21,8 +22,10 @@ public class CommissionsServlet extends HttpServlet {
         try {
             String dateMin = req.getParameter("minDate");
             String dateMax = req.getParameter("maxDate");
-            Map<Employee, Double> commissions = employeeService.getCommissionsPerEmp(dateMin, dateMax);
+            Map<Employee, Double[]> commissions = employeeService.getCommissionsPerEmp(dateMin, dateMax);
             req.setAttribute("commissions", commissions);
+            Map<Gender, Double[]> genderedComs = employeeService.getCommissionsPerGender(dateMin, dateMax);
+            req.setAttribute("genderedComs", genderedComs);
         } catch (Exception e) {
             throw new ServletException(e);
         }

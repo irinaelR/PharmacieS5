@@ -48,12 +48,12 @@ public class SalesServlet extends HttpServlet {
 
             int id_client = Integer.valueOf(req.getParameter("id_client"));
 
-            double commission = Double.valueOf(req.getParameter("commission"));
+            // double commission = Double.valueOf(req.getParameter("commission"));
 
             int idEmp = Integer.valueOf(req.getParameter("employee"));
 
             Sales sales = new Sales(date_sales,id_client);
-            sales.setCommission(commission);
+            sales.setCommission(5);
             sales.setEmpId(idEmp);
 
             sales = this.salesService.insert(sales);

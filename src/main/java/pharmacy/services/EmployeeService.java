@@ -10,10 +10,12 @@ import pharmacy.entities.*;
 public class EmployeeService extends Service {
 
     private SalesService salesService;
+    private GenderService genderService;
 
     public EmployeeService() throws Exception {
         super();
         this.salesService = new SalesService();
+        this.genderService = new GenderService();
     }
 
     public Employee findById(int id) throws Exception {
@@ -52,13 +54,47 @@ public class EmployeeService extends Service {
         return total;
     }
 
-    public Map<Employee, Double> getCommissionsPerEmp(String dateMin, String dateMax) throws Exception {
-        Map<Employee, Double> results = new HashMap<>();
+    public Map<Employee, Double[]> getCommissionsPerEmp(String dateMin, String dateMax) throws Exception {
+        Map<Employee, Double[]> results = new HashMap<>();
 
         List<Employee> emps = getAll(null, null, null);
         for (Employee employee : emps) {
             double com = getTotalCommissions(employee.getId() + "", dateMin, dateMax);
-            results.put(employee, com);
+            double total = getTotal(employee.getId() + "", dateMin, dateMax);
+            results.put(employee, new Double[] { total, com });
+        }
+
+        return results;
+    }
+
+    public double getTotal(String empId, String dateMin, String dateMax) throws Exception {
+        List<Sales> sales = getEmpSales(empId, dateMin, dateMax);
+        double total = 0;
+        for (Sales s : sales) {
+            total += salesService.getTotalSale(s.getDetails());
+        }
+        return total;
+    }
+
+    public Map<Gender, Double[]> getCommissionsPerGender(String dateMin, String dateMax) throws Exception {
+        List<Gender> genders = genderService.getAll();
+        String[] conditions = new String[] { "gender_id = ?" };
+        Object[] values = new Object[1];
+
+        Map<Gender, Double[]> results = new HashMap<>();
+
+        for (Gender gender : genders) {
+            values[0] = gender.getId();
+            List<Employee> employees = getAll(conditions, values, null);
+
+            double total = 0;
+            double commission = 0;
+            for (Employee e : employees) {
+                commission += getTotalCommissions(e.getId() + "", dateMin, dateMax);
+                total += getTotal(e.getId() + "", dateMin, dateMax);
+            }
+
+            results.put(gender, new Double[] { total, commission });
         }
 
         return results;

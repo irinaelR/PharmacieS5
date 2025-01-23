@@ -616,17 +616,17 @@ VALUES
     ('Seniors (60+ years)');
 
 
--- INSERT INTO pharmacy_client (name) VALUES
--- ('Dupont, Jean'),
--- ('Martin, Marie'),
--- ('Leroy, Pierre'),
--- ('Durand, Sophie'),
--- ('Petit, François'),
--- ('Martin, Julie'),
--- ('Bernard, Thomas'),
--- ('Moreau, Alice'),
--- ('Dumont, David'),
--- ('Richard, Céline');
+INSERT INTO pharmacy_client (name) VALUES
+('Dupont, Jean'),
+('Martin, Marie'),
+('Leroy, Pierre'),
+('Durand, Sophie'),
+('Petit, François'),
+('Martin, Julie'),
+('Bernard, Thomas'),
+('Moreau, Alice'),
+('Dumont, David'),
+('Richard, Céline');
 
 -- Insert data into med_age_group
 INSERT INTO med_age_group (id_med_dosage, id_age_group)
@@ -671,7 +671,7 @@ VALUES
     (69, 4), -- Valsartan - Tablet
     (71, 4); -- Amitriptyline - Tablet
 
-INSERT INTO gender (name) values
+INSERT INTO genders (name) values
 ('Male'),
 ('Female');
 

@@ -35,14 +35,14 @@
                 <tbody>
                 <%
                 
-                Map<Employee, Double> commissions = (Map<Employee, Double>) request.getAttribute("commissions");
-                for(Map.Entry<Employee, Double> entry : commissions.entrySet()) {
+                Map<Employee, Double[]> commissions = (Map<Employee, Double[]>) request.getAttribute("commissions");
+                for(Map.Entry<Employee, Double[]> entry : commissions.entrySet()) {
                 
                 %>
                     <tr class="border-b border-gray-200 cursor-pointer">
                         <td class="py-2 px-4"><%= entry.getKey().getName() %></td>
-                        <td class="py-2 px-4">0</td>
-                        <td class="py-2 px-4"><%= entry.getValue() %></td>
+                        <td class="py-2 px-4"><%= entry.getValue()[0] %></td>
+                        <td class="py-2 px-4"><%= entry.getValue()[1] %></td>
                     </tr>
                 <%
                 }
@@ -51,28 +51,34 @@
             </table>
         </div>
         <div class="flex justify-between m-5">
-            <h2 class="text-2xl font-bold mb-6">Per genre</h2>
+            <h2 class="text-2xl font-bold mb-6">Per gender</h2>
         </diV>
             <div class="container mx-auto bg-white p-10 rounded-lg shadow-lg" style="margin-bottom: 56px;">
             <table class="table-auto w-full">
                 <thead>
                     <tr class="text-left font-semibold text-gray-600 uppercase">
-                        <th class="py-2 px-4">Genre</th>
+                        <th class="py-2 px-4">Gender</th>
                         <th class="py-2 px-4">Total sale</th>
                         <th class="py-2 px-4">Total commission</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border-b border-gray-200 cursor-pointer">
-                        <td class="py-2 px-4">Female</td>
-                        <td class="py-2 px-4">0</td>
-                        <td class="py-2 px-4">0</td>
-                    </tr>
-                    <tr class="border-b border-gray-200 cursor-pointer">
-                        <td class="py-2 px-4">Male</td>
-                        <td class="py-2 px-4">0</td>
-                        <td class="py-2 px-4">0</td>
-                    </tr>
+                    <%
+                
+                    Map<Gender, Double[]> genderedComs = (Map<Gender, Double[]>) request.getAttribute("genderedComs");
+                    for(Map.Entry<Gender, Double[]> entry : genderedComs.entrySet()) {
+                    
+                    %>
+                        <tr class="border-b border-gray-200 cursor-pointer">
+                            <td class="py-2 px-4"><%= entry.getKey().getName() %></td>
+                            <td class="py-2 px-4"><%= entry.getValue()[0] %></td>
+                            <td class="py-2 px-4"><%= entry.getValue()[1] %></td>
+                        </tr>
+                    <%
+
+                    }
+
+                    %>
                 </tbody>
             </table>
         </div>
