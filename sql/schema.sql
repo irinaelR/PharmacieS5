@@ -205,3 +205,11 @@ CREATE TABLE products_of_the_month (
     date_validity DATE NOT NULL,
     FOREIGN KEY(id_medicine) REFERENCES medicines(id)
 );
+
+CREATE TABLE histo_price_med (
+    id SERIAL PRIMARY KEY,
+    med_dosage_id INT NOT NULL,
+    date_start DATE NOT NULL,
+    price DOUBLE PRECISION NOT NULL,
+    FOREIGN KEY(med_dosage_id) REFERENCES medicines_dosages(id)
+);
