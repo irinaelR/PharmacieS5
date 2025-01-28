@@ -680,3 +680,11 @@ INSERT INTO employees (emp_name, gender_id) values
 ('Jane Smith', 2),
 ('Jack Carter', 1),
 ('Jill Brown', 2);    
+
+
+INSERT INTO histo_price_med (med_dosage_id, price, date_start) values 
+(1,2250,'2024-12-12'),
+(2,36000,'2024-12-12'),
+(3,4500,'2024-12-12'),
+(4,6750,'2024-12-12'),
+(5,18000,'2024-12-12');

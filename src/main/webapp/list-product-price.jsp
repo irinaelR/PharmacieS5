@@ -67,7 +67,7 @@
 <div id="filterSidebar" class="w-80 h-screen bg-white shadow-lg z-100 p-6" style="position: fixed; top: 0; right: 0; transform: translateX(100%); z-index: 200; display: flex; flex-direction: column; justify-content: space-between;">
     <!-- <h3 class="text-lg font-bold mb-4">Filters</h3> -->
     <!-- <hr> -->
-    <form action="pricing" method="get" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+    <form action="histo-price" method="get" id="filterForm" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
         <div>
             <div class="mb-4">
                 <label for="medicine" class="block text-gray-700 font-bold mb-2">Medicine :</label>
