@@ -64,7 +64,18 @@
                     <%-- <a href="sales-list" class="block p-3 hover:bg-gray-300">List sales</a> --%>
                     <%-- <a href="buy" class="block p-3 hover:bg-gray-300">Restock medicine</a> --%>
                 </div>
-            </div>           
+            </div>          
+            
+            <div class="relative">
+                <button class="hover:bg-white hover:text-gray-900 dropdown-button flex items-center w-full p-2 rounded-t-xl font-semibold text-gray-500">
+                    <i class="fas fa-coin mr-2"></i>Pricing
+                </button>
+                <div class="dropdown absolute hidden w-full bg-white rounded-b-lg shadow-lg z-10">
+                    <a href="list-pricing" class="block p-3 hover:bg-gray-300">List price product</a>
+                    <a href="insert-pricing" class="block p-3 hover:bg-gray-300">New pricing</a>
+
+                </div>
+            </div>  
         </nav>
 
     </aside>
