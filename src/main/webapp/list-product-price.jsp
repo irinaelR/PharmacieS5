@@ -74,6 +74,24 @@
                 <select id="medicine" name="medicine" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 <option value="-1">None</option>
 
+                <%
+                        
+                        List<MedicinesDosage> medDosages = (List<MedicinesDosage>) request.getAttribute("medDosage");
+                            for(MedicinesDosage medDosage: medDosages) 
+                            {
+         
+                           
+    
+                        %>
+
+                        <option value="<%= medDosage.getId() %>"><%= medDosage.getDisplayName() %></option>
+
+                        <% 
+                    }
+
+                        
+                        %>
+
                 </select>
             </div> 
             <div class="mb-4">

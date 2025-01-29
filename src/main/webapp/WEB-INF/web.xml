@@ -180,4 +180,22 @@
     <url-pattern>/commission</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>HistoPriceListServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.HistoPriceListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HistoPriceListServlet</servlet-name>
+    <url-pattern>/histo-price</url-pattern>
+  </servlet-mapping>
+
+    <servlet>
+    <servlet-name>HistoPriceServlet</servlet-name>
+    <servlet-class>pharmacy.servlets.HistoPriceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HistoPriceServlet</servlet-name>
+    <url-pattern>/pricing</url-pattern>
+  </servlet-mapping>
+
 </web-app>

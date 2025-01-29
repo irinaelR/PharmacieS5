@@ -51,3 +51,23 @@ SELECT m.name AS medicine, mfrm.name AS format, md.dose, mu.name AS unit
  JOIN medicines_dosages AS md ON mf.id = md.med_format_id
  JOIN measuring_units AS mu ON md.unit_id = mu.id
  ORDER BY m.name; 
+
+ -- Step 1: Create the trigger function
+CREATE OR REPLACE FUNCTION update_medicines_dosages_price()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Update the price in medicines_dosages table
+    UPDATE medicines_dosages
+    SET price = NEW.price
+    WHERE id = NEW.med_dosage_id;
+
+    -- Return the newly inserted row
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Step 2: Create the trigger
+CREATE TRIGGER update_price_after_insert
+AFTER INSERT ON histo_price_med
+FOR EACH ROW
+EXECUTE FUNCTION update_medicines_dosages_price();

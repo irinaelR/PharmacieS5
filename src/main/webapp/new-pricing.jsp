@@ -11,7 +11,7 @@
     <title>New vente</title>
 </head>
 <body class="ml-20 mr-20" style="background-color: #e0ecec;">
-        <jsp:include page="aside.jsp" />
+        <jsp:include page="aside.jsp" /> 
 
 <main class="ml-64 pt-5 flex">
     <div id="medicine" class="container mx-auto">
